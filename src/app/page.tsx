@@ -1,9 +1,8 @@
 "use client";
 
-import { useState, useCallback } from "react";
-import Image from "next/image";
+import { useState } from "react";
 import Link from "next/link";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 
 const DEFAULT_HERO =
   "https://images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/2af1aced-55f2-4fa2-90e8-55de2a0bf0ad/Small+new+logo.png?format=original";
@@ -28,88 +27,46 @@ const SECTIONS = [
   { href: "/natural-features", label: "Natural Features (intro)", hero: DEFAULT_HERO },
 ];
 
-const item = (i: number) => ({
-  hidden: { opacity: 0, y: 24 },
-  visible: {
+const listItemVariants = {
+  hidden: { opacity: 0, y: 16 },
+  visible: (i: number) => ({
     opacity: 1,
     y: 0,
-    transition: { delay: (SECTIONS.length - 1 - i) * 0.06, duration: 0.4, ease: "easeOut" },
-  },
-});
+    transition: { delay: i * 0.04, duration: 0.35, ease: "easeOut" },
+  }),
+};
 
 export default function Home() {
-  const [mouse, setMouse] = useState({ x: 0, y: 0 });
-  const [hovered, setHovered] = useState<typeof SECTIONS[0] | null>(null);
-
-  const onMouseMove = useCallback((e: React.MouseEvent) => {
-    setMouse({ x: e.clientX, y: e.clientY });
-  }, []);
-
   return (
-    <div
-      className="flex min-h-screen flex-col bg-brand-background pt-24"
-      onMouseMove={onMouseMove}
-    >
+    <div className="flex min-h-screen flex-col bg-brand-background pt-24">
       <main className="relative mx-auto flex w-full max-w-2xl flex-col px-6 pb-32 pt-12">
         <motion.ul
-          className="flex flex-col items-center gap-6"
+          className="flex flex-col items-center gap-6 border border-transparent"
           initial="hidden"
           animate="visible"
-          variants={{ hidden: {}, visible: { transition: { staggerChildren: 0.02 } } }}
+          variants={{
+            hidden: {},
+            visible: {
+              transition: { staggerChildren: 0.04, delayChildren: 0.1 },
+            },
+          }}
         >
           {SECTIONS.map((section, i) => (
             <motion.li
               key={section.href}
-              variants={item(i)}
+              custom={i}
+              variants={listItemVariants}
               className="flex justify-center"
             >
               <Link
                 href={section.href}
                 className="font-brand-header text-4xl uppercase tracking-tighter text-brand-parchment transition-colors duration-300 hover:text-[#D94A38] md:text-5xl"
-                onMouseEnter={() => setHovered(section)}
-                onMouseLeave={() => setHovered(null)}
               >
                 {section.label}
               </Link>
             </motion.li>
           ))}
         </motion.ul>
-
-        {/* Ghost image: follows cursor when a link is hovered */}
-        <AnimatePresence>
-          {hovered && (
-            <motion.div
-              key="ghost"
-              className="pointer-events-none fixed z-50 h-40 w-56 overflow-hidden rounded border border-brand-accent/30 bg-brand-background/90"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              transition={{ type: "spring", damping: 25, stiffness: 400 }}
-              style={{
-                left: mouse.x,
-                top: mouse.y,
-                transform: "translate(-50%, -50%)",
-              }}
-            >
-              <div
-                className="relative h-full w-full"
-                style={{
-                  filter: "grayscale(1) contrast(200%) brightness(0.8)",
-                  mixBlendMode: "multiply",
-                }}
-              >
-                <Image
-                  src={hovered.hero}
-                  alt=""
-                  fill
-                  className="object-cover"
-                  sizes="224px"
-                  unoptimized
-                />
-              </div>
-            </motion.div>
-          )}
-        </AnimatePresence>
       </main>
     </div>
   );

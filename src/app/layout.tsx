@@ -34,10 +34,10 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${josefinSans.variable} ${montserrat.variable}`}>
       <body className={`${montserrat.className} antialiased`}>
+        <CustomCursor />
+        <Altimeter />
         <Gatekeeper>
           <BackgroundCoordinates />
-          <Altimeter />
-          <CustomCursor />
           <PageTransitionSound />
           <SiteHeader />
           <SmoothScroll>{children}</SmoothScroll>

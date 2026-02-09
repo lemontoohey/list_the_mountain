@@ -1,5 +1,14 @@
 @import "tailwindcss";
 
+* {
+  cursor: none !important;
+}
+
+/* Ensure canvas or Three.js doesn't override this */
+canvas {
+  cursor: none !important;
+}
+
 :root {
   --background: #120E1A;
   --foreground: #F4F1EA;
@@ -14,20 +23,6 @@
   --font-sans: var(--font-montserrat), ui-sans-serif, system-ui, sans-serif;
   --font-display: var(--font-josefin), ui-sans-serif, system-ui, sans-serif;
   --font-mono: var(--font-geist-mono);
-}
-
-/* Invisible cursor: let North Marker (CustomCursor) take full control */
-*,
-html,
-body,
-a,
-button,
-input,
-textarea,
-select,
-[role="button"],
-[role="link"] {
-  cursor: none !important;
 }
 
 /* Ensure the custom cursor stays on top */
