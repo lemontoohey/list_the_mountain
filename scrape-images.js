@@ -140,7 +140,7 @@ async function main() {
           try {
             return new URL(s, baseUrl).href;
           } catch {
-            return new URL(s, baseUrl).href;
+            return null;
           }
         };
 
