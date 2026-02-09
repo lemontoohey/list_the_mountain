@@ -16,14 +16,15 @@
   --font-mono: var(--font-geist-mono);
 }
 
-html {
-  cursor: none;
-}
-
-@media (pointer: fine) {
-  html {
-    cursor: none;
-  }
+/* Invisible cursor: let CustomCursor take full control */
+html,
+body,
+a,
+button,
+input,
+textarea,
+select {
+  cursor: none !important;
 }
 
 body {

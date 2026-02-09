@@ -105,7 +105,7 @@ export function HeadPageGallery({ headings, images, pageSlug, realSlugs }: HeadP
                     whileInView={{ opacity: 1, x: 0 }}
                     {...sectionAnimation}
                   >
-                    <div className="absolute inset-0 rounded-sm border-2 border-brand-accent/80 bg-brand-background p-3 md:p-5 transition-colors duration-300 group-hover:border-brand-accent">
+                    <div className="absolute inset-0 rounded-sm border-2 border-brand-accent/80 bg-brand-background p-3 md:p-5 transition-all duration-300 group-hover:border-brand-accent group-hover:shadow-[0_0_20px_rgba(244,241,234,0.4)]">
                       <div className="relative h-full w-full overflow-hidden rounded-sm">
                         <Image
                           src={img.src}
@@ -114,6 +114,22 @@ export function HeadPageGallery({ headings, images, pageSlug, realSlugs }: HeadP
                           className="object-cover"
                           sizes="(max-width: 768px) 100vw, 45vw"
                         />
+                        {/* Topographic overlay: wavy contour lines */}
+                        <svg
+                          className="pointer-events-none absolute inset-0 h-full w-full opacity-0 transition-opacity duration-300 group-hover:opacity-30"
+                          viewBox="0 0 100 100"
+                          preserveAspectRatio="none"
+                          aria-hidden
+                        >
+                          <path d="M0 20 Q25 15 50 20 T100 20" fill="none" stroke="currentColor" strokeWidth="0.4" className="text-brand-parchment" />
+                          <path d="M0 40 Q25 35 50 40 T100 40" fill="none" stroke="currentColor" strokeWidth="0.4" className="text-brand-parchment" />
+                          <path d="M0 60 Q25 55 50 60 T100 60" fill="none" stroke="currentColor" strokeWidth="0.4" className="text-brand-parchment" />
+                          <path d="M0 80 Q25 75 50 80 T100 80" fill="none" stroke="currentColor" strokeWidth="0.4" className="text-brand-parchment" />
+                          <path d="M20 0 Q20 25 20 50 T20 100" fill="none" stroke="currentColor" strokeWidth="0.3" className="text-brand-parchment" />
+                          <path d="M40 0 Q40 25 40 50 T40 100" fill="none" stroke="currentColor" strokeWidth="0.3" className="text-brand-parchment" />
+                          <path d="M60 0 Q60 25 60 50 T60 100" fill="none" stroke="currentColor" strokeWidth="0.3" className="text-brand-parchment" />
+                          <path d="M80 0 Q80 25 80 50 T80 100" fill="none" stroke="currentColor" strokeWidth="0.3" className="text-brand-parchment" />
+                        </svg>
                       </div>
                     </div>
                   </motion.div>
