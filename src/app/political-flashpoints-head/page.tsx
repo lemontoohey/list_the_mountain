@@ -5,12 +5,25 @@ import { motion } from "framer-motion";
 
 const CONTENT = {
   headings: [
-    "Moi mengan mabeli/",
-    "POLITICal landscapes",
-    "ABOUT US            CONTACT US           searcH        Media"
+    "POLITICAL FLASHPOINTS", // Hero Title
+    "The Political Landscape",
+    "Fern-Hookers",
+    "Forest Vandals",
+    "Utopia",
+    "Teetotallers",
+    "Big Bend Chalet",
+    "Glass Coaches",
+    "Ogilvie's Scar",
+    "Pinnacle Beacon",
+    "The Condoms",
+    "Anti-Nuke Peacenik",
+    "The Castle",
+    "The Carbuncle",
+    "Indigenous Protected Area",
+    "Zipline",
+    "Heritage",
   ],
   images: [
-    { src: "https://images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/2af1aced-55f2-4fa2-90e8-55de2a0bf0ad/Small+new+logo.png?format=original", alt: "List the mountain" },
     { src: "https://images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/2af1aced-55f2-4fa2-90e8-55de2a0bf0ad/Small+new+logo.png?format=original", alt: "List the mountain" },
     { src: "https://images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/1697672102227-0C7AOHLX8KTYCS7WNMRR/aerial%2Bphoto4.jpeg?format=original", alt: "The Political Landscape" },
     { src: "https://images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/1613354069938-PP20KXZSDTTBWEV0GQK0/07.png?format=original", alt: "Fern-hookers" },
@@ -27,10 +40,9 @@ const CONTENT = {
     { src: "https://images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/1684381209273-CO9D00HJR20D9HJIOJP6/Pinnacles_Summit_Mount_Wellington_Hobart_Tasmania_AU_4908.jpg?format=original", alt: "The Carbuncle" },
     { src: "https://images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/1613354067534-PKDFGL9TVKMUWIVIVF60/02.png?format=original", alt: "Indigenous Protected Area" },
     { src: "https://images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/1724471336537-ATU0ORGL4XG1S7X40GHV/Screenshot%2B2024-08-24%2Bat%2B1.46.54%25E2%2580%25AFPM.jpg?format=original", alt: "Zipline" },
-    { src: "https://images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/1724475359541-6Q3GRAHMYKFAZ75DTQ9W/Jigsaws-im.png?format=original", alt: "Heritage" }
+    { src: "https://images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/1724475359541-6Q3GRAHMYKFAZ75DTQ9W/Jigsaws-im.png?format=original", alt: "Heritage" },
   ],
 };
-
 
 const container = {
   hidden: { opacity: 0 },
@@ -45,6 +57,11 @@ const word = {
   visible: { opacity: 1, y: 0 },
 };
 
+const sectionAnimation = {
+  viewport: { once: true as const },
+  transition: { duration: 0.8, ease: "easeOut" as const },
+};
+
 export default function PoliticalFlashpointsHeadPage() {
   if (!CONTENT?.headings?.length || !CONTENT?.images?.length) {
     return (
@@ -54,6 +71,7 @@ export default function PoliticalFlashpointsHeadPage() {
     );
   }
   const heroWords = CONTENT.headings[0].split(" ");
+  const contentImages = CONTENT.images.slice(1);
 
   return (
     <main className="bg-brand-background">
@@ -94,610 +112,90 @@ export default function PoliticalFlashpointsHeadPage() {
 
       <section className="py-24 md:py-32" aria-hidden />
 
-      {/* Section: image left, text right */}
-      <section className="relative px-6 py-20 md:py-28 lg:px-12">
-        <div className="absolute left-6 top-0 bottom-0 w-px bg-brand-accent/40 hidden md:block" aria-hidden />
-        <div className="mx-auto grid max-w-6xl grid-cols-1 items-center gap-16 md:grid-cols-[0.45fr_0.55fr] md:pl-8">
-          <motion.div
-            className="relative aspect-square w-full overflow-hidden md:aspect-[4/3]"
-            initial={{ opacity: 0, x: -40 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
-          >
-            <div className="absolute inset-0 rounded-sm border-2 border-brand-accent bg-brand-background p-3 md:p-5">
-              <div className="relative h-full w-full overflow-hidden rounded-sm">
-                <Image
-                  src={CONTENT.images[1].src}
-                  alt={CONTENT.images[1].alt || ""}
-                  fill
-                  className="object-cover"
-                  sizes="(max-width: 768px) 100vw, 45vw"
-                />
+      {contentImages.map((img, i) => {
+        const index = i + 1;
+        const heading = CONTENT.headings[index] ?? "List the Mountain.";
+        const isImageLeft = i % 2 === 0;
+
+        if (isImageLeft) {
+          return (
+            <section
+              key={index}
+              className="relative px-6 py-20 md:py-28 lg:px-12"
+            >
+              <div className="absolute left-6 top-0 bottom-0 w-px bg-brand-accent/40 hidden md:block" aria-hidden />
+              <div className="mx-auto grid max-w-6xl grid-cols-1 items-center gap-16 md:grid-cols-[0.45fr_0.55fr] md:pl-8">
+                <motion.div
+                  className="relative aspect-square w-full overflow-hidden md:aspect-[4/3]"
+                  initial={{ opacity: 0, x: -40 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  {...sectionAnimation}
+                >
+                  <div className="absolute inset-0 rounded-sm border-2 border-brand-accent bg-brand-background p-3 md:p-5">
+                    <div className="relative h-full w-full overflow-hidden rounded-sm">
+                      <Image
+                        src={img.src}
+                        alt={img.alt || ""}
+                        fill
+                        className="object-cover"
+                        sizes="(max-width: 768px) 100vw, 45vw"
+                      />
+                    </div>
+                  </div>
+                </motion.div>
+                <motion.div
+                  className="flex flex-col justify-center"
+                  initial={{ opacity: 0, y: 40 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  {...sectionAnimation}
+                >
+                  <p className="max-w-prose text-lg leading-relaxed text-brand-parchment/90">
+                    {heading}
+                  </p>
+                </motion.div>
               </div>
+            </section>
+          );
+        }
+
+        return (
+          <section
+            key={index}
+            className="relative px-6 py-20 md:py-28 lg:px-12"
+          >
+            <div className="mx-auto grid max-w-6xl grid-cols-1 items-center gap-16 md:grid-cols-[0.55fr_0.45fr]">
+              <motion.div
+                className="order-2 flex flex-col justify-center md:order-1"
+                initial={{ opacity: 0, x: -40 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                {...sectionAnimation}
+              >
+                <p className="max-w-prose text-lg leading-relaxed text-brand-accent font-light">
+                  {heading}
+                </p>
+              </motion.div>
+              <motion.div
+                className="relative order-1 aspect-[4/3] w-full md:order-2"
+                initial={{ opacity: 0, x: 40 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                {...sectionAnimation}
+              >
+                <div className="absolute inset-0 rounded-sm border-2 border-brand-accent bg-brand-background p-3 md:p-5">
+                  <div className="relative h-full w-full overflow-hidden rounded-sm">
+                    <Image
+                      src={img.src}
+                      alt={img.alt || ""}
+                      fill
+                      className="object-cover"
+                      sizes="(max-width: 768px) 100vw, 45vw"
+                    />
+                  </div>
+                </div>
+              </motion.div>
             </div>
-          </motion.div>
-          <motion.div
-            className="flex flex-col justify-center"
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
-          >
-            <p className="max-w-prose text-lg leading-relaxed text-brand-parchment/90">
-              {CONTENT.headings[1] ?? ""}
-            </p>
-          </motion.div>
-        </div>
-      </section>
-      {/* Section: text left, image right */}
-      <section className="relative px-6 py-20 md:py-28 lg:px-12">
-        <div className="mx-auto grid max-w-6xl grid-cols-1 items-center gap-16 md:grid-cols-[0.55fr_0.45fr]">
-          <motion.div
-            className="order-2 flex flex-col justify-center md:order-1"
-            initial={{ opacity: 0, x: -40 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
-          >
-            <p className="max-w-prose text-lg leading-relaxed text-brand-accent font-light">
-              {CONTENT.headings[2] ?? "List the Mountain."}
-            </p>
-          </motion.div>
-          <motion.div
-            className="relative order-1 aspect-[4/3] w-full md:order-2"
-            initial={{ opacity: 0, x: 40 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
-          >
-            <div className="absolute inset-0 rounded-sm border-2 border-brand-accent bg-brand-background p-3 md:p-5">
-              <div className="relative h-full w-full overflow-hidden rounded-sm">
-                <Image
-                  src={CONTENT.images[2].src}
-                  alt={CONTENT.images[2].alt || ""}
-                  fill
-                  className="object-cover"
-                  sizes="(max-width: 768px) 100vw, 45vw"
-                />
-              </div>
-            </div>
-          </motion.div>
-        </div>
-      </section>
-      {/* Section: image left, text right */}
-      <section className="relative px-6 py-20 md:py-28 lg:px-12">
-        <div className="absolute left-6 top-0 bottom-0 w-px bg-brand-accent/40 hidden md:block" aria-hidden />
-        <div className="mx-auto grid max-w-6xl grid-cols-1 items-center gap-16 md:grid-cols-[0.45fr_0.55fr] md:pl-8">
-          <motion.div
-            className="relative aspect-square w-full overflow-hidden md:aspect-[4/3]"
-            initial={{ opacity: 0, x: -40 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
-          >
-            <div className="absolute inset-0 rounded-sm border-2 border-brand-accent bg-brand-background p-3 md:p-5">
-              <div className="relative h-full w-full overflow-hidden rounded-sm">
-                <Image
-                  src={CONTENT.images[3].src}
-                  alt={CONTENT.images[3].alt || ""}
-                  fill
-                  className="object-cover"
-                  sizes="(max-width: 768px) 100vw, 45vw"
-                />
-              </div>
-            </div>
-          </motion.div>
-          <motion.div
-            className="flex flex-col justify-center"
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
-          >
-            <p className="max-w-prose text-lg leading-relaxed text-brand-parchment/90">
-              {CONTENT.headings[3] ?? ""}
-            </p>
-          </motion.div>
-        </div>
-      </section>
-      {/* Section: text left, image right */}
-      <section className="relative px-6 py-20 md:py-28 lg:px-12">
-        <div className="mx-auto grid max-w-6xl grid-cols-1 items-center gap-16 md:grid-cols-[0.55fr_0.45fr]">
-          <motion.div
-            className="order-2 flex flex-col justify-center md:order-1"
-            initial={{ opacity: 0, x: -40 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
-          >
-            <p className="max-w-prose text-lg leading-relaxed text-brand-accent font-light">
-              {CONTENT.headings[4] ?? "List the Mountain."}
-            </p>
-          </motion.div>
-          <motion.div
-            className="relative order-1 aspect-[4/3] w-full md:order-2"
-            initial={{ opacity: 0, x: 40 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
-          >
-            <div className="absolute inset-0 rounded-sm border-2 border-brand-accent bg-brand-background p-3 md:p-5">
-              <div className="relative h-full w-full overflow-hidden rounded-sm">
-                <Image
-                  src={CONTENT.images[4].src}
-                  alt={CONTENT.images[4].alt || ""}
-                  fill
-                  className="object-cover"
-                  sizes="(max-width: 768px) 100vw, 45vw"
-                />
-              </div>
-            </div>
-          </motion.div>
-        </div>
-      </section>
-      {/* Section: image left, text right */}
-      <section className="relative px-6 py-20 md:py-28 lg:px-12">
-        <div className="absolute left-6 top-0 bottom-0 w-px bg-brand-accent/40 hidden md:block" aria-hidden />
-        <div className="mx-auto grid max-w-6xl grid-cols-1 items-center gap-16 md:grid-cols-[0.45fr_0.55fr] md:pl-8">
-          <motion.div
-            className="relative aspect-square w-full overflow-hidden md:aspect-[4/3]"
-            initial={{ opacity: 0, x: -40 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
-          >
-            <div className="absolute inset-0 rounded-sm border-2 border-brand-accent bg-brand-background p-3 md:p-5">
-              <div className="relative h-full w-full overflow-hidden rounded-sm">
-                <Image
-                  src={CONTENT.images[5].src}
-                  alt={CONTENT.images[5].alt || ""}
-                  fill
-                  className="object-cover"
-                  sizes="(max-width: 768px) 100vw, 45vw"
-                />
-              </div>
-            </div>
-          </motion.div>
-          <motion.div
-            className="flex flex-col justify-center"
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
-          >
-            <p className="max-w-prose text-lg leading-relaxed text-brand-parchment/90">
-              {CONTENT.headings[5] ?? ""}
-            </p>
-          </motion.div>
-        </div>
-      </section>
-      {/* Section: text left, image right */}
-      <section className="relative px-6 py-20 md:py-28 lg:px-12">
-        <div className="mx-auto grid max-w-6xl grid-cols-1 items-center gap-16 md:grid-cols-[0.55fr_0.45fr]">
-          <motion.div
-            className="order-2 flex flex-col justify-center md:order-1"
-            initial={{ opacity: 0, x: -40 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
-          >
-            <p className="max-w-prose text-lg leading-relaxed text-brand-accent font-light">
-              {CONTENT.headings[6] ?? "List the Mountain."}
-            </p>
-          </motion.div>
-          <motion.div
-            className="relative order-1 aspect-[4/3] w-full md:order-2"
-            initial={{ opacity: 0, x: 40 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
-          >
-            <div className="absolute inset-0 rounded-sm border-2 border-brand-accent bg-brand-background p-3 md:p-5">
-              <div className="relative h-full w-full overflow-hidden rounded-sm">
-                <Image
-                  src={CONTENT.images[6].src}
-                  alt={CONTENT.images[6].alt || ""}
-                  fill
-                  className="object-cover"
-                  sizes="(max-width: 768px) 100vw, 45vw"
-                />
-              </div>
-            </div>
-          </motion.div>
-        </div>
-      </section>
-      {/* Section: image left, text right */}
-      <section className="relative px-6 py-20 md:py-28 lg:px-12">
-        <div className="absolute left-6 top-0 bottom-0 w-px bg-brand-accent/40 hidden md:block" aria-hidden />
-        <div className="mx-auto grid max-w-6xl grid-cols-1 items-center gap-16 md:grid-cols-[0.45fr_0.55fr] md:pl-8">
-          <motion.div
-            className="relative aspect-square w-full overflow-hidden md:aspect-[4/3]"
-            initial={{ opacity: 0, x: -40 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
-          >
-            <div className="absolute inset-0 rounded-sm border-2 border-brand-accent bg-brand-background p-3 md:p-5">
-              <div className="relative h-full w-full overflow-hidden rounded-sm">
-                <Image
-                  src={CONTENT.images[7].src}
-                  alt={CONTENT.images[7].alt || ""}
-                  fill
-                  className="object-cover"
-                  sizes="(max-width: 768px) 100vw, 45vw"
-                />
-              </div>
-            </div>
-          </motion.div>
-          <motion.div
-            className="flex flex-col justify-center"
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
-          >
-            <p className="max-w-prose text-lg leading-relaxed text-brand-parchment/90">
-              {CONTENT.headings[7] ?? ""}
-            </p>
-          </motion.div>
-        </div>
-      </section>
-      {/* Section: text left, image right */}
-      <section className="relative px-6 py-20 md:py-28 lg:px-12">
-        <div className="mx-auto grid max-w-6xl grid-cols-1 items-center gap-16 md:grid-cols-[0.55fr_0.45fr]">
-          <motion.div
-            className="order-2 flex flex-col justify-center md:order-1"
-            initial={{ opacity: 0, x: -40 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
-          >
-            <p className="max-w-prose text-lg leading-relaxed text-brand-accent font-light">
-              {CONTENT.headings[8] ?? "List the Mountain."}
-            </p>
-          </motion.div>
-          <motion.div
-            className="relative order-1 aspect-[4/3] w-full md:order-2"
-            initial={{ opacity: 0, x: 40 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
-          >
-            <div className="absolute inset-0 rounded-sm border-2 border-brand-accent bg-brand-background p-3 md:p-5">
-              <div className="relative h-full w-full overflow-hidden rounded-sm">
-                <Image
-                  src={CONTENT.images[8].src}
-                  alt={CONTENT.images[8].alt || ""}
-                  fill
-                  className="object-cover"
-                  sizes="(max-width: 768px) 100vw, 45vw"
-                />
-              </div>
-            </div>
-          </motion.div>
-        </div>
-      </section>
-      {/* Section: image left, text right */}
-      <section className="relative px-6 py-20 md:py-28 lg:px-12">
-        <div className="absolute left-6 top-0 bottom-0 w-px bg-brand-accent/40 hidden md:block" aria-hidden />
-        <div className="mx-auto grid max-w-6xl grid-cols-1 items-center gap-16 md:grid-cols-[0.45fr_0.55fr] md:pl-8">
-          <motion.div
-            className="relative aspect-square w-full overflow-hidden md:aspect-[4/3]"
-            initial={{ opacity: 0, x: -40 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
-          >
-            <div className="absolute inset-0 rounded-sm border-2 border-brand-accent bg-brand-background p-3 md:p-5">
-              <div className="relative h-full w-full overflow-hidden rounded-sm">
-                <Image
-                  src={CONTENT.images[9].src}
-                  alt={CONTENT.images[9].alt || ""}
-                  fill
-                  className="object-cover"
-                  sizes="(max-width: 768px) 100vw, 45vw"
-                />
-              </div>
-            </div>
-          </motion.div>
-          <motion.div
-            className="flex flex-col justify-center"
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
-          >
-            <p className="max-w-prose text-lg leading-relaxed text-brand-parchment/90">
-              {CONTENT.headings[9] ?? ""}
-            </p>
-          </motion.div>
-        </div>
-      </section>
-      {/* Section: text left, image right */}
-      <section className="relative px-6 py-20 md:py-28 lg:px-12">
-        <div className="mx-auto grid max-w-6xl grid-cols-1 items-center gap-16 md:grid-cols-[0.55fr_0.45fr]">
-          <motion.div
-            className="order-2 flex flex-col justify-center md:order-1"
-            initial={{ opacity: 0, x: -40 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
-          >
-            <p className="max-w-prose text-lg leading-relaxed text-brand-accent font-light">
-              {CONTENT.headings[10] ?? "List the Mountain."}
-            </p>
-          </motion.div>
-          <motion.div
-            className="relative order-1 aspect-[4/3] w-full md:order-2"
-            initial={{ opacity: 0, x: 40 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
-          >
-            <div className="absolute inset-0 rounded-sm border-2 border-brand-accent bg-brand-background p-3 md:p-5">
-              <div className="relative h-full w-full overflow-hidden rounded-sm">
-                <Image
-                  src={CONTENT.images[10].src}
-                  alt={CONTENT.images[10].alt || ""}
-                  fill
-                  className="object-cover"
-                  sizes="(max-width: 768px) 100vw, 45vw"
-                />
-              </div>
-            </div>
-          </motion.div>
-        </div>
-      </section>
-      {/* Section: image left, text right */}
-      <section className="relative px-6 py-20 md:py-28 lg:px-12">
-        <div className="absolute left-6 top-0 bottom-0 w-px bg-brand-accent/40 hidden md:block" aria-hidden />
-        <div className="mx-auto grid max-w-6xl grid-cols-1 items-center gap-16 md:grid-cols-[0.45fr_0.55fr] md:pl-8">
-          <motion.div
-            className="relative aspect-square w-full overflow-hidden md:aspect-[4/3]"
-            initial={{ opacity: 0, x: -40 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
-          >
-            <div className="absolute inset-0 rounded-sm border-2 border-brand-accent bg-brand-background p-3 md:p-5">
-              <div className="relative h-full w-full overflow-hidden rounded-sm">
-                <Image
-                  src={CONTENT.images[11].src}
-                  alt={CONTENT.images[11].alt || ""}
-                  fill
-                  className="object-cover"
-                  sizes="(max-width: 768px) 100vw, 45vw"
-                />
-              </div>
-            </div>
-          </motion.div>
-          <motion.div
-            className="flex flex-col justify-center"
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
-          >
-            <p className="max-w-prose text-lg leading-relaxed text-brand-parchment/90">
-              {CONTENT.headings[11] ?? ""}
-            </p>
-          </motion.div>
-        </div>
-      </section>
-      {/* Section: text left, image right */}
-      <section className="relative px-6 py-20 md:py-28 lg:px-12">
-        <div className="mx-auto grid max-w-6xl grid-cols-1 items-center gap-16 md:grid-cols-[0.55fr_0.45fr]">
-          <motion.div
-            className="order-2 flex flex-col justify-center md:order-1"
-            initial={{ opacity: 0, x: -40 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
-          >
-            <p className="max-w-prose text-lg leading-relaxed text-brand-accent font-light">
-              {CONTENT.headings[12] ?? "List the Mountain."}
-            </p>
-          </motion.div>
-          <motion.div
-            className="relative order-1 aspect-[4/3] w-full md:order-2"
-            initial={{ opacity: 0, x: 40 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
-          >
-            <div className="absolute inset-0 rounded-sm border-2 border-brand-accent bg-brand-background p-3 md:p-5">
-              <div className="relative h-full w-full overflow-hidden rounded-sm">
-                <Image
-                  src={CONTENT.images[12].src}
-                  alt={CONTENT.images[12].alt || ""}
-                  fill
-                  className="object-cover"
-                  sizes="(max-width: 768px) 100vw, 45vw"
-                />
-              </div>
-            </div>
-          </motion.div>
-        </div>
-      </section>
-      {/* Section: image left, text right */}
-      <section className="relative px-6 py-20 md:py-28 lg:px-12">
-        <div className="absolute left-6 top-0 bottom-0 w-px bg-brand-accent/40 hidden md:block" aria-hidden />
-        <div className="mx-auto grid max-w-6xl grid-cols-1 items-center gap-16 md:grid-cols-[0.45fr_0.55fr] md:pl-8">
-          <motion.div
-            className="relative aspect-square w-full overflow-hidden md:aspect-[4/3]"
-            initial={{ opacity: 0, x: -40 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
-          >
-            <div className="absolute inset-0 rounded-sm border-2 border-brand-accent bg-brand-background p-3 md:p-5">
-              <div className="relative h-full w-full overflow-hidden rounded-sm">
-                <Image
-                  src={CONTENT.images[13].src}
-                  alt={CONTENT.images[13].alt || ""}
-                  fill
-                  className="object-cover"
-                  sizes="(max-width: 768px) 100vw, 45vw"
-                />
-              </div>
-            </div>
-          </motion.div>
-          <motion.div
-            className="flex flex-col justify-center"
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
-          >
-            <p className="max-w-prose text-lg leading-relaxed text-brand-parchment/90">
-              {CONTENT.headings[13] ?? ""}
-            </p>
-          </motion.div>
-        </div>
-      </section>
-      {/* Section: text left, image right */}
-      <section className="relative px-6 py-20 md:py-28 lg:px-12">
-        <div className="mx-auto grid max-w-6xl grid-cols-1 items-center gap-16 md:grid-cols-[0.55fr_0.45fr]">
-          <motion.div
-            className="order-2 flex flex-col justify-center md:order-1"
-            initial={{ opacity: 0, x: -40 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
-          >
-            <p className="max-w-prose text-lg leading-relaxed text-brand-accent font-light">
-              {CONTENT.headings[14] ?? "List the Mountain."}
-            </p>
-          </motion.div>
-          <motion.div
-            className="relative order-1 aspect-[4/3] w-full md:order-2"
-            initial={{ opacity: 0, x: 40 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
-          >
-            <div className="absolute inset-0 rounded-sm border-2 border-brand-accent bg-brand-background p-3 md:p-5">
-              <div className="relative h-full w-full overflow-hidden rounded-sm">
-                <Image
-                  src={CONTENT.images[14].src}
-                  alt={CONTENT.images[14].alt || ""}
-                  fill
-                  className="object-cover"
-                  sizes="(max-width: 768px) 100vw, 45vw"
-                />
-              </div>
-            </div>
-          </motion.div>
-        </div>
-      </section>
-      {/* Section: image left, text right */}
-      <section className="relative px-6 py-20 md:py-28 lg:px-12">
-        <div className="absolute left-6 top-0 bottom-0 w-px bg-brand-accent/40 hidden md:block" aria-hidden />
-        <div className="mx-auto grid max-w-6xl grid-cols-1 items-center gap-16 md:grid-cols-[0.45fr_0.55fr] md:pl-8">
-          <motion.div
-            className="relative aspect-square w-full overflow-hidden md:aspect-[4/3]"
-            initial={{ opacity: 0, x: -40 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
-          >
-            <div className="absolute inset-0 rounded-sm border-2 border-brand-accent bg-brand-background p-3 md:p-5">
-              <div className="relative h-full w-full overflow-hidden rounded-sm">
-                <Image
-                  src={CONTENT.images[15].src}
-                  alt={CONTENT.images[15].alt || ""}
-                  fill
-                  className="object-cover"
-                  sizes="(max-width: 768px) 100vw, 45vw"
-                />
-              </div>
-            </div>
-          </motion.div>
-          <motion.div
-            className="flex flex-col justify-center"
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
-          >
-            <p className="max-w-prose text-lg leading-relaxed text-brand-parchment/90">
-              {CONTENT.headings[15] ?? ""}
-            </p>
-          </motion.div>
-        </div>
-      </section>
-      {/* Section: text left, image right */}
-      <section className="relative px-6 py-20 md:py-28 lg:px-12">
-        <div className="mx-auto grid max-w-6xl grid-cols-1 items-center gap-16 md:grid-cols-[0.55fr_0.45fr]">
-          <motion.div
-            className="order-2 flex flex-col justify-center md:order-1"
-            initial={{ opacity: 0, x: -40 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
-          >
-            <p className="max-w-prose text-lg leading-relaxed text-brand-accent font-light">
-              {CONTENT.headings[16] ?? "List the Mountain."}
-            </p>
-          </motion.div>
-          <motion.div
-            className="relative order-1 aspect-[4/3] w-full md:order-2"
-            initial={{ opacity: 0, x: 40 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
-          >
-            <div className="absolute inset-0 rounded-sm border-2 border-brand-accent bg-brand-background p-3 md:p-5">
-              <div className="relative h-full w-full overflow-hidden rounded-sm">
-                <Image
-                  src={CONTENT.images[16].src}
-                  alt={CONTENT.images[16].alt || ""}
-                  fill
-                  className="object-cover"
-                  sizes="(max-width: 768px) 100vw, 45vw"
-                />
-              </div>
-            </div>
-          </motion.div>
-        </div>
-      </section>
-      {/* Section: image left, text right */}
-      <section className="relative px-6 py-20 md:py-28 lg:px-12">
-        <div className="absolute left-6 top-0 bottom-0 w-px bg-brand-accent/40 hidden md:block" aria-hidden />
-        <div className="mx-auto grid max-w-6xl grid-cols-1 items-center gap-16 md:grid-cols-[0.45fr_0.55fr] md:pl-8">
-          <motion.div
-            className="relative aspect-square w-full overflow-hidden md:aspect-[4/3]"
-            initial={{ opacity: 0, x: -40 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
-          >
-            <div className="absolute inset-0 rounded-sm border-2 border-brand-accent bg-brand-background p-3 md:p-5">
-              <div className="relative h-full w-full overflow-hidden rounded-sm">
-                <Image
-                  src={CONTENT.images[17].src}
-                  alt={CONTENT.images[17].alt || ""}
-                  fill
-                  className="object-cover"
-                  sizes="(max-width: 768px) 100vw, 45vw"
-                />
-              </div>
-            </div>
-          </motion.div>
-          <motion.div
-            className="flex flex-col justify-center"
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
-          >
-            <p className="max-w-prose text-lg leading-relaxed text-brand-parchment/90">
-              {CONTENT.headings[17] ?? ""}
-            </p>
-          </motion.div>
-        </div>
-      </section>
+          </section>
+        );
+      })}
     </main>
   );
 }
