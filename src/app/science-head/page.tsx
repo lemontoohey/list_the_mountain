@@ -1,7 +1,7 @@
 import { findBestMatch } from "@/lib/content-utils";
 import { HeadPageGallery } from "@/components/HeadPageGallery";
 
-const PAGE_SLUG = "science";
+const PAGE_SLUG = "science-head";
 
 const CONTENT = {
   headings: [
