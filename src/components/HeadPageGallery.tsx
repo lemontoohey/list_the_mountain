@@ -94,18 +94,18 @@ export function HeadPageGallery({
           return (
             <section
               key={index}
-              className="relative px-6 py-20 md:py-28 lg:px-12"
+              className="group/section relative px-6 py-20 md:py-28 lg:px-12"
             >
               <div className="absolute left-6 top-0 bottom-0 w-px bg-brand-accent/40 hidden md:block" aria-hidden />
               <div className="mx-auto grid max-w-6xl grid-cols-1 items-center gap-16 md:grid-cols-[0.45fr_0.55fr] md:pl-8">
-                <Link href={`/${pageSlug}/${realSlug}`}>
+                <Link href={`/${pageSlug}/${realSlug}`} className="group">
                   <motion.div
                     className="relative aspect-square w-full overflow-hidden md:aspect-[4/3]"
                     initial={{ opacity: 0, x: -40 }}
                     whileInView={{ opacity: 1, x: 0 }}
                     {...sectionAnimation}
                   >
-                    <div className="absolute inset-0 rounded-sm border-2 border-brand-accent bg-brand-background p-3 md:p-5">
+                    <div className="absolute inset-0 rounded-sm border-2 border-brand-accent/80 bg-brand-background p-3 md:p-5 transition-colors duration-300 group-hover:border-brand-accent">
                       <div className="relative h-full w-full overflow-hidden rounded-sm">
                         <Image
                           src={img.src}
@@ -124,7 +124,7 @@ export function HeadPageGallery({
                   whileInView={{ opacity: 1, y: 0 }}
                   {...sectionAnimation}
                 >
-                  <p className="max-w-prose text-lg leading-relaxed text-brand-parchment/90">
+                  <p className="max-w-prose text-lg leading-relaxed text-brand-parchment/90 transition-colors duration-300 group-hover/section:text-brand-accent">
                     {heading}
                   </p>
                 </motion.div>
@@ -136,7 +136,7 @@ export function HeadPageGallery({
         return (
           <section
             key={index}
-            className="relative px-6 py-20 md:py-28 lg:px-12"
+            className="group/section relative px-6 py-20 md:py-28 lg:px-12"
           >
             <div className="mx-auto grid max-w-6xl grid-cols-1 items-center gap-16 md:grid-cols-[0.55fr_0.45fr]">
               <motion.div
@@ -145,18 +145,18 @@ export function HeadPageGallery({
                 whileInView={{ opacity: 1, x: 0 }}
                 {...sectionAnimation}
               >
-                <p className="max-w-prose text-lg leading-relaxed text-brand-accent font-light">
+                <p className="max-w-prose text-lg leading-relaxed text-brand-accent font-light transition-colors duration-300 group-hover/section:text-brand-accent">
                   {heading}
                 </p>
               </motion.div>
-              <Link href={`/${pageSlug}/${realSlug}`}>
+              <Link href={`/${pageSlug}/${realSlug}`} className="group">
                 <motion.div
                   className="relative order-1 aspect-[4/3] w-full md:order-2"
                   initial={{ opacity: 0, x: 40 }}
                   whileInView={{ opacity: 1, x: 0 }}
                   {...sectionAnimation}
                 >
-                  <div className="absolute inset-0 rounded-sm border-2 border-brand-accent bg-brand-background p-3 md:p-5">
+                  <div className="absolute inset-0 rounded-sm border-2 border-brand-accent/80 bg-brand-background p-3 md:p-5 transition-colors duration-300 group-hover:border-brand-accent">
                     <div className="relative h-full w-full overflow-hidden rounded-sm">
                       <Image
                         src={img.src}
