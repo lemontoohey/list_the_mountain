@@ -24,7 +24,8 @@ export default function PageTransitionSound() {
   // Create audio element once
   useEffect(() => {
     if (typeof window === "undefined") return;
-    const audio = new Audio("/sounds/snow-step.mp3");
+    const base = typeof process !== "undefined" ? (process.env.NEXT_PUBLIC_BASE_PATH || "") : "";
+    const audio = new Audio(`${base}/sounds/snow-step.mp3`);
     audio.volume = 0.4;
     audio.preload = "auto";
     audioRef.current = audio;

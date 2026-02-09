@@ -1,11 +1,10 @@
 /**
- * Content scraper for listthemountain.org
- * Fetches each URL, extracts headings, paragraphs, and images,
- * then saves structured JSON into scraped-content/<slug>/content.json
+ * Content scraper for listthemountain.org (JavaScript-rendered site)
+ * Uses Puppeteer to load each page, wait for content to render, then extracts
+ * headings, paragraphs, blockquotes, and images into scraped-content/<slug>/content.json
  */
 
-const axios = require('axios');
-const cheerio = require('cheerio');
+const puppeteer = require('puppeteer');
 const fs = require('fs');
 const path = require('path');
 
@@ -32,9 +31,6 @@ const urls = [
 
 const SCRAPED_DIR = path.join(__dirname, 'scraped-content');
 
-/**
- * Derive folder name from URL path (e.g. /natural-features-head -> natural-features-head)
- */
 function getSlug(url) {
   try {
     const parsed = new URL(url);
@@ -45,76 +41,130 @@ function getSlug(url) {
   }
 }
 
+function getChromePath() {
+  if (process.env.PUPPETEER_EXECUTABLE_PATH) return process.env.PUPPETEER_EXECUTABLE_PATH;
+  if (process.platform === 'darwin') {
+    const paths = [
+      '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome',
+      '/Applications/Chromium.app/Contents/MacOS/Chromium',
+      (process.env.HOME || '') + '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome',
+    ];
+    for (const p of paths) {
+      if (p && fs.existsSync(p)) return p;
+    }
+  }
+  return undefined;
+}
+
 /**
- * Resolve image src to absolute URL
+ * Normalize image URL to original (Squarespace: add format=original)
  */
-function resolveImageSrc(src, pageUrl) {
-  if (!src || typeof src !== 'string') return null;
-  const trimmed = src.trim();
-  if (!trimmed) return null;
-  if (trimmed.startsWith('http://') || trimmed.startsWith('https://')) return trimmed;
-  if (trimmed.startsWith('//')) return `https:${trimmed}`;
+function toOriginalImageUrl(url) {
+  if (!url || typeof url !== 'string') return url;
   try {
-    return new URL(trimmed, pageUrl).href;
+    const u = new URL(url.startsWith('http') ? url : new URL(url, BASE_URL).href);
+    if (u.hostname === 'images.squarespace-cdn.com' || u.hostname.endsWith('.squarespace-cdn.com')) {
+      u.searchParams.set('format', 'original');
+      return u.toString();
+    }
+    return u.toString();
   } catch {
-    return new URL(trimmed, BASE_URL).href;
+    return url;
   }
 }
 
 /**
- * Scrape one page and return structured data
+ * Scrape one page using Puppeteer (full JS-rendered DOM)
  */
-async function scrapePage(url) {
+async function scrapePage(page, url) {
   const slug = getSlug(url);
   const dirPath = path.join(SCRAPED_DIR, slug);
 
   console.log(`Scraping: ${url} -> ${dirPath}`);
 
-  const response = await axios.get(url, {
-    timeout: 15000,
-    headers: {
-      'User-Agent': 'Mozilla/5.0 (compatible; ListTheMountain-Scraper/1.0)',
-      Accept: 'text/html',
-    },
-    maxRedirects: 5,
-    validateStatus: (status) => status >= 200 && status < 400,
-  });
+  await page.goto(url, { waitUntil: 'networkidle2', timeout: 30000 });
+  await new Promise((r) => setTimeout(r, 2000));
 
-  const html = response.data;
-  const $ = cheerio.load(html);
+  const data = await page.evaluate((baseUrl) => {
+    const resolve = (src) => {
+      if (!src || !src.trim()) return null;
+      const s = src.trim();
+      if (s.startsWith('http://') || s.startsWith('https://')) return s;
+      if (s.startsWith('//')) return 'https:' + s;
+      try {
+        return new URL(s, baseUrl).href;
+      } catch {
+        return new URL(s, baseUrl).href;
+      }
+    };
 
-  const pageTitle = ($('title').text() || '').trim();
+    const pageTitle = (document.querySelector('title') && document.title) ? document.title.trim() : '';
 
-  const headings = [];
-  $('h1, h2, h3, h4, h5, h6').each((_, el) => {
-    const text = $(el).text().trim();
-    if (text) headings.push(text);
-  });
+    const headings = [];
+    document.querySelectorAll('h1, h2, h3, h4, h5, h6').forEach((el) => {
+      const text = (el.textContent || '').trim();
+      if (text) headings.push(text);
+    });
 
-  const paragraphs = [];
-  $('p').each((_, el) => {
-    const text = $(el).text().trim();
-    if (text) paragraphs.push(text);
-  });
+    const paragraphs = [];
+    document.querySelectorAll('p').forEach((el) => {
+      const text = (el.textContent || '').trim();
+      if (text) paragraphs.push(text);
+    });
 
-  const images = [];
-  $('img').each((_, el) => {
-    const src = $(el).attr('src');
-    const fullSrc = resolveImageSrc(src, url);
-    if (fullSrc) {
-      images.push({ src: fullSrc });
-    }
-  });
+    const blockquotes = [];
+    document.querySelectorAll('blockquote').forEach((el) => {
+      const text = (el.textContent || '').trim();
+      if (text) blockquotes.push(text);
+    });
 
-  const data = {
-    url,
-    pageTitle,
-    content: {
-      headings,
-      paragraphs,
-    },
-    images,
-  };
+    const images = [];
+    document.querySelectorAll('img').forEach((el) => {
+      const src = el.getAttribute('src') || el.getAttribute('data-src') || el.getAttribute('data-srcset')?.split(/\s+/)[0];
+      const fullSrc = resolve(src);
+      if (fullSrc) {
+        images.push({
+          src: fullSrc,
+          alt: (el.getAttribute('alt') || '').trim(),
+        });
+      }
+    });
+
+    document.querySelectorAll('[style*="background-image"]').forEach((el) => {
+      const style = el.getAttribute('style') || '';
+      const match = style.match(/url\s*\(\s*['"]?([^'")]+)['"]?\s*\)/);
+      if (match && match[1]) {
+        const fullSrc = resolve(match[1].trim());
+        if (fullSrc && !images.some((i) => i.src === fullSrc)) {
+          images.push({ src: fullSrc, alt: '' });
+        }
+      }
+    });
+
+    document.querySelectorAll('[data-background-image]').forEach((el) => {
+      const href = resolve(el.getAttribute('data-background-image'));
+      if (href && !images.some((i) => i.src === href)) {
+        images.push({ src: href, alt: '' });
+      }
+    });
+
+    return {
+      url: window.location.href,
+      pageTitle,
+      content: {
+        headings,
+        paragraphs,
+        blockquotes,
+      },
+      images,
+    };
+  }, BASE_URL);
+
+  data.url = url;
+  data.images = data.images.map((img) => ({
+    src: toOriginalImageUrl(img.src),
+    alt: img.alt || '',
+  }));
 
   if (!fs.existsSync(dirPath)) {
     fs.mkdirSync(dirPath, { recursive: true });
@@ -122,7 +172,8 @@ async function scrapePage(url) {
 
   const jsonPath = path.join(dirPath, 'content.json');
   fs.writeFileSync(jsonPath, JSON.stringify(data, null, 2), 'utf8');
-  console.log(`  -> ${jsonPath}`);
+  const c = data.content;
+  console.log(`  -> ${jsonPath} (${c.headings.length} headings, ${c.paragraphs.length} paragraphs, ${c.blockquotes.length} blockquotes, ${data.images.length} images)`);
   return { slug, url, success: true };
 }
 
@@ -131,15 +182,41 @@ async function main() {
     fs.mkdirSync(SCRAPED_DIR, { recursive: true });
   }
 
-  const results = [];
-  for (const url of urls) {
-    try {
-      const result = await scrapePage(url);
-      results.push(result);
-    } catch (err) {
-      console.error(`Failed: ${url}`, err.message);
-      results.push({ slug: getSlug(url), url, success: false, error: err.message });
+  const executablePath = getChromePath();
+  const launchOpts = {
+    headless: true,
+    args: ['--no-sandbox', '--disable-setuid-sandbox', '--disable-dev-shm-usage'],
+  };
+  if (executablePath) launchOpts.executablePath = executablePath;
+
+  let browser;
+  try {
+    browser = await puppeteer.launch(launchOpts);
+  } catch (err) {
+    if (/Could not find Chrome|Failed to launch/i.test(err.message)) {
+      console.error('\nPuppeteer could not find Chrome. Run: npm run install:browser\n');
+      throw err;
     }
+    throw err;
+  }
+
+  const results = [];
+  try {
+    const page = await browser.newPage();
+    await page.setUserAgent('Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36');
+    await page.setViewport({ width: 1280, height: 800 });
+
+    for (const url of urls) {
+      try {
+        const result = await scrapePage(page, url);
+        results.push(result);
+      } catch (err) {
+        console.error(`Failed: ${url}`, err.message);
+        results.push({ slug: getSlug(url), url, success: false, error: err.message });
+      }
+    }
+  } finally {
+    await browser.close();
   }
 
   const ok = results.filter((r) => r.success).length;

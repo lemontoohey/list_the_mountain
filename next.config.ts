@@ -1,10 +1,15 @@
 import type { NextConfig } from "next";
 
+const basePath = "/list_the_mountain";
+
 const nextConfig: NextConfig = {
   reactCompiler: true,
   output: "export",
-  basePath: "/list_the_mountain",
-  assetPrefix: "/list_the_mountain/",
+  basePath,
+  assetPrefix: `${basePath}/`,
+  env: {
+    NEXT_PUBLIC_BASE_PATH: basePath,
+  },
   images: {
     unoptimized: true,
     remotePatterns: [

@@ -6,14 +6,47 @@
       "Luggarrah/recreational pursuits",
       "ABOUT US            CONTACT US           searcH        Media"
     ],
-    "paragraphs": []
+    "paragraphs": [],
+    "blockquotes": [
+      "“The summit area of Mount Wellington has been appreciated, used and promoted since [the] … settlement of Hobart and is possibly the most important recreational destination in southern Tasmania since 1804.”"
+    ]
   },
   "images": [
     {
-      "src": "https://images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/2af1aced-55f2-4fa2-90e8-55de2a0bf0ad/Small+new+logo.png"
+      "src": "https://images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/2af1aced-55f2-4fa2-90e8-55de2a0bf0ad/Small+new+logo.png?format=original",
+      "alt": "List the mountain"
     },
     {
-      "src": "https://images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/2af1aced-55f2-4fa2-90e8-55de2a0bf0ad/Small+new+logo.png"
+      "src": "https://images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/2af1aced-55f2-4fa2-90e8-55de2a0bf0ad/Small+new+logo.png?format=original",
+      "alt": "List the mountain"
+    },
+    {
+      "src": "https://images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/1697777593739-QIT6BUT20E1DJIWZOQPZ/Jigsaws-climber.jpg?format=original",
+      "alt": "Adventures Landscape"
+    },
+    {
+      "src": "https://images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/1618366900801-C66NP6ADJKYUCCDQ0ZNJ/image-asset.jpeg?format=original",
+      "alt": "Walking"
+    },
+    {
+      "src": "https://images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/1618287746841-5R1K73G6CROVPKQ5EBJY/image-asset.jpeg?format=original",
+      "alt": "Climbing"
+    },
+    {
+      "src": "https://images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/1618366849131-J8PAVUAVLJNNY0TGB4IT/image-asset.jpeg?format=original",
+      "alt": "Trail running"
+    },
+    {
+      "src": "https://images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/1618377332329-UX3IT2CK82YBT0EJB0OF/skier+in+1953.jpg?format=original",
+      "alt": "Ski runs"
+    },
+    {
+      "src": "https://images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/1618374949278-5OZVIOVFXBVF9BZTHX03/SkatingRinkMtWellington03.JPG?format=original",
+      "alt": "Ice skating"
+    },
+    {
+      "src": "https://images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/1684381747240-LQP4SIQUHHDENL7HNNOV/Screen%2BShot%2B2022-09-02%2Bat%2B8.30.47%2Bpm.jpeg?format=original",
+      "alt": "Gliding"
     }
   ]
 }
