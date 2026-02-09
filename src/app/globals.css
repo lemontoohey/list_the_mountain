@@ -16,15 +16,24 @@
   --font-mono: var(--font-geist-mono);
 }
 
-/* Invisible cursor: let CustomCursor take full control */
+/* Invisible cursor: let North Marker (CustomCursor) take full control */
+*,
 html,
 body,
 a,
 button,
 input,
 textarea,
-select {
+select,
+[role="button"],
+[role="link"] {
   cursor: none !important;
+}
+
+/* Ensure the custom cursor stays on top */
+#custom-cursor {
+  pointer-events: none;
+  z-index: 9999;
 }
 
 body {

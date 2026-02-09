@@ -39,7 +39,6 @@ export function HeadPageGallery({ headings, images, pageSlug, realSlugs }: HeadP
   }
 
   const heroWords = headings[0].split(" ");
-  // Image index 0 is hero, 1+ are content
   const contentImages = images.slice(1);
 
   return (
@@ -83,71 +82,56 @@ export function HeadPageGallery({ headings, images, pageSlug, realSlugs }: HeadP
         const heading = headings[index] ?? "List the Mountain.";
         const isImageLeft = i % 2 === 0;
         const realSlug = realSlugs[i] ?? heading.toLowerCase().replace(/\s+/g, "-").replace(/[^\w-]+/g, "");
+        const siteNo = index < 10 ? "0" + index : String(index);
 
         return (
           <section
             key={index}
-            className="group/section relative px-6 py-20 md:py-28 lg:px-12"
+            className="group/section relative px-6 py-12 md:py-16 lg:px-12"
           >
-            {/* Vertical Line Decoration */}
             {isImageLeft && (
-              <div className="absolute left-6 top-0 bottom-0 w-px bg-brand-accent/40 hidden md:block" aria-hidden />
+              <div className="absolute left-6 top-0 bottom-0 w-px bg-brand-accent/20 hidden md:block" aria-hidden />
             )}
 
-            <div className={`mx-auto grid max-w-6xl grid-cols-1 items-center gap-16 md:grid-cols-[0.45fr_0.55fr] md:pl-8 ${isImageLeft ? "" : "md:grid-cols-[0.55fr_0.45fr]"}`}>
-
-              {/* Image Block */}
-              <div className={isImageLeft ? "order-1" : "order-1 md:order-2"}>
-                <Link href={`/${pageSlug}/${realSlug}`} className="group block w-full h-full">
-                  <motion.div
-                    className="relative aspect-square w-full overflow-hidden md:aspect-[4/3]"
-                    initial={{ opacity: 0, x: isImageLeft ? -40 : 40 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    {...sectionAnimation}
-                  >
-                    <div className="absolute inset-0 rounded-sm border-2 border-brand-accent/80 bg-brand-background p-3 md:p-5 transition-all duration-300 group-hover:border-brand-accent group-hover:shadow-[0_0_20px_rgba(244,241,234,0.4)]">
-                      <div className="relative h-full w-full overflow-hidden rounded-sm">
-                        <Image
-                          src={img.src}
-                          alt={img.alt || ""}
-                          fill
-                          className="object-cover"
-                          sizes="(max-width: 768px) 100vw, 45vw"
-                        />
-                        {/* Topographic overlay: wavy contour lines */}
-                        <svg
-                          className="pointer-events-none absolute inset-0 h-full w-full opacity-0 transition-opacity duration-300 group-hover:opacity-30"
-                          viewBox="0 0 100 100"
-                          preserveAspectRatio="none"
-                          aria-hidden
-                        >
-                          <path d="M0 20 Q25 15 50 20 T100 20" fill="none" stroke="currentColor" strokeWidth="0.4" className="text-brand-parchment" />
-                          <path d="M0 40 Q25 35 50 40 T100 40" fill="none" stroke="currentColor" strokeWidth="0.4" className="text-brand-parchment" />
-                          <path d="M0 60 Q25 55 50 60 T100 60" fill="none" stroke="currentColor" strokeWidth="0.4" className="text-brand-parchment" />
-                          <path d="M0 80 Q25 75 50 80 T100 80" fill="none" stroke="currentColor" strokeWidth="0.4" className="text-brand-parchment" />
-                          <path d="M20 0 Q20 25 20 50 T20 100" fill="none" stroke="currentColor" strokeWidth="0.3" className="text-brand-parchment" />
-                          <path d="M40 0 Q40 25 40 50 T40 100" fill="none" stroke="currentColor" strokeWidth="0.3" className="text-brand-parchment" />
-                          <path d="M60 0 Q60 25 60 50 T60 100" fill="none" stroke="currentColor" strokeWidth="0.3" className="text-brand-parchment" />
-                          <path d="M80 0 Q80 25 80 50 T80 100" fill="none" stroke="currentColor" strokeWidth="0.3" className="text-brand-parchment" />
-                        </svg>
-                      </div>
-                    </div>
-                  </motion.div>
-                </Link>
-              </div>
-
-              {/* Text Block */}
-              <motion.div
-                className={`flex flex-col justify-center ${isImageLeft ? "order-2" : "order-2 md:order-1"}`}
-                initial={{ opacity: 0, y: 40 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                {...sectionAnimation}
+            <div className={`mx-auto max-w-6xl md:pl-8 ${isImageLeft ? "" : ""}`}>
+              <Link
+                href={`/${pageSlug}/${realSlug}`}
+                className="group block"
               >
-                <p className="max-w-prose text-lg leading-relaxed text-brand-parchment/90 font-light transition-colors duration-300 group-hover/section:text-brand-accent">
-                  {heading}
-                </p>
-              </motion.div>
+                <motion.div
+                  className="relative min-h-[200px] overflow-hidden rounded border border-brand-parchment/20 bg-brand-background/80 p-6 transition-all duration-500 ease-out group-hover:shadow-[0_0_50px_-10px_rgba(217,74,56,0.5)] md:min-h-[240px] md:p-8"
+                  initial={{ opacity: 0, x: isImageLeft ? -40 : 40 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  {...sectionAnimation}
+                >
+                  {/* Image: fades in behind on hover */}
+                  <div className="absolute inset-0 overflow-hidden rounded">
+                    <Image
+                      src={img.src}
+                      alt={img.alt || heading}
+                      fill
+                      className="object-cover opacity-0 blur-sm scale-105 transition-all duration-500 group-hover:opacity-40 group-hover:blur-[4px] group-hover:scale-105"
+                      sizes="(max-width: 768px) 100vw, 60vw"
+                    />
+                  </div>
 
+                  {/* Metadata block: foreground */}
+                  <div className="relative z-10 font-mono text-[11px] tracking-widest text-brand-parchment/60 transition-colors duration-300 group-hover:text-brand-parchment">
+                    <p className="font-brand-header text-lg uppercase tracking-widest text-brand-accent md:text-xl">
+                      SITE NO. {siteNo} — {heading}
+                    </p>
+                    <p className="mt-2">
+                      REF: TAS-42.{index} // TYPE: DATA_EXTRACT
+                    </p>
+                    <p className="mt-1">
+                      STATUS: CLASSIFIED // DATE: c.1934
+                    </p>
+                    <p className="mt-4 text-brand-accent/80 group-hover:text-brand-accent">
+                      [CLICK TO INSPECT SOURCE]
+                    </p>
+                  </div>
+                </motion.div>
+              </Link>
             </div>
           </section>
         );

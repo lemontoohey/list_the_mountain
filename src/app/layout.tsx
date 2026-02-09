@@ -6,6 +6,8 @@ import CustomCursor from "@/components/CustomCursor";
 import PageTransitionSound from "@/components/Audio/PageTransitionSound";
 import SiteHeader from "@/components/SiteHeader";
 import BackgroundCoordinates from "@/components/BackgroundCoordinates";
+import Altimeter from "@/components/Altimeter";
+import Gatekeeper from "@/components/Gatekeeper";
 
 const josefinSans = Josefin_Sans({
   subsets: ["latin"],
@@ -32,11 +34,14 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${josefinSans.variable} ${montserrat.variable}`}>
       <body className={`${montserrat.className} antialiased`}>
-        <BackgroundCoordinates />
-        <CustomCursor />
-        <PageTransitionSound />
-        <SiteHeader />
-        <SmoothScroll>{children}</SmoothScroll>
+        <Gatekeeper>
+          <BackgroundCoordinates />
+          <Altimeter />
+          <CustomCursor />
+          <PageTransitionSound />
+          <SiteHeader />
+          <SmoothScroll>{children}</SmoothScroll>
+        </Gatekeeper>
       </body>
     </html>
   );

@@ -12,6 +12,12 @@ export default function SiteHeader() {
         >
           List the Mountain
         </Link>
+        <Link
+          href="/#enquire"
+          className="border border-brand-parchment/40 px-3 py-1.5 text-xs font-medium uppercase tracking-widest text-brand-parchment/80 transition-colors hover:border-brand-accent hover:text-brand-accent"
+        >
+          REQUEST ACCESS
+        </Link>
       </div>
     </header>
   );
