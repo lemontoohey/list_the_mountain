@@ -1,8 +1,21 @@
 {
-  "url": "https://listthemountain.org/shelters-head/luckmans-hut",
-  "title": "Luckmans Hut",
-  "contentHtml": "",
-  "paragraphs": [],
-  "images": [],
-  "_placeholder": true
+  "url": "https://listthemountain.org/shelters/luckmans-hut",
+  "title": "LUCKMAN'S HUT",
+  "paragraphs": [
+    "Built as a ski shelter for the Hobart Walking Club by its members in 1940, but open to the public, its name honours one of Australian bushwalkers royalty, Jessie Luckman. This shelter is also known as the Hobart Walking Club ski hut."
+  ],
+  "images": [
+    {
+      "src": "https://images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/1602914735714-V3YAOEHLSSH06R7MR4PZ/luckman1.jpg",
+      "alt": "Photo Jessie Luckman"
+    },
+    {
+      "src": "https://images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/1602914734437-ITZAPV3LUWUKAY5L72OI/luckmans.jpg",
+      "alt": "Photo K. Iredale"
+    },
+    {
+      "src": "https://images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/1602915024169-NHGJ9L0X1HGSXFZDLZOR/Luckmans-Hut-Feb84.jpg",
+      "alt": "Photo Grist 1984"
+    }
+  ]
 }

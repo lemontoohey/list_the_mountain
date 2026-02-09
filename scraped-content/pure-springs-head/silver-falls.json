@@ -1,8 +1,36 @@
 {
-  "url": "https://listthemountain.org/pure-springs-head/silver-falls",
-  "title": "Silver Falls",
-  "contentHtml": "",
-  "paragraphs": [],
-  "images": [],
-  "_placeholder": true
+  "url": "https://listthemountain.org/water-features/silver-falls",
+  "title": "SILVER FALLS",
+  "paragraphs": [
+    "Silver Falls at Fern Tree Bower on the historic watercourse known as Browns River was damned and made into a water collection point for the Hobart water supply in 1861. In 1878 it became an unmissable tourist attraction after being described as ‘the very paradise of ferns’ and ‘one of the most romantic dells of the mountain side’. Tables were set up at the nearby Bower beneath the shade of tree ferns.",
+    "Silver Falls are one of only five waterfalls marked on the Hodgman mountain park walk map. Together with Wellington Falls, the most photographed waterfall on the mountain in the collection of the State Library.",
+    "As a natural feature, but particularly as part of the Mountain Park Waterworks listing, it is protected by both local and state heritage register recognition.",
+    "The Silver Falls Reservoir Track (WPHH0320) is also assessed by the WPMT as significant. Moreover WPHH0487 covers the Diversion Pipeline and its track and WPHH0487 the Eastern pipeline."
+  ],
+  "images": [
+    {
+      "src": "https://images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/1669626224814-YOXMYN8URUYGBDLBOQUK/Screen+Shot+2022-11-28+at+3.12.02+pm.png",
+      "alt": "Screen Shot 2022-11-28 at 3.12.02 pm.png"
+    },
+    {
+      "src": "https://images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/1605319538980-YQQIK4DBNK691Q22HYF5/silver-falls-26-photo.jpg",
+      "alt": "Grist collection"
+    },
+    {
+      "src": "https://images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/1605319552111-XERWN55FWCR2GS1F3W0T/silver-falls11.jpg",
+      "alt": "Grist collection"
+    },
+    {
+      "src": "https://images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/1669601060910-29X20X58DAPCG98QSQS2/silver_falls_sml.jpg",
+      "alt": "silver_falls_sml.jpg"
+    },
+    {
+      "src": "https://images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/1605319560523-3Z4X0IT7QAGRTPEDGI97/silver-falls-breaden.jpg",
+      "alt": "Photo by J. C. Breaden. Grist collection"
+    },
+    {
+      "src": "https://images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/1669601078513-GYZ21ORV1MAOZ0PFBK7G/Screen+Shot+2022-11-28+at+12.57.35+pm.png",
+      "alt": "Screen Shot 2022-11-28 at 12.57.35 pm.png"
+    }
+  ]
 }

@@ -1,8 +1,21 @@
 {
-  "url": "https://listthemountain.org/mountain-huts-head/old-mill-cabin",
+  "url": "https://listthemountain.org/mountain-huts/old-mill-cabin",
   "title": "Old Mill Cabin",
-  "contentHtml": "",
-  "paragraphs": [],
-  "images": [],
-  "_placeholder": true
+  "paragraphs": [
+    "Location Known  Construction 1891   Status Remnants",
+    "Historic, Scientific, Archeological, Aesthetic",
+    "McConnell assessed this hut as having High Medium-High Local Significance, Some State Significance individually and as part of the suite and Some National Significance",
+    "The Huts of kunanyi/Mount Wellington - Maria Grist",
+    "Fern Retreat Timeline",
+    "Location: Known",
+    "Construction date: 1892",
+    "Status: Remnants",
+    "The Huts of kunanyi/Mount Wellington - Grist"
+  ],
+  "images": [
+    {
+      "src": "https://images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/1605846211973-BO7EKEDIDMTIJINOSDDR/old+mill+cabin.jpg",
+      "alt": "Source unknown"
+    }
+  ]
 }

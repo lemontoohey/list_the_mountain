@@ -1,8 +1,22 @@
 {
-  "url": "https://listthemountain.org/shelters-head/tree-shelters",
-  "title": "Tree Shelters",
-  "contentHtml": "",
-  "paragraphs": [],
-  "images": [],
-  "_placeholder": true
+  "url": "https://listthemountain.org/shelters/tree-shelters",
+  "title": "TREE SHELTERS",
+  "paragraphs": [
+    "Edward Lee, an ex-convict, lived in a hollow tree on the Mountain for many years. Some say 50 years. The poem quoted above was scratched on the windows of Waratah Hut.",
+    "To avoid rent, say if were are down on your luck in the pre-social-security days, you might find a comfortable (or not-so-comfortable) place to live, with a view, on the mountain inside a hollow tree.",
+    "“A year or two ago the writer was hospitably entertained with tea \"made in the Chinese fashion\" by an old fellow who had fixed his camp in the shelter of a hollow tree, eked out with a sheet or two of bark, and a few bags. Still more recently he saw well up on the mountain an ingeniously constructed bed of bags placed inside the butt of another hollow tree.”",
+    "The Mercury, March 1913",
+    "Another famous tree-dweller was Tom Paul. His tree is pictured above. Ted Cornish wrote of him:",
+    "“Old Tom lived there with his dog for many years, walking into town each week for supplies and to collect his pension, often used up at the “local”, and then trudging back home to his tree. One night, Tom consumed more than he should, and it was very late one night when he headed back, considerably “under the weather”. Court Oakes (the Cascade ranger) told Tom he was foolish to attempt the journey, to which Tom replied that all he had to do was to tie something which was light in colour around the dog’s neck so he could see him in the dark, and so be led homewards by the dog’s instinct. Much concern ensued about Tom’s safety, as by now he was getting old and winters on the mountain could be very severe. Court decided to take the local constable along to try and persuade Tom to retire to a home to be looked after, but Tom was determined to stay put where he was happy. He knew what was going on when he saw the brass buttons on the Constable’s uniform, and took off into the bush, not returning until after the two had left. Eventually Tom gave in and went out to St John’s Park at New Town where he died some weeks later.”"
+  ],
+  "images": [
+    {
+      "src": "https://images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/1602817020467-RN0Z1L4LRDWW90S6JDDJ/Tom-Pauls-Tree.jpg",
+      "alt": "Tom Paul's tree"
+    },
+    {
+      "src": "https://images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/1602817159451-GO85YZOZXHEF2PTNE48C/waratah3.jpg",
+      "alt": "Waratah Hut"
+    }
+  ]
 }

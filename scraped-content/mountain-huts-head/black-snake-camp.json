@@ -1,8 +1,21 @@
 {
-  "url": "https://listthemountain.org/mountain-huts-head/black-snake-camp",
+  "url": "https://listthemountain.org/mountain-huts/black-snake-camp",
   "title": "Black Snake Camp",
-  "contentHtml": "",
-  "paragraphs": [],
-  "images": [],
-  "_placeholder": true
+  "paragraphs": [
+    "Location: Unknown",
+    "Construction date: 1891",
+    "Status: Remnants",
+    "Built by Cascade company employees.",
+    "Location Known  Construction 1891   Status Remnants",
+    "Historic, Scientific, Archeological, Aesthetic",
+    "McConnell assessed this hut as having High Medium-High Local Significance, Some State Significance individually and as part of the suite and Some National Significance",
+    "The Huts of kunanyi/Mount Wellington - Maria Grist",
+    "Fern Retreat Timeline"
+  ],
+  "images": [
+    {
+      "src": "https://images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/1605844266471-HRW3M66VYKAP0ZFMA5U0/black-snake.jpg",
+      "alt": "Grist collection"
+    }
+  ]
 }

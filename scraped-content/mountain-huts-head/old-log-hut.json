@@ -1,8 +1,21 @@
 {
-  "url": "https://listthemountain.org/mountain-huts-head/old-log-hut",
+  "url": "https://listthemountain.org/mountain-huts/old-log-hut",
   "title": "Old Log Hut",
-  "contentHtml": "",
-  "paragraphs": [],
-  "images": [],
-  "_placeholder": true
+  "paragraphs": [
+    "Location Known  Construction 1891   Status Remnants",
+    "Historic, Scientific, Archeological, Aesthetic",
+    "McConnell assessed this hut as having High Medium-High Local Significance, Some State Significance individually and as part of the suite and Some National Significance",
+    "The Huts of kunanyi/Mount Wellington - Maria Grist",
+    "Fern Retreat Timeline",
+    "Location: Unknown",
+    "Construction date: 1890",
+    "Status: Remnants",
+    "The Huts of kunanyi/Mount Wellington - Grist"
+  ],
+  "images": [
+    {
+      "src": "https://images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/1605846091599-62JSA4JUOKQPSTFKYYI8/oldloghut.jpg",
+      "alt": "Grist collection"
+    }
+  ]
 }

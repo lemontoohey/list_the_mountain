@@ -1,8 +1,28 @@
 {
-  "url": "https://listthemountain.org/mountain-huts-head/earliest-hut",
-  "title": "Earliest Hut",
-  "contentHtml": "",
-  "paragraphs": [],
-  "images": [],
-  "_placeholder": true
+  "url": "https://listthemountain.org/mountain-huts/earliest-hut",
+  "title": "First hut",
+  "paragraphs": [
+    "Location Known  Construction 1891   Status Remnants",
+    "Historic, Scientific, Archeological, Aesthetic",
+    "McConnell assessed this hut as having High Medium-High Local Significance, Some State Significance individually and as part of the suite and Some National Significance",
+    "The Huts of kunanyi/Mount Wellington - Maria Grist",
+    "Fern Retreat Timeline",
+    "This was the very first recreational hut on the Mountain and as such is highly significant. It is unnamed, but is locally referred to as the 1888 hut.",
+    "It was built 1887-8. A simple but solid, almost square hut of horizontal logs, about ten feet by ten, with a bark roof and a low stone chimney.",
+    "One of the members was Charles B. Pitman, possibly a relative of T. A. Pitman who became ranger on Mount Wellington between 1908 and 1916. Another member, named Freeny, is shown reclining on the log in one of the photographs.",
+    "Location: Known",
+    "Construction date: 1887-8",
+    "Status: Remnants",
+    "The Huts of kunanyi/Mount Wellington - Grist"
+  ],
+  "images": [
+    {
+      "src": "https://images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/1600826194422-6KTGII1E0KAZLTKQM9R3/1888+hut.+Photo%3A+Roy+Davies+album",
+      "alt": "1888 hut. First recreational hut on the mountain. Photo from Roy Davies collection, used with permission."
+    },
+    {
+      "src": "https://images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/1600826329815-QPLADXFGI39ZNGEF8RXV/1888+hut",
+      "alt": "1888 hut.&nbsp;Hut member named Freeny reclining on a log outside the hut.Photographer: Unknown Source unknown"
+    }
+  ]
 }

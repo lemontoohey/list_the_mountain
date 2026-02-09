@@ -1,8 +1,48 @@
 {
-  "url": "https://listthemountain.org/pure-springs-head/ogradys-falls",
-  "title": "Ogradys Falls",
-  "contentHtml": "",
-  "paragraphs": [],
-  "images": [],
-  "_placeholder": true
+  "url": "https://listthemountain.org/water-features/ogradys-falls",
+  "title": "O'GRADYS FALLS",
+  "paragraphs": [
+    "O’Gradys Falls on the Hobart Rivulet were reported in name in 1888, but they would have been passed by many early mountain climbers. At over ten metres in height, they would likely have been well known to the palawa. They became even better known after the Council purchased a large tract of the lower slopes from the Cascade company and a track to them was opened in 1931.",
+    "According to Grist: ‘These falls were most likely popularised by George Hawthorn who mentioned them in a letter to the editor of the Mercury in 1888. A track to these falls (and to the nearby Featherstone’s Cascades) was opened in 1931. The name is in tribute of James O’Grady, a Governor of Tasmania. In 1932 a stall was temporarily opened at O’Grady’s Falls, offering hot water and light refreshments. It only lasted a few months.",
+    "A rustic wooden bridge overlooks O’Grady’s.",
+    "The Falls are shown on Hodgeman’s 1930s map."
+  ],
+  "images": [
+    {
+      "src": "https://images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/1605317314008-7XO4R0EET3JIFF0YHNJ3/ogradys-falls.jpg",
+      "alt": "Grist collection"
+    },
+    {
+      "src": "https://images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/1605317325699-N26KGW4VU4BVRYKE2KBN/ogradys-falls3.jpg",
+      "alt": "Grist collection"
+    },
+    {
+      "src": "https://images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/1605317338029-VZSLTRBRSNW6808ZS0PO/ogradys-falls_1.jpg",
+      "alt": "Grist collection"
+    },
+    {
+      "src": "https://images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/1688214538140-9CXYISTA1VILNZCY8072/Screen+Shot+2023-07-01+at+4.09.54+pm.png",
+      "alt": "Screen Shot 2023-07-01 at 4.09.54 pm.png"
+    },
+    {
+      "src": "https://images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/1668992679225-WK779KR6JU39ZHYN0MZA/Screen+Shot+2022-11-21+at+12.03.17+pm.png",
+      "alt": "Screen Shot 2022-11-21 at 12.03.17 pm.png"
+    },
+    {
+      "src": "https://images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/1605317659366-12FO78TWVACIGFCGPA2F/ogradyblue.jpg",
+      "alt": "O'Gradys in the blue hour"
+    },
+    {
+      "src": "https://images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/1669600098695-4W813DKB726S2CQ1HXTO/OGRADYS-FALLS-9932-1024x682.jpg",
+      "alt": "image by Olly Gaspar"
+    },
+    {
+      "src": "https://images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/1688214588032-HQZWLY6XCYS80A6IPL4V/Screen+Shot+2023-07-01+at+4.11.16+pm.png",
+      "alt": "Screen Shot 2023-07-01 at 4.11.16 pm.png"
+    },
+    {
+      "src": "https://images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/1688214649000-4FA1R2909X21HDT3RYPE/Screen+Shot+2023-07-01+at+4.16.24+pm.png",
+      "alt": "Screen Shot 2023-07-01 at 4.16.24 pm.png"
+    }
+  ]
 }

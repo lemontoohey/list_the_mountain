@@ -1,8 +1,37 @@
 {
-  "url": "https://listthemountain.org/landscapes/bradbury",
-  "title": "Bradbury",
-  "contentHtml": "",
-  "paragraphs": [],
-  "images": [],
-  "_placeholder": true
+  "url": "https://listthemountain.org/artistic/bradbury",
+  "title": "BRADBURY",
+  "paragraphs": [
+    "See Colville Gallery"
+  ],
+  "images": [
+    {
+      "src": "https://images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/1684884861847-BFK2CAZ3YIBOE721AJ35/orangedottrack2023.jpg",
+      "alt": "Orange Dot Track"
+    },
+    {
+      "src": "https://images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/1684891174084-H81KLTBG0OJDUDBS0H75/sentient2023.jpg",
+      "alt": "Sentient"
+    },
+    {
+      "src": "https://images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/1684884863154-NBMS0YNBYU33V5CCO7Z7/thepinnacleandtheandtower2023.jpg",
+      "alt": "The Pinnacle and the Tower"
+    },
+    {
+      "src": "https://images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/1684884863725-FQXFS9171IFYPV9B71FB/thereddottrack2023.jpg",
+      "alt": "The Red Dot Track"
+    },
+    {
+      "src": "https://images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/1684891148371-RPXADWS6ZVGNKZFLPENP/boulderfieldsandbushlandsII2023.jpg",
+      "alt": "Boulder fields and Bushlands"
+    },
+    {
+      "src": "https://images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/1684884865035-Z8S63CHPKGHNGDIZDYEZ/boulderfieldsandbushlands2023.jpg",
+      "alt": "Boulder Fields and Bushlands"
+    },
+    {
+      "src": "https://images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/1684884865590-AKW238CWOZH0GT5XCTMV/thesoundthroughthewindboulders2023.jpg",
+      "alt": "The Sound through the wind in the bush"
+    }
+  ]
 }

@@ -1,8 +1,26 @@
 {
-  "url": "https://listthemountain.org/shelters-head/lower-chalet",
-  "title": "Lower Chalet",
-  "contentHtml": "",
-  "paragraphs": [],
-  "images": [],
-  "_placeholder": true
+  "url": "https://listthemountain.org/shelters/lower-chalet",
+  "title": "LOWER CHALET",
+  "paragraphs": [
+    "The lower chalet was built around the time of the mountain road (mid to late 1930s). It exists intact today. Opposite the chalet is a flat viewing area which previously had seating installed overlooking the spectacular view.",
+    "In 2018 the Park’s trustees agreed to make the chalet (WPHH0040) a priority place for nomination to the Tasmanian Historic Register."
+  ],
+  "images": [
+    {
+      "src": "https://images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/1675471328054-32UDC4QIRXJPG5PE4X2R/under-construction.jpg",
+      "alt": "Under construction"
+    },
+    {
+      "src": "https://images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/1602910466548-INLM80U0UQZVLIZB62VM/chalet_1.jpg",
+      "alt": "Ash Bester postcard from Grist collection"
+    },
+    {
+      "src": "https://images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/1602910341162-OC1ZUQLR20WT0FC3P2Z5/chalet-booklet_1.jpg",
+      "alt": "H. J. Hellessey photo from Grist collection"
+    },
+    {
+      "src": "https://images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/1675470074012-5YW6Q08N40KOEFW7K73U/chalet-road-to-pinnacle-PHOTO_1.jpg",
+      "alt": "View from chalet"
+    }
+  ]
 }

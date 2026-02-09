@@ -1,8 +1,15 @@
 {
-  "url": "https://listthemountain.org/indigenous-head/a-higher-place",
-  "title": "A Higher Place",
-  "contentHtml": "",
-  "paragraphs": [],
-  "images": [],
-  "_placeholder": true
+  "url": "https://listthemountain.org/indigenous/a-higher-place",
+  "title": "Warra-ne/A HIGHER PLACE",
+  "paragraphs": [
+    "Janice Ross described a painting she made on the Mountain in 2018: “This is a significant place where our Tasmanian Aboriginal Spirits travel to for our next journeys ahead.”",
+    "The South West Platform at the Pinnacle introduces the significance of the area for Palawa nations.",
+    "Charles Leseur, an artist of the Nicolas Baudin expedition (1801–1803), sketched the decorated bark structures over burial mounds. See Edward Ruhe “The Bark Art of Tasmania”, in F. Allan Hanson and Pacific Art Association (eds), Art and Identity in Oceania (Honolulu, HI: University of Hawai’i Press, 1990), 133."
+  ],
+  "images": [
+    {
+      "src": "https://images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/1668985703170-HYKVM5AM1VKX8KT38ZAB/black%252Bfires%252Bdd.jpg",
+      "alt": "Janice Ross"
+    }
+  ]
 }

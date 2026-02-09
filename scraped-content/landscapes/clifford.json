@@ -1,8 +1,25 @@
 {
-  "url": "https://listthemountain.org/landscapes/clifford",
-  "title": "Clifford",
-  "contentHtml": "",
-  "paragraphs": [],
-  "images": [],
-  "_placeholder": true
+  "url": "https://listthemountain.org/artistic/clifford",
+  "title": "CLIFFORD",
+  "paragraphs": [
+    "Samuel Clifford took many important early photos of the mountain. His core years as a photographer were 1860 to 1873."
+  ],
+  "images": [
+    {
+      "src": "https://images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/1606530473986-PWRJF7WTPC001XZWQ8DQ/pinnacle-1870.jpg",
+      "alt": "Pinnacle 1870"
+    },
+    {
+      "src": "https://images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/1606527863801-HH7UC5ODN9FSIBX6CRE8/PH30-1-8914-bower-clifford.jpg",
+      "alt": "Fern Tree Bower"
+    },
+    {
+      "src": "https://images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/1606530113071-DIRW5FF90Z1RE4FFTU15/Springs28c-Clifford-PH2-1-28.jpg",
+      "alt": "Woods Hut"
+    },
+    {
+      "src": "https://images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/1606530296257-XA8QDODSZO2Y1NWFYN22/stereo-log-2.jpg",
+      "alt": "Track to Wellington Falls"
+    }
+  ]
 }

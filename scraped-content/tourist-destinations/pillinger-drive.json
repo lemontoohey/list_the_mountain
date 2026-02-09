@@ -1,8 +1,53 @@
 {
-  "url": "https://listthemountain.org/tourist-destinations/pillinger-drive",
-  "title": "Pillinger Drive",
-  "contentHtml": "",
-  "paragraphs": [],
-  "images": [],
-  "_placeholder": true
+  "url": "https://listthemountain.org/destinations/pillinger-drive",
+  "title": "ROADWORKS",
+  "paragraphs": [
+    "“There are about 30 men employed in making the track to the Springs, Mount Wellington, who sleep in a shed called \"the stockade,\" up in the mountain. Recently a man applied to the Minister of Lands and Works for employment, and was sent to the Springs. He remained but a short time, and, a few days ago, applied to the Minister for other work. He was asked why he got \"off the track\" at the Springs. His reply was, that his nights in the stockade were uncomfortable–the windows were broken, and admitted the cold wind, and the fleas and bush rats made refreshing and dreamful sleep impossible. How unsuited such a man would be to fight the national foe, if he found it so hard to fight fortune against such short odds.” (The Mercury, November 1898)",
+    "The Drive never had an official opening, due to political wrangling, despite vigorous attempts by the Tourist Association and Senator Dobson. The Road was known as Carriage Drive but was later renamed Pillinger Drive for the then Minister for Lands and Works.",
+    "Convict stockades",
+    "In addition to the requirement for classification and segregation, the need for security at the convict stations was paramount. Due to the lack of available finance and building skills, especially in the early years of the colony, the various gaols and penitentiaries were often badly built and insecure. Escapes were common place. Dilemmas particularly arose when stations such as those erected for road and public work gangs, were only needed on a temporary basis. The Government was loathe to erect substantial building at such locations. As a result the huts at the road stations were generally insecure and overcrowded. They were a source of constant complaints by prisoners and overseers alike. They tended to be of slab or log construction with grass roofs. Too often they were exposed to the weather and without fireplaces, making them unpleasant and unhealthy sleeping places for the men.",
+    "(Parks & Wildlife Service Occasional Paper No 38. Convict Site Tasmania Historical Research Project, Kathryn Evans. Page 17.)",
+    "The Boy Scouts association created an arboretum at the old Stockade site in 1925-6. It is not known which species they planted, and no exotics remain at the site today. However, the remains of a stone circle, possibly from the Scouts’ time, are in evidence.",
+    "After forestry, the most significant (and possibly the largest) work project on the mountain was, arguably, the building of this road. The work took three years and the road was opened by the Governor in 1937.",
+    "A timeline for Pinnacle Road and Pillinger Drive",
+    "See also Ogilvie’s Scar for the controversy and Road to the Top for its significance to tourism."
+  ],
+  "images": [
+    {
+      "src": "https://images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/1602204980472-VZ38A4E1W2HN1KS66W6W/pillinger-drive-beattie.jpg",
+      "alt": "Pillinger Drive, Grist collection"
+    },
+    {
+      "src": "https://images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/1602205075280-J1DWVUN7QE57DSDR4SSQ/1547119-pillinger-crop.jpg",
+      "alt": "Hon. Alfred Thomas Pillinger Minister of Lands, Works, Mines and Railways."
+    },
+    {
+      "src": "https://images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/1606192769223-WND03VGHC0RJZHM9OP9P/arboretum-may06.jpg",
+      "alt": "Presumed remains of arboretum at stockade"
+    },
+    {
+      "src": "https://images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/1620189166217-XVQ0KQCQI83SIYGGYRVT/pillinger-drive7_2.jpg",
+      "alt": "Postcard, Grist collection"
+    },
+    {
+      "src": "https://images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/1620189185086-ESFZFQNZY2MGNZI4LJ6K/pillinger-drive7.jpg",
+      "alt": "Postcard, Grist collection"
+    },
+    {
+      "src": "https://images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/1697536304682-H6GT87Y3FXXMB64RK05C/NS4023-1-52.jpg",
+      "alt": "SLT NS4023/1/52"
+    },
+    {
+      "src": "https://images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/1697536303114-EM1J2CX98OBK546GLVU4/NS4023-1-51.jpg",
+      "alt": "NS4023/1/51"
+    },
+    {
+      "src": "https://images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/1697536303532-IWFCQK1LAMRK9HVSEGOS/Slide%2B8430%2BB283.jpg",
+      "alt": "Sir Ernest Clark opening the mountain road in 1937"
+    },
+    {
+      "src": "https://images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/1697536305998-94NUBS0X60VVV5CYHRZ2/pillinger-drive2.jpg",
+      "alt": "pillinger-drive2.jpg"
+    }
+  ]
 }

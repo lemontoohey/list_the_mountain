@@ -1,8 +1,21 @@
 {
-  "url": "https://listthemountain.org/shelters-head/lone-cabin",
-  "title": "Lone Cabin",
-  "contentHtml": "",
-  "paragraphs": [],
-  "images": [],
-  "_placeholder": true
+  "url": "https://listthemountain.org/shelters/lone-cabin",
+  "title": "LONE CABIN",
+  "paragraphs": [
+    "The Lone Cabin (not far from the present Junction Cabin) was built in 1911 at the head of Myrtle Gully ‘in one of the most delightful spots on the mountain’. It belonged to Danny Griffiths, a hairdresser, and he, like the other hut owners, paid a peppercorn rent to the Cascade Brewery, who owned the land.",
+    "Used by him regularly for 52 years, led by one of the many new tracks which had just been built on the mountain in 1932, an arsonist burnt his cabin to the ground and Danny lost bedding, cooking utensils and saws. He and his friends rebuilt it. Unfortunately, it was again burnt in the 1967 fires, but it was subsequently rebuilt in stone by Roy Davies, Ted Cornish and others from the Hobart Walking Club.",
+    "Of the original turn-of-the-century huts on Mount Wellington, Lone Cabin is the only hut still standing, albeit in a highly altered state. It is a walker’s day shelter open to all.",
+    "Its heritage significance is local, but it has some state significance as a long-standing part of a widespread complex of similar, high altitude weatherproof shelters built for walkers, for enjoyment, mainly, but during unexpected  blizzards they have many times proved saviours.",
+    "Read more"
+  ],
+  "images": [
+    {
+      "src": "https://images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/1605762706459-291XC31QLPYTLYQJOMX5/lone-cabin.jpg",
+      "alt": "Original hut"
+    },
+    {
+      "src": "https://images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/1605762675573-0YJOZRCK4ODOWRM170B5/DSCN0426LoneCabin.JPG",
+      "alt": "Rebult hut (post 1967)"
+    }
+  ]
 }

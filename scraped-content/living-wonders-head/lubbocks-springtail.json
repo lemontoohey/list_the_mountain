@@ -1,8 +1,13 @@
 {
-  "url": "https://listthemountain.org/living-wonders-head/lubbocks-springtail",
-  "title": "Lubbocks Springtail",
-  "contentHtml": "",
-  "paragraphs": [],
-  "images": [],
-  "_placeholder": true
+  "url": "https://listthemountain.org/living-wonders/lubbocks-springtail",
+  "title": "LUBBOCK'S SPRINGTAIL",
+  "paragraphs": [
+    "Springtails are minute. Darwin missed seeing them, but they are in Australia and the first one was found by Darwin’s friendly neighbour: the banker, baron, polymath and pall-bearer for Darwin himself: John Lubbock—and he discovered these Springtaols on the mountain."
+  ],
+  "images": [
+    {
+      "src": "https://images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/914d2929-d9f3-4621-abbd-c27a229f48f3/03.jpg",
+      "alt": ""
+    }
+  ]
 }

@@ -1,8 +1,34 @@
 {
-  "url": "https://listthemountain.org/walking-tracks/cathedral-rock",
+  "url": "https://listthemountain.org/tracks/cathedral-rock",
   "title": "Cathedral Rock",
-  "contentHtml": "",
-  "paragraphs": [],
-  "images": [],
-  "_placeholder": true
+  "paragraphs": [
+    "Skyward thrusting from the middle of a col, falling away in places almost sheer into a tremendous gorge. A scene of scrub and stag flanking an immense backbone of rock. This is the setting for the rugged mass of Cathedral Rock—a view of wild appeal.",
+    "‘In the days of my youth’, a competitive correspondent to the Hobart Mercury newspaper named B.D. Cox wrote in 1946, ‘the ambition of many Hobartians was to climb Cathedral Rock because it was regarded as a severe test of endurance and skill and quite an achievement to reach its summit.’",
+    "A keen rivalry, too, animated hikers who made Cathedral Rock their goalmouth. When Mr. Cox (whose ‘days of youth’ extended across the entire second decade of the 20th century) scaled the rock in 1946 he found under a stone a weathered tobacco tin. It contained a dilapidated but well preserved scrap of note paper bearing the date Sunday May 20 1910 and the inscription Messrs Barwick, Valentine, and Mitchell, of Bellerive, ascended this hill in 1½ hours.",
+    "After carrying the relic back to Hobart, Mr Cox searched out the Mr Valentine named in the note and visited him with the tin. Mr Valentine recalled that the paper had already once before been brought back, and returned to the rock. And Mr Valentine told Cox that his party was not the first by many, but their time was a record for their day, and he should return the record to the rock. Cox did.",
+    "Raced to the top in under two hours, the note in the tobacco tin had lain like a forgotten memory for thirty-six long years—and we doubt this story has been mentioned in print in the seventy years since then, but what time is all that for this cleft Cathedral whose lived experience is more than a million years.",
+    "PS There is a passing mention of ‘that grand basaltic feature “The Thumbs”’ in the The Tasmanian (Launceston) in February 1875."
+  ],
+  "images": [
+    {
+      "src": "https://images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/4370bca2-5dc6-4df4-a849-4e1c706d3fab/cathedral-rock+copy.jpg",
+      "alt": ""
+    },
+    {
+      "src": "https://images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/1647606286044-QJO7ZKU08F6NFEGOBFF5/27+July+1916+page+22+copy.jpg",
+      "alt": "27 July 1916 page 22 copy.jpg"
+    },
+    {
+      "src": "https://images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/1647494514502-AQIKWZFCZ0S4NMTL7ZVM/Cath+5.png",
+      "alt": "Cath 5.png"
+    },
+    {
+      "src": "https://images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/1647494500931-4V479RY6OCCA6SADECGX/Cathedral+2.png",
+      "alt": "Cathedral 2.png"
+    },
+    {
+      "src": "https://images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/1647494508427-2IT0ZN55I29VCB6ERUIZ/Cath+4.png",
+      "alt": "Cath 4.png"
+    }
+  ]
 }

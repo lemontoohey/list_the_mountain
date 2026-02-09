@@ -1,8 +1,13 @@
 {
-  "url": "https://listthemountain.org/mind-fields-head/intangible-landscape",
-  "title": "Intangible Landscape",
-  "contentHtml": "",
-  "paragraphs": [],
-  "images": [],
-  "_placeholder": true
+  "url": "https://listthemountain.org/mind-fields/intangible-landscape",
+  "title": "The Intangible Landscape",
+  "paragraphs": [
+    "The mountain stands in nature, but it also lives in songs and symphonies, in books, images, articles and in memory. It exists in our minds and it might be that it exists in our bodies. MIND FIELDS explores the spiritual, literary, emotional and social facets of the mountain’s intangible cultural values and its moveable heritage.",
+    "Sacred hill traces the emergence and development of the mountain’s spiritual significance—from a modern Lord’s Prayer our kunanyi all the way to aboriginal constructs of sacred geography via 19th century and 20th century Tasmanian thought.",
+    "Literary Monuments catalogues printed works devoted to the mountain—there’s more than for any other mountain in Australia.",
+    "Emotional Territory theraputically connects the social values of the mountain to its emotional history.",
+    "Genius loci explores the mountain as ‘an extension of the community’s sense of itself’—its sense of place.",
+    "Treasure trove  The archives of Australia preserve thousands of impressions of the mountain in newspapers and magazines, journals and images, maps and diaries."
+  ],
+  "images": []
 }

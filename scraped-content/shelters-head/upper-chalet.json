@@ -1,8 +1,21 @@
 {
-  "url": "https://listthemountain.org/shelters-head/upper-chalet",
-  "title": "Upper Chalet",
-  "contentHtml": "",
-  "paragraphs": [],
-  "images": [],
-  "_placeholder": true
+  "url": "https://listthemountain.org/shelters/upper-chalet",
+  "title": "UPPER CHALET",
+  "paragraphs": [
+    "Two chalet-style shelters were built on the mountain road around the time of the road’s opening in the late 1930s: an Upper and a Lower chalet. The upper chalet had a thatched roof and was situated on a steep bend, which provided excellent views.  Extraordinarily, in 1960 it was destroyed not by fire nor by flood, but by twin blows of the mountain’s demolition power: a landslide caused by a flood."
+  ],
+  "images": [
+    {
+      "src": "https://images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/1602910121070-IC4SDDT1XB4VIECSI7Q4/chalet6.jpg",
+      "alt": "Pinnacle Road"
+    },
+    {
+      "src": "https://images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/1602910121370-B0BDCZ5P4U6SZLLH9126/Chalet2.jpg",
+      "alt": "Grist collection"
+    },
+    {
+      "src": "https://images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/1650425761117-0CKXV6HGORRRQTT3D5OT/1979-0162-02259-00001-chalet.jpg",
+      "alt": "Upper Chalet 1937"
+    }
+  ]
 }

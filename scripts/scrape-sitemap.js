@@ -3,23 +3,36 @@ const cheerio = require("cheerio");
 const fs = require("fs");
 const path = require("path");
 
-const CATEGORY_MAP = {
-  "natural-features-head": "natural-features-head",
-  "tourist-destinations": "tourist-destinations",
-  "indigenous-head": "indigenous-head",
+/**
+ * Map sitemap URL path segment (no -head suffix) → our scraped-content folder name.
+ * Live site uses: natural-features, destinations, mountain-huts, tracks, indigenous, etc.
+ */
+const SITEMAP_CATEGORY_TO_OUR_FOLDER = {
+  "natural-features": "natural-features-head",
+  destinations: "tourist-destinations",
+  "mountain-huts": "mountain-huts-head",
+  tracks: "walking-tracks",
+  indigenous: "indigenous-head",
   "work-sites": "work-sites",
-  "science-head": "science-head",
-  "adventure-point": "adventure-point",
-  "walking-tracks": "walking-tracks",
-  "mountain-huts-head": "mountain-huts-head",
-  "shelters-head": "shelters-head",
-  "political-flashpoints-head": "political-flashpoints-head",
-  "ceremonial-grounds-head": "ceremonial-grounds-head",
-  "pure-springs-head": "pure-springs-head",
+  "work-places": "work-sites",
+  science: "science-head",
+  adventure: "adventure-point",
+  adventures: "adventure-point",
+  shelters: "shelters-head",
+  political: "political-flashpoints-head",
+  "political-flashpoints": "political-flashpoints-head",
+  ceremonial: "ceremonial-grounds-head",
+  "ceremonial-grounds": "ceremonial-grounds-head",
+  water: "pure-springs-head",
+  "water-features": "pure-springs-head",
   landscapes: "landscapes",
-  "living-wonders-head": "living-wonders-head",
-  "mind-fields-head": "mind-fields-head",
+  artistic: "landscapes",
+  "living-wonders": "living-wonders-head",
+  "mind-fields": "mind-fields-head",
   "new-page": "new-page",
+  geoheritage: "new-page",
+  hcc: "new-page",
+  nominations: "new-page",
 };
 
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
@@ -42,21 +55,23 @@ async function run() {
 
     const scrapedDir = path.join(__dirname, "..", "scraped-content");
     let scraped = 0;
+    const skippedCategories = new Set();
 
     for (const url of urls) {
-      let matchedCategory = null;
-      for (const key of Object.keys(CATEGORY_MAP)) {
-        if (url.includes(`/${key}/`) && url !== `https://listthemountain.org/${key}`) {
-          matchedCategory = CATEGORY_MAP[key];
-          break;
-        }
+      const pathname = new URL(url).pathname;
+      const segments = pathname.replace(/^\/|\/$/g, "").split("/").filter(Boolean);
+      if (segments.length < 2) continue;
+
+      const sitemapCategory = segments[0];
+      const slug = segments[segments.length - 1];
+      const ourFolder = SITEMAP_CATEGORY_TO_OUR_FOLDER[sitemapCategory];
+
+      if (!ourFolder) {
+        skippedCategories.add(sitemapCategory);
+        continue;
       }
 
-      if (matchedCategory) {
-        const slug = url.split("?")[0].split("/").filter(Boolean).pop();
-        if (!slug) continue;
-
-        console.log(`Scraping: [${matchedCategory}] ${slug}`);
+      console.log(`Scraping: [${ourFolder}] ${slug}`);
 
         try {
           const { data: html } = await axios.get(url, {
@@ -82,7 +97,7 @@ async function run() {
           });
 
           if (title) {
-            const savePath = path.join(scrapedDir, matchedCategory, `${slug}.json`);
+            const savePath = path.join(scrapedDir, ourFolder, `${slug}.json`);
             const dir = path.dirname(savePath);
             if (!fs.existsSync(dir)) fs.mkdirSync(dir, { recursive: true });
 
@@ -102,9 +117,11 @@ async function run() {
         }
 
         await sleep(500);
-      }
     }
 
+    if (skippedCategories.size > 0) {
+      console.log(`\nSkipped (no mapping): ${[...skippedCategories].sort().join(", ")}`);
+    }
     console.log(`\nDone. Scraped ${scraped} article(s).`);
   } catch (e) {
     console.error("Sitemap error:", e.message);

@@ -1,8 +1,26 @@
 {
-  "url": "https://listthemountain.org/shelters-head/junction-cabin",
-  "title": "Junction Cabin",
-  "contentHtml": "",
-  "paragraphs": [],
-  "images": [],
-  "_placeholder": true
+  "url": "https://listthemountain.org/shelters/junction-cabin",
+  "title": "JUNCTION CABIN",
+  "paragraphs": [
+    "Like Rock Cabin, Junction Cabin was first built of wood during the early 1930s. After being burnt in the 1967 bushfires, it was rebuilt in corrugated iron, and later still the iron shed was clad in stone.",
+    "\"Mr. Hill ... had wondered for years how the jays* around Junction Cabin came to be so tame. Now he is convinced that they were Danny's** old pets, who had been \"charmed\" out of all fear by the old nature-lover. We looked in at Junction Cabin on our way making a certain amount of intentional noise. Sure enough there was soon a swish of wings to tell us the birds were watching us.\"",
+    "Mercury, 16 August 1960",
+    "“Jays” are Currwongs.",
+    "**“Danny” is Dan Griffiths who lived in the nearby Lone Cabin.",
+    "Further reading: McConnell, A. (with M. Maitri) (2006) Wellington Park, Tasmania – Junction Cabin Area Historic Heritage Survey, Analysis & Management Advice. Unpublished report for the Wellington Park Management Trust, Hobart."
+  ],
+  "images": [
+    {
+      "src": "https://images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/1638575758724-6OAF66QWSKUAY5WKIT4Z/junction-cabin.jpg",
+      "alt": "Original shelter with fireplace each end"
+    },
+    {
+      "src": "https://images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/1602913743777-3Y0NNJI4VZQIYRD3W0QA/Junction_cabin_NS3195-1-4160.jpg",
+      "alt": "Iron cabin, post 1967 fires, later faced with stone"
+    },
+    {
+      "src": "https://images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/1602912497301-A0D9367YY16BV60G3R2S/junction-cabin02.jpg",
+      "alt": "Photo Grist 2003"
+    }
+  ]
 }

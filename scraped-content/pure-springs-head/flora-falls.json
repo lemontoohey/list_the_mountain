@@ -1,8 +1,17 @@
 {
-  "url": "https://listthemountain.org/pure-springs-head/flora-falls",
+  "url": "https://listthemountain.org/water-features/flora-falls",
   "title": "Flora Falls",
-  "contentHtml": "",
-  "paragraphs": [],
-  "images": [],
-  "_placeholder": true
+  "paragraphs": [
+    "A high seasonal waterfall over the cliff below Collins Cap. Known from at least 1894, when it was photographed by Beattie, Flora’s Falls is a set of three falls, described by Chas Ramsay in 1894 as ‘Situated in the heel of a horseshoe amphitheatre of uniform perpendicular rocks, confining as it were a wealth of wondrous beauty within its curvature, the water comes down, I should say, a height of about 200ft., judging by the mere atoms my companions appeared in comparison to it. The water glides down this dizzy height, not with a clatter-dash and splatter, but with a soft undulating motion, having a wondrously soothing effect over perturbed spirits ... As with the upper, so with the lower portion of the fall; the ledge projecting outward allowed ample and perfectly dry space to walk beneath it, behind the descending water. Standing there, looking through the crystal fluid, I beheld the most charming and beautiful colours appearing and disappearing as if by magic, as the sunbeams glinted, shimmered, and flushed upon the falling waters.’ It was still well known and written up in the 1930s as a local beauty spot."
+  ],
+  "images": [
+    {
+      "src": "https://images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/5ac59bae-05d0-4021-8a76-218d9f513e60/Collins-Cap-Waterfall_August_12_1905-crop-1.jpg",
+      "alt": ""
+    },
+    {
+      "src": "https://images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/11d522de-da74-4b24-a379-3700f7d09c40/Collins-Cap-Waterfall_September_16_1905-crop.jpg",
+      "alt": ""
+    }
+  ]
 }

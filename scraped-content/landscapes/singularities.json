@@ -1,8 +1,51 @@
 {
-  "url": "https://listthemountain.org/landscapes/singularities",
-  "title": "Singularities",
-  "contentHtml": "",
+  "url": "https://listthemountain.org/artistic/singularities",
+  "title": "Singular Paintings",
   "paragraphs": [],
-  "images": [],
-  "_placeholder": true
+  "images": [
+    {
+      "src": "https://images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/7e41e243-a943-4c23-9085-98037afad877/Screen+Shot+2022-04-24+at+8.47.00+pm.png",
+      "alt": ""
+    },
+    {
+      "src": "https://images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/282b3a0e-47cc-4484-b69b-308c9b923ebe/Screen+Shot+2022-04-24+at+3.40.34+pm.png",
+      "alt": ""
+    },
+    {
+      "src": "https://images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/d231020e-0b6d-4c06-bd1d-89fe29be5ffe/1874-76%3F.jpeg",
+      "alt": ""
+    },
+    {
+      "src": "https://images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/e4a43143-d40f-495d-ab3e-8e4c830eddcc/Mt-Wellington-from-Bellerive_Unknown-Artist_127140.jpg",
+      "alt": ""
+    },
+    {
+      "src": "https://images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/e42104ca-dfaf-40b1-a30b-5856398cf4d9/283036-national-gallery-of-australia-Florence-Williams.jpg",
+      "alt": ""
+    },
+    {
+      "src": "https://images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/5b1dfaac-8e80-4a50-94eb-87f85b00a81d/599%23%23S.jpg",
+      "alt": ""
+    },
+    {
+      "src": "https://images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/767a9118-3606-4637-9c77-c18e418f3c76/Screen+Shot+2022-11-14+at+10.20.52+am.jpg",
+      "alt": ""
+    },
+    {
+      "src": "https://images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/889c8311-5de8-42fa-a8bb-6a624ecb7c5f/eldershaw.jpg",
+      "alt": ""
+    },
+    {
+      "src": "https://images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/f60b7ad6-5065-4e61-8f37-7242a9da151d/H3018-L303412395.jpg",
+      "alt": ""
+    },
+    {
+      "src": "https://images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/cae0eee6-714c-4319-9a4a-305209d01345/elizabeth%2Bbarsham.jpg",
+      "alt": ""
+    },
+    {
+      "src": "https://images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/cee37bb9-f396-4114-910c-29f588fd2e3d/SamaHut.jpeg",
+      "alt": ""
+    }
+  ]
 }

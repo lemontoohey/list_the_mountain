@@ -1,13 +1,7 @@
-"use client";
-
-import Image from "next/image";
-import Link from "next/link";
-import { motion } from "framer-motion";
+import { findBestMatch } from "@/lib/content-utils";
+import { HeadPageGallery } from "@/components/HeadPageGallery";
 
 const PAGE_SLUG = "ceremonial-grounds-head";
-
-const slugify = (text: string) =>
-  text.toLowerCase().replace(/\s+/g, "-").replace(/[^\w-]+/g, "");
 
 const CONTENT = {
   headings: [
@@ -28,135 +22,19 @@ const CONTENT = {
   ],
 };
 
-const container = {
-  hidden: { opacity: 0 },
-  visible: () => ({
-    opacity: 1,
-    transition: { staggerChildren: 0.12, delayChildren: 0.3 },
-  }),
-};
-
-const word = {
-  hidden: { opacity: 0, y: 24 },
-  visible: { opacity: 1, y: 0 },
-};
-
-const sectionAnimation = {
-  viewport: { once: true as const },
-  transition: { duration: 0.8, ease: "easeOut" as const },
-};
-
-export default function CeremonialGroundsHeadPage() {
-  if (!CONTENT?.headings?.length || !CONTENT?.images?.length) {
-    return (
-      <main className="flex min-h-screen items-center justify-center bg-brand-background">
-        <p className="text-brand-parchment">Content not found.</p>
-      </main>
-    );
-  }
-
-  const heroWords = CONTENT.headings[0].split(" ");
+export default async function CeremonialGroundsHeadPage() {
   const contentImages = CONTENT.images.slice(1);
-
+  const realSlugs = await Promise.all(
+    contentImages.map((_, i) =>
+      findBestMatch(PAGE_SLUG, CONTENT.headings[i + 1] ?? "List the Mountain.")
+    )
+  );
   return (
-    <main className="bg-brand-background">
-      <section className="relative min-h-screen w-full overflow-hidden">
-        <Image
-          src={CONTENT.images[0].src}
-          alt={CONTENT.images[0].alt || ""}
-          fill
-          className="object-cover -z-20"
-          priority
-          sizes="100vw"
-        />
-        <div className="absolute inset-0 -z-10 bg-brand-background/60" aria-hidden />
-        <div className="absolute inset-0 flex items-center justify-center px-6">
-          <motion.h1
-            className="font-brand-header flex flex-wrap justify-center gap-x-3 gap-y-1 text-center text-4xl font-bold uppercase tracking-poster text-brand-parchment drop-shadow-lg md:text-5xl lg:text-6xl xl:text-7xl"
-            variants={container}
-            initial="hidden"
-            animate="visible"
-          >
-            {heroWords.map((w, i) => (
-              <motion.span
-                key={i}
-                variants={word}
-                transition={{ duration: 0.5, ease: "easeOut" }}
-                className="inline-block"
-              >
-                {w}
-              </motion.span>
-            ))}
-          </motion.h1>
-        </div>
-      </section>
-
-      <section className="py-24 md:py-32" aria-hidden />
-
-      {contentImages.map((img, i) => {
-        const index = i + 1;
-        const heading = CONTENT.headings[index] ?? "List the Mountain.";
-        const isImageLeft = i % 2 === 0;
-
-        const ImageComponent = (
-          <Link href={`/${PAGE_SLUG}/${slugify(heading)}`} className="block w-full h-full">
-            <motion.div
-              className="relative aspect-square w-full overflow-hidden md:aspect-[4/3]"
-              initial={{ opacity: 0, x: isImageLeft ? -40 : 40 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              {...sectionAnimation}
-            >
-              <div className="absolute inset-0 rounded-sm border-2 border-brand-accent bg-brand-background p-3 md:p-5 transition-transform duration-500 hover:scale-[1.02]">
-                <div className="relative h-full w-full overflow-hidden rounded-sm">
-                  <Image
-                    src={img.src}
-                    alt={img.alt || heading}
-                    fill
-                    className="object-cover"
-                    sizes="(max-width: 768px) 100vw, 45vw"
-                  />
-                </div>
-              </div>
-            </motion.div>
-          </Link>
-        );
-
-        const TextComponent = (
-          <motion.div
-            className={`flex flex-col justify-center ${isImageLeft ? "" : "order-2 md:order-1"}`}
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            {...sectionAnimation}
-          >
-            <p className="max-w-prose text-lg leading-relaxed text-brand-parchment/90 font-light">
-              {heading}
-            </p>
-          </motion.div>
-        );
-
-        return (
-          <section key={index} className="relative px-6 py-20 md:py-28 lg:px-12">
-            {isImageLeft && (
-              <div className="absolute left-6 top-0 bottom-0 w-px bg-brand-accent/40 hidden md:block" aria-hidden />
-            )}
-            <div className={`mx-auto grid max-w-6xl grid-cols-1 items-center gap-16 md:grid-cols-[0.45fr_0.55fr] md:pl-8 ${isImageLeft ? "" : "md:grid-cols-[0.55fr_0.45fr]"}`}>
-              {isImageLeft ? (
-                <>
-                  {ImageComponent}
-                  {TextComponent}
-                </>
-              ) : (
-                <>
-                  {TextComponent}
-                  <div className="relative order-1 md:order-2 w-full">
-                    {ImageComponent}
-                  </div>
-                </>
-              )}
-            </div>
-          </section>
-        );
-      })}
-    </main>
+    <HeadPageGallery
+      headings={CONTENT.headings}
+      images={CONTENT.images}
+      pageSlug={PAGE_SLUG}
+      realSlugs={realSlugs}
+    />
   );
 }

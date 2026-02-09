@@ -1,8 +1,20 @@
 {
-  "url": "https://listthemountain.org/political-flashpoints-head/pinnacle-beacon",
-  "title": "Pinnacle Beacon",
-  "contentHtml": "",
-  "paragraphs": [],
-  "images": [],
-  "_placeholder": true
+  "url": "https://listthemountain.org/political-flashpoints/pinnacle-beacon",
+  "title": "Night Lights",
+  "paragraphs": [
+    "From the earliest days of the British subjugation impulse, men and boys have climbed the mountain for the glee of setting its Pinnacle ablaze with beacon fires. To celebrate the arrival of the new state governor Sir John Franklin in 1837, it was promised that, at 9 o’clock precisely, sky rockets would be discharged from the mountain. Popular at that time (and in stock in the Repository of Arts emporium adjacent to the Post Office) were: Roman candles, Squibs, Crackers, Flower pots, wheels, Shower fires, Serpents, Gerbes, Blue Lights, Bengal lights and Tourbillions.",
+    "Two years before Pinnacle Road was completed, a 1935 proposal imagined a powerful electric beacon (of perhaps 2,000 candle-power) erected at the Pinnacle, throwing the Organ Pipes into high relief and serving as a landmark visible from land and sea from a distance of 30 to 40 miles.",
+    "The state government was prepared to co-operate in the cost of erecting the power line (which would have to come from Fern Tree and be bedecked with lights stood at intervals illuminating the new road.)",
+    "The Hobart City Council gave consideration to the motion by Alderman S. Crisp—which called for the design to conform with ‘aesthetic principles’ but could not be convinced. The cost, as well as doubt as to its effectiveness, extinguished this light on the hill.",
+    "At least one resident wrote eloquently in favour of the dark side of the mountain, a view now shared by the Dark Sky movement’s lovers of starlight.",
+    "As its heritage value is intangible and its history likely only of local interest, it has not been assessed for significance.",
+    "REFERENCES",
+    "True Colonist Jan 6, 1837 (de Quincey)"
+  ],
+  "images": [
+    {
+      "src": "https://images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/584ee195-4373-4992-bb72-91ab26b4444d/nla.news-page000001829547-nla.news-article30061849-L5-caf49d3fda4e28bc7f18e86f46cb7a1f-0001.jpg",
+      "alt": ""
+    }
+  ]
 }
