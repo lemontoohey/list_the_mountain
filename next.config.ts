@@ -3,6 +3,8 @@ import type { NextConfig } from "next";
 const nextConfig: NextConfig = {
   reactCompiler: true,
   output: "export",
+  basePath: "/list_the_mountain",
+  assetPrefix: "/list_the_mountain/",
   images: {
     unoptimized: true,
     remotePatterns: [
