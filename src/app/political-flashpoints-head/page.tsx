@@ -1,7 +1,13 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { motion } from "framer-motion";
+
+const slugify = (text: string) =>
+  text.toLowerCase().replace(/\s+/g, "-").replace(/[^\w-]+/g, "");
+
+const PAGE_SLUG = "political-flashpoints-head";
 
 const CONTENT = {
   headings: [
@@ -125,24 +131,26 @@ export default function PoliticalFlashpointsHeadPage() {
             >
               <div className="absolute left-6 top-0 bottom-0 w-px bg-brand-accent/40 hidden md:block" aria-hidden />
               <div className="mx-auto grid max-w-6xl grid-cols-1 items-center gap-16 md:grid-cols-[0.45fr_0.55fr] md:pl-8">
-                <motion.div
-                  className="relative aspect-square w-full overflow-hidden md:aspect-[4/3]"
-                  initial={{ opacity: 0, x: -40 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  {...sectionAnimation}
-                >
-                  <div className="absolute inset-0 rounded-sm border-2 border-brand-accent bg-brand-background p-3 md:p-5">
-                    <div className="relative h-full w-full overflow-hidden rounded-sm">
-                      <Image
-                        src={img.src}
-                        alt={img.alt || ""}
-                        fill
-                        className="object-cover"
-                        sizes="(max-width: 768px) 100vw, 45vw"
-                      />
+                <Link href={`/${PAGE_SLUG}/${slugify(heading)}`}>
+                  <motion.div
+                    className="relative aspect-square w-full overflow-hidden md:aspect-[4/3]"
+                    initial={{ opacity: 0, x: -40 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    {...sectionAnimation}
+                  >
+                    <div className="absolute inset-0 rounded-sm border-2 border-brand-accent bg-brand-background p-3 md:p-5">
+                      <div className="relative h-full w-full overflow-hidden rounded-sm">
+                        <Image
+                          src={img.src}
+                          alt={img.alt || ""}
+                          fill
+                          className="object-cover"
+                          sizes="(max-width: 768px) 100vw, 45vw"
+                        />
+                      </div>
                     </div>
-                  </div>
-                </motion.div>
+                  </motion.div>
+                </Link>
                 <motion.div
                   className="flex flex-col justify-center"
                   initial={{ opacity: 0, y: 40 }}
@@ -174,24 +182,26 @@ export default function PoliticalFlashpointsHeadPage() {
                   {heading}
                 </p>
               </motion.div>
-              <motion.div
-                className="relative order-1 aspect-[4/3] w-full md:order-2"
-                initial={{ opacity: 0, x: 40 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                {...sectionAnimation}
-              >
-                <div className="absolute inset-0 rounded-sm border-2 border-brand-accent bg-brand-background p-3 md:p-5">
-                  <div className="relative h-full w-full overflow-hidden rounded-sm">
-                    <Image
-                      src={img.src}
-                      alt={img.alt || ""}
-                      fill
-                      className="object-cover"
-                      sizes="(max-width: 768px) 100vw, 45vw"
-                    />
+              <Link href={`/${PAGE_SLUG}/${slugify(heading)}`}>
+                <motion.div
+                  className="relative order-1 aspect-[4/3] w-full md:order-2"
+                  initial={{ opacity: 0, x: 40 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  {...sectionAnimation}
+                >
+                  <div className="absolute inset-0 rounded-sm border-2 border-brand-accent bg-brand-background p-3 md:p-5">
+                    <div className="relative h-full w-full overflow-hidden rounded-sm">
+                      <Image
+                        src={img.src}
+                        alt={img.alt || ""}
+                        fill
+                        className="object-cover"
+                        sizes="(max-width: 768px) 100vw, 45vw"
+                      />
+                    </div>
                   </div>
-                </div>
-              </motion.div>
+                </motion.div>
+              </Link>
             </div>
           </section>
         );
