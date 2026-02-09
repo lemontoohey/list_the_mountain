@@ -1,10 +1,21 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Josefin_Sans, Montserrat } from "next/font/google";
 import "./globals.css";
 import SmoothScroll from "@/components/SmoothScroll";
 import CustomCursor from "@/components/CustomCursor";
+import PageTransitionSound from "@/components/Audio/PageTransitionSound";
 
-const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
+const josefinSans = Josefin_Sans({
+  subsets: ["latin"],
+  weight: ["400", "700"],
+  variable: "--font-josefin",
+});
+
+const montserrat = Montserrat({
+  subsets: ["latin"],
+  weight: ["300", "400"],
+  variable: "--font-montserrat",
+});
 
 export const metadata: Metadata = {
   title: "List the Mountain",
@@ -17,9 +28,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={inter.variable}>
-      <body className={`${inter.className} antialiased`}>
+    <html lang="en" className={`${josefinSans.variable} ${montserrat.variable}`}>
+      <body className={`${montserrat.className} antialiased`}>
         <CustomCursor />
+        <PageTransitionSound />
         <SmoothScroll>{children}</SmoothScroll>
       </body>
     </html>

@@ -31,7 +31,7 @@ export default function NaturalFeaturesPage() {
         />
         <div className="absolute inset-0 flex items-center justify-center px-6">
           <motion.h1
-            className="text-center text-4xl font-bold text-[#F5F5F5] drop-shadow-lg md:text-5xl lg:text-6xl xl:text-7xl"
+            className="font-brand-header text-center text-4xl font-bold uppercase tracking-poster text-brand-parchment drop-shadow-lg md:text-5xl lg:text-6xl xl:text-7xl"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
@@ -44,7 +44,7 @@ export default function NaturalFeaturesPage() {
       {/* Intro paragraph */}
       <section className="px-6 py-24 md:py-32">
         <motion.div
-          className="mx-auto max-w-2xl text-center text-[#F5F5F5]"
+          className="mx-auto max-w-2xl text-center text-brand-parchment"
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -64,10 +64,10 @@ export default function NaturalFeaturesPage() {
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
           >
-            <h2 className="mb-6 text-2xl font-semibold text-[#F5F5F5] md:text-3xl">
+            <h2 className="mb-6 text-2xl font-semibold text-brand-parchment md:text-3xl">
               {SUB_1}
             </h2>
-            <p className="leading-relaxed text-[#F5F5F5]/90">{BODY_2}</p>
+            <p className="leading-relaxed text-brand-parchment/90">{BODY_2}</p>
           </motion.div>
         </div>
       </section>
@@ -82,10 +82,10 @@ export default function NaturalFeaturesPage() {
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
           >
-            <h2 className="mb-6 text-2xl font-semibold text-[#F5F5F5] md:text-3xl">
+            <h2 className="mb-6 text-2xl font-semibold text-brand-parchment md:text-3xl">
               {SUB_2}
             </h2>
-            <p className="leading-relaxed text-[#F5F5F5]/90">{BODY_3}</p>
+            <p className="leading-relaxed text-brand-parchment/90">{BODY_3}</p>
           </motion.div>
           <motion.div
             className="relative aspect-[4/3] w-full flex-[1.2] overflow-hidden rounded-lg md:max-w-[55%] md:flex-none"

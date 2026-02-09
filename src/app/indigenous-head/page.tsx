@@ -33,10 +33,17 @@ const sectionAnimation = {
 };
 
 export default function IndigenousHeadPage() {
+  if (!CONTENT?.headings?.length || !CONTENT?.images?.length) {
+    return (
+      <main className="flex min-h-screen items-center justify-center bg-brand-background">
+        <p className="text-brand-parchment">Content not found.</p>
+      </main>
+    );
+  }
   const heroWords = CONTENT.headings[0].split(" ");
 
   return (
-    <main className="bg-[#111111]">
+    <main className="bg-brand-background">
       <section className="relative min-h-screen w-full overflow-hidden">
         <Image
           src={CONTENT.images[0]}
@@ -46,10 +53,10 @@ export default function IndigenousHeadPage() {
           priority
           sizes="100vw"
         />
-        <div className="absolute inset-0 -z-10 bg-[#111111]/60" aria-hidden />
+        <div className="absolute inset-0 -z-10 bg-brand-background/60" aria-hidden />
         <div className="absolute inset-0 flex items-center justify-center px-6">
           <motion.h1
-            className="flex flex-wrap justify-center gap-x-3 gap-y-1 text-center text-4xl font-bold tracking-wider text-[#F5F5F5] drop-shadow-lg md:text-5xl lg:text-6xl xl:text-7xl"
+            className="font-brand-header flex flex-wrap justify-center gap-x-3 gap-y-1 text-center text-4xl font-bold uppercase tracking-poster text-brand-parchment drop-shadow-lg md:text-5xl lg:text-6xl xl:text-7xl"
             variants={container}
             initial="hidden"
             animate="visible"
@@ -92,7 +99,7 @@ export default function IndigenousHeadPage() {
             whileInView={{ opacity: 1, y: 0 }}
             {...sectionAnimation}
           >
-            <p className="max-w-prose text-lg leading-relaxed text-[#F5F5F5]/90">
+            <p className="max-w-prose text-lg leading-relaxed text-brand-parchment/90">
               {CONTENT.headings[1]}
             </p>
           </motion.div>
@@ -107,7 +114,7 @@ export default function IndigenousHeadPage() {
             whileInView={{ opacity: 1, x: 0 }}
             {...sectionAnimation}
           >
-            <p className="max-w-prose text-lg leading-relaxed text-[#BDB7AB]">
+            <p className="max-w-prose text-lg leading-relaxed text-brand-accent">
               List the Mountain — the indigenous landscape.
             </p>
           </motion.div>

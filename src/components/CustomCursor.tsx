@@ -1,10 +1,12 @@
 "use client";
 
 import { useEffect, useState, useCallback } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 
 export default function CustomCursor() {
   const [position, setPosition] = useState({ x: 0, y: 0 });
   const [isHovering, setIsHovering] = useState(false);
+  const [isClicking, setIsClicking] = useState(false);
   const [mounted, setMounted] = useState(false);
 
   const handleMouseMove = useCallback((e: MouseEvent) => {
@@ -28,17 +30,28 @@ export default function CustomCursor() {
       )
         setIsHovering(false);
     };
+
+    const handleMouseDown = () => setIsClicking(true);
+    const handleMouseUp = () => setIsClicking(false);
+
     document.addEventListener("mouseover", handleMouseOver);
     document.addEventListener("mouseout", handleMouseOut);
+    document.addEventListener("mousedown", handleMouseDown);
+    document.addEventListener("mouseup", handleMouseUp);
 
     return () => {
       window.removeEventListener("mousemove", handleMouseMove);
       document.removeEventListener("mouseover", handleMouseOver);
       document.removeEventListener("mouseout", handleMouseOut);
+      document.removeEventListener("mousedown", handleMouseDown);
+      document.removeEventListener("mouseup", handleMouseUp);
     };
   }, [handleMouseMove]);
 
   if (!mounted) return null;
+
+  const showRing = isHovering || isClicking;
+  const isStamp = isClicking;
 
   return (
     <div
@@ -49,24 +62,46 @@ export default function CustomCursor() {
         transform: "translate(-50%, -50%)",
       }}
     >
-      <div
-        className="absolute left-1/2 top-1/2 rounded-full transition-all duration-200 ease-out"
-        style={{
-          width: isHovering ? 25 : 10,
-          height: isHovering ? 25 : 10,
-          transform: "translate(-50%, -50%)",
-          border: isHovering ? "1px solid #F5F5F5" : "none",
-          backgroundColor: isHovering ? "transparent" : "#F5F5F5",
-        }}
-      />
-      {isHovering && (
+      {/* Default dot (parchment) — visible when not hovering and not clicking */}
+      {!showRing && (
         <div
-          className="absolute left-1/2 top-1/2 bg-[#F5F5F5] transition-opacity duration-200 ease-out"
-          style={{
-            width: 15,
-            height: 1,
-            transform: "translate(-50%, -50%) rotate(-90deg)",
-          }}
+          className="absolute left-1/2 top-1/2 h-2.5 w-2.5 -translate-x-1/2 -translate-y-1/2 rounded-full bg-brand-parchment"
+          aria-hidden
+        />
+      )}
+
+      {/* Hover / Click ring (compass style + stamp) — red ink on click */}
+      <AnimatePresence>
+        {showRing && (
+          <motion.div
+            className="absolute left-1/2 top-1/2 rounded-full border-brand-accent bg-transparent"
+            style={{
+              width: 25,
+              height: 25,
+              transform: "translate(-50%, -50%)",
+              borderStyle: "solid",
+            }}
+            initial={false}
+            animate={{
+              scale: isStamp ? 1.5 : 1,
+              borderWidth: isStamp ? 4 : 1,
+            }}
+            transition={{
+              type: "spring",
+              stiffness: 500,
+              damping: 30,
+            }}
+            aria-hidden
+          />
+        )}
+      </AnimatePresence>
+
+      {/* Needle (only when hovering, not during click) */}
+      {isHovering && !isClicking && (
+        <div
+          className="absolute left-1/2 top-1/2 h-px w-[15px] -translate-x-1/2 -translate-y-1/2 bg-brand-accent"
+          style={{ transform: "translate(-50%, -50%) rotate(-90deg)" }}
+          aria-hidden
         />
       )}
     </div>

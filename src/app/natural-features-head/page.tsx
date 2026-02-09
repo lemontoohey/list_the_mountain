@@ -35,11 +35,18 @@ const defaultSectionAnimation = {
 };
 
 export default function NaturalFeaturesHeadPage() {
+  if (!CONTENT?.headings?.length || !CONTENT?.images?.length) {
+    return (
+      <main className="flex min-h-screen items-center justify-center bg-brand-background">
+        <p className="text-brand-parchment">Content not found.</p>
+      </main>
+    );
+  }
   const heroWords = CONTENT.headings[0].split(" ");
 
   return (
-    <main className="bg-[#111111]">
-      {/* Hero: full-screen, first image background, staggered heading */}
+    <main className="bg-brand-background">
+      {/* Hero: full-screen, first image background, staggered heading — 1930s poster typography */}
       <section className="relative min-h-screen w-full overflow-hidden">
         <Image
           src={CONTENT.images[0]}
@@ -50,12 +57,12 @@ export default function NaturalFeaturesHeadPage() {
           sizes="100vw"
         />
         <div
-          className="absolute inset-0 -z-10 bg-[#111111]/60"
+          className="absolute inset-0 -z-10 bg-brand-background/60"
           aria-hidden
         />
         <div className="absolute inset-0 flex items-center justify-center px-6">
           <motion.h1
-            className="flex flex-wrap justify-center gap-x-3 gap-y-1 text-center text-4xl font-bold tracking-wider text-[#F5F5F5] drop-shadow-lg md:text-5xl lg:text-6xl xl:text-7xl"
+            className="font-brand-header flex flex-wrap justify-center gap-x-3 gap-y-1 text-center text-4xl font-bold uppercase tracking-poster text-brand-parchment drop-shadow-lg md:text-5xl lg:text-6xl xl:text-7xl"
             variants={container}
             initial="hidden"
             animate="visible"
@@ -77,37 +84,44 @@ export default function NaturalFeaturesHeadPage() {
       {/* Introductory content: no paragraphs in scraped data — breathing room only */}
       <section className="py-24 md:py-32" aria-hidden />
 
-      {/* Layout A: Image left (~45%), text right (~55%) */}
-      <section className="px-6 py-20 md:py-28 lg:px-12">
-        <div className="mx-auto grid max-w-6xl grid-cols-1 items-center gap-16 md:grid-cols-[0.45fr_0.55fr]">
+      {/* Layout A: Stamp-framed image left, text right */}
+      <section className="relative px-6 py-20 md:py-28 lg:px-12">
+        {/* Vertical accent line (trail / climbing rope) */}
+        <div className="absolute left-6 top-0 bottom-0 w-px bg-brand-accent/40 hidden md:block" aria-hidden />
+        <div className="mx-auto grid max-w-6xl grid-cols-1 items-center gap-16 md:grid-cols-[0.45fr_0.55fr] md:pl-8">
           <motion.div
-            className="relative aspect-square w-full overflow-hidden rounded-sm md:aspect-[4/3]"
+            className="relative aspect-square w-full overflow-hidden md:aspect-[4/3]"
             initial={{ opacity: 0, x: -40 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, ease: "easeOut" }}
           >
-            <Image
-              src={CONTENT.images[0]}
-              alt="List the Mountain"
-              fill
-              className="object-cover"
-              sizes="(max-width: 768px) 100vw, 45vw"
-            />
+            {/* Stamp / postcard frame: generous border + 1px vermilion outline */}
+            <div className="absolute inset-0 rounded-sm border-2 border-brand-accent bg-brand-background p-3 md:p-5">
+              <div className="relative h-full w-full overflow-hidden rounded-sm">
+                <Image
+                  src={CONTENT.images[0]}
+                  alt="List the Mountain"
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 768px) 100vw, 45vw"
+                />
+              </div>
+            </div>
           </motion.div>
           <motion.div
             className="flex flex-col justify-center"
             {...defaultSectionAnimation}
           >
-            <p className="max-w-prose text-lg leading-relaxed text-[#F5F5F5]/90">
+            <p className="max-w-prose text-lg leading-relaxed text-brand-parchment/90">
               {CONTENT.headings[1]}
             </p>
           </motion.div>
         </div>
       </section>
 
-      {/* Layout B: Text left, image right */}
-      <section className="px-6 py-20 md:py-28 lg:px-12">
+      {/* Layout B: Text left, stamp-framed image right */}
+      <section className="relative px-6 py-20 md:py-28 lg:px-12">
         <div className="mx-auto grid max-w-6xl grid-cols-1 items-center gap-16 md:grid-cols-[0.55fr_0.45fr]">
           <motion.div
             className="order-2 flex flex-col justify-center md:order-1"
@@ -116,24 +130,28 @@ export default function NaturalFeaturesHeadPage() {
             viewport={{ once: true }}
             transition={{ duration: 0.8, ease: "easeOut" }}
           >
-            <p className="max-w-prose text-lg leading-relaxed text-[#BDB7AB]">
+            <p className="max-w-prose text-lg leading-relaxed text-brand-accent font-light">
               List the Mountain — beauty spots and natural features.
             </p>
           </motion.div>
           <motion.div
-            className="relative order-1 aspect-[4/3] w-full overflow-hidden rounded-sm md:order-2"
+            className="relative order-1 aspect-[4/3] w-full md:order-2"
             initial={{ opacity: 0, x: 40 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, ease: "easeOut" }}
           >
-            <Image
-              src={CONTENT.images[1]}
-              alt="List the Mountain"
-              fill
-              className="object-cover"
-              sizes="(max-width: 768px) 100vw, 45vw"
-            />
+            <div className="absolute inset-0 rounded-sm border-2 border-brand-accent bg-brand-background p-3 md:p-5">
+              <div className="relative h-full w-full overflow-hidden rounded-sm">
+                <Image
+                  src={CONTENT.images[1]}
+                  alt="List the Mountain"
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 768px) 100vw, 45vw"
+                />
+              </div>
+            </div>
           </motion.div>
         </div>
       </section>

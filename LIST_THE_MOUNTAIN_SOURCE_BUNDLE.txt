@@ -1,0 +1,2946 @@
+==============================================
+LIST THE MOUNTAIN - FULL SOURCE BUNDLE
+==============================================
+
+========== FILE: next.config.ts ==========
+import type { NextConfig } from "next";
+
+const nextConfig: NextConfig = {
+  reactCompiler: true,
+  images: {
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "images.unsplash.com",
+        pathname: "/**",
+      },
+      {
+        protocol: "https",
+        hostname: "images.squarespace-cdn.com",
+        pathname: "/**",
+      },
+    ],
+  },
+};
+
+export default nextConfig;
+
+========== END next.config.ts ==========
+
+========== FILE: tailwind.config.ts ==========
+import type { Config } from "tailwindcss";
+
+const config: Config = {
+  content: [
+    "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
+    "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
+    "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
+  ],
+  theme: {
+    extend: {
+      colors: {
+        "brand-background": "#120E1A",
+        "brand-accent": "#D94A38",
+        "brand-parchment": "#F4F1EA",
+      },
+    },
+  },
+  plugins: [],
+};
+
+export default config;
+
+========== END tailwind.config.ts ==========
+
+========== FILE: package.json ==========
+{
+  "name": "listthemountain-rebuild",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "eslint"
+  },
+  "dependencies": {
+    "@studio-freight/lenis": "^1.0.42",
+    "axios": "^1.13.5",
+    "cheerio": "^1.2.0",
+    "framer-motion": "^12.33.0",
+    "next": "16.1.6",
+    "react": "19.2.3",
+    "react-dom": "19.2.3"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4",
+    "@types/node": "^20",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "babel-plugin-react-compiler": "1.0.0",
+    "eslint": "^9",
+    "eslint-config-next": "16.1.6",
+    "tailwindcss": "^4",
+    "typescript": "^5"
+  }
+}
+
+========== END package.json ==========
+
+========== FILE: postcss.config.mjs ==========
+const config = {
+  plugins: {
+    "@tailwindcss/postcss": {},
+  },
+};
+
+export default config;
+
+========== END postcss.config.mjs ==========
+
+========== FILE: tsconfig.json ==========
+{
+  "compilerOptions": {
+    "target": "ES2017",
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "allowJs": true,
+    "skipLibCheck": true,
+    "strict": true,
+    "noEmit": true,
+    "esModuleInterop": true,
+    "module": "esnext",
+    "moduleResolution": "bundler",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "jsx": "react-jsx",
+    "incremental": true,
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ],
+    "paths": {
+      "@/*": ["./src/*"]
+    }
+  },
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    ".next/types/**/*.ts",
+    ".next/dev/types/**/*.ts",
+    "**/*.mts"
+  ],
+  "exclude": ["node_modules"]
+}
+
+========== END tsconfig.json ==========
+
+========== FILE: eslint.config.mjs ==========
+import { defineConfig, globalIgnores } from "eslint/config";
+import nextVitals from "eslint-config-next/core-web-vitals";
+import nextTs from "eslint-config-next/typescript";
+
+const eslintConfig = defineConfig([
+  ...nextVitals,
+  ...nextTs,
+  // Override default ignores of eslint-config-next.
+  globalIgnores([
+    // Default ignores of eslint-config-next:
+    ".next/**",
+    "out/**",
+    "build/**",
+    "next-env.d.ts",
+  ]),
+]);
+
+export default eslintConfig;
+
+========== END eslint.config.mjs ==========
+
+========== FILE: .gitignore ==========
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+
+# dependencies
+/node_modules
+/.pnp
+.pnp.*
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/versions
+
+# testing
+/coverage
+
+# next.js
+/.next/
+/out/
+
+# production
+/build
+
+# misc
+.DS_Store
+*.pem
+
+# debug
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+
+# env files (can opt-in for committing if needed)
+.env*
+
+# vercel
+.vercel
+
+# typescript
+*.tsbuildinfo
+next-env.d.ts
+
+========== END .gitignore ==========
+
+========== FILE: src/app/globals.css ==========
+@import "tailwindcss";
+
+:root {
+  --background: #120E1A;
+  --foreground: #F4F1EA;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-brand-background: #120E1A;
+  --color-brand-accent: #D94A38;
+  --color-brand-parchment: #F4F1EA;
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-geist-mono);
+}
+
+html {
+  cursor: none;
+}
+
+@media (pointer: fine) {
+  html {
+    cursor: none;
+  }
+}
+
+body {
+  @apply bg-brand-background text-brand-parchment;
+}
+
+a {
+  @apply transition-colors duration-200 ease-in-out;
+}
+
+a:hover {
+  @apply text-brand-accent;
+}
+
+========== END src/app/globals.css ==========
+
+========== FILE: src/app/layout.tsx ==========
+import type { Metadata } from "next";
+import { Inter } from "next/font/google";
+import "./globals.css";
+import SmoothScroll from "@/components/SmoothScroll";
+import CustomCursor from "@/components/CustomCursor";
+
+const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
+
+export const metadata: Metadata = {
+  title: "List the Mountain",
+  description: "The Unspoiled Grandeur of the Mountain",
+};
+
+export default function RootLayout({
+  children,
+}: Readonly<{
+  children: React.ReactNode;
+}>) {
+  return (
+    <html lang="en" className={inter.variable}>
+      <body className={`${inter.className} antialiased`}>
+        <CustomCursor />
+        <SmoothScroll>{children}</SmoothScroll>
+      </body>
+    </html>
+  );
+}
+
+========== END src/app/layout.tsx ==========
+
+========== FILE: src/app/page.tsx ==========
+import Link from "next/link";
+
+export default function Home() {
+  return (
+    <div className="flex min-h-screen flex-col items-center justify-center bg-brand-background px-6">
+      <main className="flex max-w-2xl flex-col items-center gap-10 text-center">
+        <h1 className="text-4xl font-bold tracking-tight text-brand-parchment md:text-5xl">
+          List the Mountain
+        </h1>
+        <p className="text-lg text-brand-parchment/80">
+          Discover the unspoiled grandeur of the mountain.
+        </p>
+        <Link
+          href="/natural-features"
+          className="rounded-full border border-brand-parchment bg-transparent px-8 py-3 text-brand-parchment transition-colors hover:bg-brand-parchment hover:text-brand-background"
+        >
+          Explore natural features
+        </Link>
+      </main>
+    </div>
+  );
+}
+
+========== END src/app/page.tsx ==========
+
+========== FILE: src/app/natural-features/page.tsx ==========
+"use client";
+
+import Image from "next/image";
+import { motion } from "framer-motion";
+
+const MAIN_HEADING = "The Unspoiled Grandeur of the Mountain";
+const BODY_1 =
+  "Our mountain is a testament to the raw, untamed beauty of the natural world. From the highest, wind-swept peaks to the serene, hidden valleys, every element tells a story of geological time and ecological resilience. We believe that connecting with these natural features is essential for understanding our own place in the world and the importance of stewardship.";
+const SUB_1 = "Majestic Peaks and Rugged Ridges";
+const BODY_2 =
+  "The skyline is dominated by a series of majestic peaks, each with its own unique character. These rocky sentinels are the result of millions of years of tectonic uplift and glacial carving. The ridges that connect them offer challenging traverses and breathtaking panoramic views, reminding us of the rewards that come from persevering through difficulty.";
+const SUB_2 = "Pristine Alpine Lakes";
+const BODY_3 =
+  "Nestled in the high-altitude basins are pristine alpine lakes, their waters a brilliant turquoise fed by glacial melt. These tranquil oases provide a stark contrast to the ruggedness of the surrounding rock. They serve as a place for quiet reflection, a symbol of purity, and a vital source of life for the mountain's ecosystem.";
+
+const HEADER_IMG = "https://images.unsplash.com/photo-1589834390031-1829311317d7";
+const CONTENT_IMG = "https://images.unsplash.com/photo-1507501739272-54d97375a359";
+
+export default function NaturalFeaturesPage() {
+  return (
+    <main>
+      {/* Hero */}
+      <section className="relative h-screen w-full overflow-hidden">
+        <Image
+          src={HEADER_IMG}
+          alt="Mountain grandeur"
+          fill
+          className="object-cover -z-10"
+          priority
+          sizes="100vw"
+        />
+        <div className="absolute inset-0 flex items-center justify-center px-6">
+          <motion.h1
+            className="text-center text-4xl font-bold text-brand-parchment drop-shadow-lg md:text-5xl lg:text-6xl xl:text-7xl"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+          >
+            {MAIN_HEADING}
+          </motion.h1>
+        </div>
+      </section>
+
+      {/* Intro paragraph */}
+      <section className="px-6 py-24 md:py-32">
+        <motion.div
+          className="mx-auto max-w-2xl text-center text-brand-parchment"
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+        >
+          <p className="text-lg leading-relaxed">{BODY_1}</p>
+        </motion.div>
+      </section>
+
+      {/* Peaks — content left */}
+      <section className="px-6 py-20 md:py-28">
+        <div className="mx-auto max-w-6xl">
+          <motion.div
+            className="max-w-xl"
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+          >
+            <h2 className="mb-6 text-2xl font-semibold text-brand-parchment md:text-3xl">
+              {SUB_1}
+            </h2>
+            <p className="leading-relaxed text-brand-parchment/90">{BODY_2}</p>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Lakes — image right, text left */}
+      <section className="px-6 py-20 md:py-28">
+        <div className="mx-auto flex max-w-6xl flex-col gap-12 md:flex-row md:items-center md:gap-16">
+          <motion.div
+            className="max-w-xl flex-1"
+            initial={{ opacity: 0, x: -50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+          >
+            <h2 className="mb-6 text-2xl font-semibold text-brand-parchment md:text-3xl">
+              {SUB_2}
+            </h2>
+            <p className="leading-relaxed text-brand-parchment/90">{BODY_3}</p>
+          </motion.div>
+          <motion.div
+            className="relative aspect-[4/3] w-full flex-[1.2] overflow-hidden rounded-lg md:max-w-[55%] md:flex-none"
+            initial={{ opacity: 0, x: 50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+          >
+            <Image
+              src={CONTENT_IMG}
+              alt="Alpine lakes"
+              fill
+              className="object-cover"
+              sizes="(max-width: 768px) 100vw, 55vw"
+            />
+          </motion.div>
+        </div>
+      </section>
+    </main>
+  );
+}
+
+========== END src/app/natural-features/page.tsx ==========
+
+========== FILE: src/app/natural-features-head/page.tsx ==========
+"use client";
+
+import Image from "next/image";
+import { motion } from "framer-motion";
+
+const CONTENT = {
+  headings: [
+    "BEAUTY SPOTS",
+    "ABOUT US · CONTACT US · SEARCH · MEDIA",
+  ],
+  images: [
+    "https://images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/2af1aced-55f2-4fa2-90e8-55de2a0bf0ad/Small+new+logo.png",
+    "https://images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/2af1aced-55f2-4fa2-90e8-55de2a0bf0ad/Small+new+logo.png",
+  ],
+} as const;
+
+const container = {
+  hidden: { opacity: 0 },
+  visible: (i = 1) => ({
+    opacity: 1,
+    transition: { staggerChildren: 0.12, delayChildren: 0.3 },
+  }),
+};
+
+const word = {
+  hidden: { opacity: 0, y: 24 },
+  visible: { opacity: 1, y: 0 },
+};
+
+const defaultSectionAnimation = {
+  initial: { opacity: 0, y: 40 },
+  whileInView: { opacity: 1, y: 0 },
+  viewport: { once: true },
+  transition: { duration: 0.8, ease: "easeOut" as const },
+};
+
+export default function NaturalFeaturesHeadPage() {
+  if (!CONTENT?.headings?.length || !CONTENT?.images?.length) {
+    return (
+      <main className="flex min-h-screen items-center justify-center bg-brand-background">
+        <p className="text-brand-parchment">Content not found.</p>
+      </main>
+    );
+  }
+  const heroWords = CONTENT.headings[0].split(" ");
+
+  return (
+    <main className="bg-brand-background">
+      {/* Hero: full-screen, first image background, staggered heading */}
+      <section className="relative min-h-screen w-full overflow-hidden">
+        <Image
+          src={CONTENT.images[0]}
+          alt=""
+          fill
+          className="object-cover -z-20"
+          priority
+          sizes="100vw"
+        />
+        <div
+          className="absolute inset-0 -z-10 bg-brand-background/60"
+          aria-hidden
+        />
+        <div className="absolute inset-0 flex items-center justify-center px-6">
+          <motion.h1
+            className="flex flex-wrap justify-center gap-x-3 gap-y-1 text-center text-4xl font-bold tracking-wider text-brand-parchment drop-shadow-lg md:text-5xl lg:text-6xl xl:text-7xl"
+            variants={container}
+            initial="hidden"
+            animate="visible"
+          >
+            {heroWords.map((w, i) => (
+              <motion.span
+                key={i}
+                variants={word}
+                transition={{ duration: 0.5, ease: "easeOut" }}
+                className="inline-block"
+              >
+                {w}
+              </motion.span>
+            ))}
+          </motion.h1>
+        </div>
+      </section>
+
+      {/* Introductory content: no paragraphs in scraped data — breathing room only */}
+      <section className="py-24 md:py-32" aria-hidden />
+
+      {/* Layout A: Image left (~45%), text right (~55%) */}
+      <section className="px-6 py-20 md:py-28 lg:px-12">
+        <div className="mx-auto grid max-w-6xl grid-cols-1 items-center gap-16 md:grid-cols-[0.45fr_0.55fr]">
+          <motion.div
+            className="relative aspect-square w-full overflow-hidden rounded-sm md:aspect-[4/3]"
+            initial={{ opacity: 0, x: -40 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+          >
+            <Image
+              src={CONTENT.images[0]}
+              alt="List the Mountain"
+              fill
+              className="object-cover"
+              sizes="(max-width: 768px) 100vw, 45vw"
+            />
+          </motion.div>
+          <motion.div
+            className="flex flex-col justify-center"
+            {...defaultSectionAnimation}
+          >
+            <p className="max-w-prose text-lg leading-relaxed text-brand-parchment/90">
+              {CONTENT.headings[1]}
+            </p>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Layout B: Text left, image right */}
+      <section className="px-6 py-20 md:py-28 lg:px-12">
+        <div className="mx-auto grid max-w-6xl grid-cols-1 items-center gap-16 md:grid-cols-[0.55fr_0.45fr]">
+          <motion.div
+            className="order-2 flex flex-col justify-center md:order-1"
+            initial={{ opacity: 0, x: -40 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+          >
+            <p className="max-w-prose text-lg leading-relaxed text-brand-accent">
+              List the Mountain — beauty spots and natural features.
+            </p>
+          </motion.div>
+          <motion.div
+            className="relative order-1 aspect-[4/3] w-full overflow-hidden rounded-sm md:order-2"
+            initial={{ opacity: 0, x: 40 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+          >
+            <Image
+              src={CONTENT.images[1]}
+              alt="List the Mountain"
+              fill
+              className="object-cover"
+              sizes="(max-width: 768px) 100vw, 45vw"
+            />
+          </motion.div>
+        </div>
+      </section>
+    </main>
+  );
+}
+
+========== END src/app/natural-features-head/page.tsx ==========
+
+========== FILE: src/app/pure-springs-head/page.tsx ==========
+"use client";
+
+import Image from "next/image";
+import { motion } from "framer-motion";
+
+const CONTENT = {
+  headings: [
+    "pure WATER",
+    "Waterfalls",
+    "Pure Drinking Water",
+    "HERITAGE SIGNIFICANCE",
+  ],
+  paragraphs: [
+    "The palawa have many words for different states of water and the mountain's lower waterfalls would have been well-known  and visited on hot days. They also, potentially, became refuges in calamitous bushfires. \"The rivers and the valleys, the landscapes and the river systems: they are all part of our stories,\" says Sharnie Read, the TAC Aboriginal Heritage Officer.",
+    "Adventurous early Hobartians could wade up Hobart Rivulet almost to the foot of the Organ Pipes, passing several waterfalls, but the first period of mountain waterfall appreciation commenced in the 1840s with the public adoration of Wellington Falls—\"The Falls\" on the mountain. A second gush of appreciation came in the 1880s, Another burst in the 1930s with waterfall postcards proliferating, some hand-tinted, out of the developing tanks of John Beattie's photographic studio.  This appreciation encouraged the building of tracks to the best known / closest falls.",
+    "Yet after a century, the Hodgman map of 1936 marks only four: O'Grady's, Featherstone Cascades, New Town and Gentle Annie. Today, the mountain's water lovers extoll more than a dozen easily approached tumbling vistas, several with scenic admiration bridges.",
+    "The drinking water catchments within Wellington Park provide 20% of greater Hobart's drinking water.",
+    "Waterfalls cultural value is aesthetic and social. Waterfalls were one of the key attractors for track-making, hut-building and mountain visiting. Wellington Park Management Trust has given several of these waterfalls heritage code recognition (i.e. a HH number.) Several Wellington Park falls appear on top-10 lists of Tasmanian waterfalls.",
+  ],
+  images: [
+    "https://images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/2af1aced-55f2-4fa2-90e8-55de2a0bf0ad/Small+new+logo.png",
+    "https://images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/2af1aced-55f2-4fa2-90e8-55de2a0bf0ad/Small+new+logo.png",
+    "https://images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/5f563722-dffd-4315-9628-33b510876361/Screen%2BShot%2B2020-11-08%2Bat%2B9.07.27%2Bpm.png",
+  ],
+} as const;
+
+const container = {
+  hidden: { opacity: 0 },
+  visible: () => ({
+    opacity: 1,
+    transition: { staggerChildren: 0.1, delayChildren: 0.25 },
+  }),
+};
+
+const word = {
+  hidden: { opacity: 0, y: 24 },
+  visible: { opacity: 1, y: 0 },
+};
+
+const sectionAnimation = {
+  viewport: { once: true },
+  transition: { duration: 0.8, ease: "easeOut" as const },
+};
+
+export default function PureSpringsHeadPage() {
+  if (!CONTENT?.headings?.length || !CONTENT?.images?.length) {
+    return (
+      <main className="flex min-h-screen items-center justify-center bg-brand-background">
+        <p className="text-brand-parchment">Content not found.</p>
+      </main>
+    );
+  }
+  const heroWords = CONTENT.headings[0].split(" ");
+
+  return (
+    <main className="bg-brand-background">
+      {/* Hero */}
+      <section className="relative min-h-screen w-full overflow-hidden">
+        <Image
+          src={CONTENT.images[0]}
+          alt=""
+          fill
+          className="object-cover -z-20"
+          priority
+          sizes="100vw"
+        />
+        <div className="absolute inset-0 -z-10 bg-brand-background/65" aria-hidden />
+        <div className="absolute inset-0 flex items-center justify-center px-6">
+          <motion.h1
+            className="flex flex-wrap justify-center gap-x-3 gap-y-1 text-center text-4xl font-bold tracking-wider text-brand-parchment drop-shadow-lg md:text-5xl lg:text-6xl xl:text-7xl"
+            variants={container}
+            initial="hidden"
+            animate="visible"
+          >
+            {heroWords.map((w, i) => (
+              <motion.span
+                key={i}
+                variants={word}
+                transition={{ duration: 0.5, ease: "easeOut" }}
+                className="inline-block"
+              >
+                {w}
+              </motion.span>
+            ))}
+          </motion.h1>
+        </div>
+      </section>
+
+      {/* Intro: first paragraph */}
+      <section className="px-6 py-24 md:py-32">
+        <motion.div
+          className="mx-auto max-w-prose text-center"
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          {...sectionAnimation}
+        >
+          <p className="text-lg leading-relaxed text-brand-parchment">
+            {CONTENT.paragraphs[0]}
+          </p>
+        </motion.div>
+      </section>
+
+      {/* Layout A: Image left, text right — Waterfalls */}
+      <section className="px-6 py-20 md:py-28 lg:px-12">
+        <div className="mx-auto grid max-w-6xl grid-cols-1 items-center gap-16 md:grid-cols-[0.45fr_0.55fr]">
+          <motion.div
+            className="relative aspect-[4/3] w-full overflow-hidden rounded-sm"
+            initial={{ opacity: 0, x: -40 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            {...sectionAnimation}
+          >
+            <Image
+              src={CONTENT.images[1]}
+              alt="Water features"
+              fill
+              className="object-cover"
+              sizes="(max-width: 768px) 100vw, 45vw"
+            />
+          </motion.div>
+          <motion.div
+            className="flex flex-col justify-center"
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            {...sectionAnimation}
+          >
+            <h2 className="mb-6 text-2xl font-semibold tracking-wide text-brand-parchment md:text-3xl">
+              {CONTENT.headings[1]}
+            </h2>
+            <p className="max-w-prose text-lg leading-relaxed text-brand-parchment/90">
+              {CONTENT.paragraphs[1]}
+            </p>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Layout B: Text left, image right — Pure Drinking Water */}
+      <section className="px-6 py-20 md:py-28 lg:px-12">
+        <div className="mx-auto grid max-w-6xl grid-cols-1 items-center gap-16 md:grid-cols-[0.55fr_0.45fr]">
+          <motion.div
+            className="order-2 flex flex-col justify-center md:order-1"
+            initial={{ opacity: 0, x: -40 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            {...sectionAnimation}
+          >
+            <h2 className="mb-6 text-2xl font-semibold tracking-wide text-brand-parchment md:text-3xl">
+              {CONTENT.headings[2]}
+            </h2>
+            <p className="max-w-prose text-lg leading-relaxed text-brand-parchment/90">
+              {CONTENT.paragraphs[2]}
+            </p>
+            <p className="mt-6 max-w-prose text-lg leading-relaxed text-brand-parchment/90">
+              {CONTENT.paragraphs[3]}
+            </p>
+          </motion.div>
+          <motion.div
+            className="relative order-1 aspect-[4/3] w-full overflow-hidden rounded-sm md:order-2"
+            initial={{ opacity: 0, x: 40 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            {...sectionAnimation}
+          >
+            <Image
+              src={CONTENT.images[2]}
+              alt="Wellington Park water"
+              fill
+              className="object-cover"
+              sizes="(max-width: 768px) 100vw, 45vw"
+            />
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Full-width: HERITAGE SIGNIFICANCE */}
+      <section className="px-6 py-20 md:py-28">
+        <motion.div
+          className="mx-auto max-w-screen-lg text-center"
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          {...sectionAnimation}
+        >
+          <h2 className="mb-8 text-2xl font-semibold tracking-wide text-brand-accent md:text-3xl">
+            {CONTENT.headings[3]}
+          </h2>
+          <p className="mx-auto max-w-prose text-lg leading-relaxed text-brand-parchment/90">
+            {CONTENT.paragraphs[4]}
+          </p>
+        </motion.div>
+      </section>
+    </main>
+  );
+}
+
+========== END src/app/pure-springs-head/page.tsx ==========
+
+========== FILE: src/app/ceremonial-grounds-head/page.tsx ==========
+"use client";
+
+import Image from "next/image";
+import { motion } from "framer-motion";
+
+const CONTENT = {
+  headings: [
+    "ceremonial GROUNDS",
+    "ABOUT US · CONTACT US · SEARCH · MEDIA",
+  ],
+  images: [
+    "https://images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/2af1aced-55f2-4fa2-90e8-55de2a0bf0ad/Small+new+logo.png",
+    "https://images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/2af1aced-55f2-4fa2-90e8-55de2a0bf0ad/Small+new+logo.png",
+  ],
+} as const;
+
+const container = {
+  hidden: { opacity: 0 },
+  visible: () => ({
+    opacity: 1,
+    transition: { staggerChildren: 0.12, delayChildren: 0.3 },
+  }),
+};
+
+const word = {
+  hidden: { opacity: 0, y: 24 },
+  visible: { opacity: 1, y: 0 },
+};
+
+const sectionAnimation = {
+  viewport: { once: true },
+  transition: { duration: 0.8, ease: "easeOut" as const },
+};
+
+export default function CeremonialGroundsHeadPage() {
+  if (!CONTENT?.headings?.length || !CONTENT?.images?.length) {
+    return (
+      <main className="flex min-h-screen items-center justify-center bg-brand-background">
+        <p className="text-brand-parchment">Content not found.</p>
+      </main>
+    );
+  }
+  const heroWords = CONTENT.headings[0].split(" ");
+
+  return (
+    <main className="bg-brand-background">
+      {/* Hero */}
+      <section className="relative min-h-screen w-full overflow-hidden">
+        <Image
+          src={CONTENT.images[0]}
+          alt=""
+          fill
+          className="object-cover -z-20"
+          priority
+          sizes="100vw"
+        />
+        <div className="absolute inset-0 -z-10 bg-brand-background/60" aria-hidden />
+        <div className="absolute inset-0 flex items-center justify-center px-6">
+          <motion.h1
+            className="flex flex-wrap justify-center gap-x-3 gap-y-1 text-center text-4xl font-bold tracking-wider text-brand-parchment drop-shadow-lg md:text-5xl lg:text-6xl xl:text-7xl"
+            variants={container}
+            initial="hidden"
+            animate="visible"
+          >
+            {heroWords.map((w, i) => (
+              <motion.span
+                key={i}
+                variants={word}
+                transition={{ duration: 0.5, ease: "easeOut" }}
+                className="inline-block"
+              >
+                {w}
+              </motion.span>
+            ))}
+          </motion.h1>
+        </div>
+      </section>
+
+      <section className="py-24 md:py-32" aria-hidden />
+
+      {/* Layout A: Image left, text right */}
+      <section className="px-6 py-20 md:py-28 lg:px-12">
+        <div className="mx-auto grid max-w-6xl grid-cols-1 items-center gap-16 md:grid-cols-[0.45fr_0.55fr]">
+          <motion.div
+            className="relative aspect-[4/3] w-full overflow-hidden rounded-sm"
+            initial={{ opacity: 0, x: -40 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            {...sectionAnimation}
+          >
+            <Image
+              src={CONTENT.images[0]}
+              alt="List the Mountain"
+              fill
+              className="object-cover"
+              sizes="(max-width: 768px) 100vw, 45vw"
+            />
+          </motion.div>
+          <motion.div
+            className="flex flex-col justify-center"
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            {...sectionAnimation}
+          >
+            <p className="max-w-prose text-lg leading-relaxed text-brand-parchment/90">
+              {CONTENT.headings[1]}
+            </p>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Layout B: Text left, image right */}
+      <section className="px-6 py-20 md:py-28 lg:px-12">
+        <div className="mx-auto grid max-w-6xl grid-cols-1 items-center gap-16 md:grid-cols-[0.55fr_0.45fr]">
+          <motion.div
+            className="order-2 flex flex-col justify-center md:order-1"
+            initial={{ opacity: 0, x: -40 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            {...sectionAnimation}
+          >
+            <p className="max-w-prose text-lg leading-relaxed text-brand-accent">
+              List the Mountain — ceremonial grounds and place.
+            </p>
+          </motion.div>
+          <motion.div
+            className="relative order-1 aspect-[4/3] w-full overflow-hidden rounded-sm md:order-2"
+            initial={{ opacity: 0, x: 40 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            {...sectionAnimation}
+          >
+            <Image
+              src={CONTENT.images[1]}
+              alt="List the Mountain"
+              fill
+              className="object-cover"
+              sizes="(max-width: 768px) 100vw, 45vw"
+            />
+          </motion.div>
+        </div>
+      </section>
+    </main>
+  );
+}
+
+========== END src/app/ceremonial-grounds-head/page.tsx ==========
+
+========== FILE: src/app/political-flashpoints-head/page.tsx ==========
+"use client";
+
+import Image from "next/image";
+import { motion } from "framer-motion";
+
+const CONTENT = {
+  headings: [
+    "Moi mengan mabeli/",
+    "POLITICal landscapes",
+    "ABOUT US · CONTACT US · SEARCH · MEDIA",
+  ],
+  images: [
+    "https://images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/2af1aced-55f2-4fa2-90e8-55de2a0bf0ad/Small+new+logo.png",
+    "https://images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/2af1aced-55f2-4fa2-90e8-55de2a0bf0ad/Small+new+logo.png",
+  ],
+} as const;
+
+const container = {
+  hidden: { opacity: 0 },
+  visible: () => ({
+    opacity: 1,
+    transition: { staggerChildren: 0.12, delayChildren: 0.3 },
+  }),
+};
+
+const word = {
+  hidden: { opacity: 0, y: 24 },
+  visible: { opacity: 1, y: 0 },
+};
+
+const sectionAnimation = {
+  viewport: { once: true },
+  transition: { duration: 0.8, ease: "easeOut" as const },
+};
+
+export default function PoliticalFlashpointsHeadPage() {
+  if (!CONTENT?.headings?.length || !CONTENT?.images?.length) {
+    return (
+      <main className="flex min-h-screen items-center justify-center bg-brand-background">
+        <p className="text-brand-parchment">Content not found.</p>
+      </main>
+    );
+  }
+  const heroTitle = CONTENT.headings[0];
+  const heroWords = heroTitle.split(" ").filter(Boolean);
+
+  return (
+    <main className="bg-brand-background">
+      {/* Hero */}
+      <section className="relative min-h-screen w-full overflow-hidden">
+        <Image
+          src={CONTENT.images[0]}
+          alt=""
+          fill
+          className="object-cover -z-20"
+          priority
+          sizes="100vw"
+        />
+        <div className="absolute inset-0 -z-10 bg-brand-background/60" aria-hidden />
+        <div className="absolute inset-0 flex items-center justify-center px-6">
+          <motion.h1
+            className="flex flex-wrap justify-center gap-x-3 gap-y-1 text-center text-4xl font-bold tracking-wider text-brand-parchment drop-shadow-lg md:text-5xl lg:text-6xl xl:text-7xl"
+            variants={container}
+            initial="hidden"
+            animate="visible"
+          >
+            {heroWords.length > 0 ? (
+              heroWords.map((w, i) => (
+                <motion.span
+                  key={i}
+                  variants={word}
+                  transition={{ duration: 0.5, ease: "easeOut" }}
+                  className="inline-block"
+                >
+                  {w}
+                </motion.span>
+              ))
+            ) : (
+              <motion.span
+                variants={word}
+                transition={{ duration: 0.5, ease: "easeOut" }}
+                className="inline-block"
+              >
+                {heroTitle}
+              </motion.span>
+            )}
+          </motion.h1>
+        </div>
+      </section>
+
+      <section className="py-24 md:py-32" aria-hidden />
+
+      {/* Layout A: Image left, text right */}
+      <section className="px-6 py-20 md:py-28 lg:px-12">
+        <div className="mx-auto grid max-w-6xl grid-cols-1 items-center gap-16 md:grid-cols-[0.45fr_0.55fr]">
+          <motion.div
+            className="relative aspect-[4/3] w-full overflow-hidden rounded-sm"
+            initial={{ opacity: 0, x: -40 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            {...sectionAnimation}
+          >
+            <Image
+              src={CONTENT.images[0]}
+              alt="List the Mountain"
+              fill
+              className="object-cover"
+              sizes="(max-width: 768px) 100vw, 45vw"
+            />
+          </motion.div>
+          <motion.div
+            className="flex flex-col justify-center"
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            {...sectionAnimation}
+          >
+            <h2 className="mb-6 text-2xl font-semibold tracking-wide text-brand-parchment md:text-3xl">
+              {CONTENT.headings[1]}
+            </h2>
+            <p className="max-w-prose text-lg leading-relaxed text-brand-parchment/90">
+              {CONTENT.headings[2]}
+            </p>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Layout B: Text left, image right */}
+      <section className="px-6 py-20 md:py-28 lg:px-12">
+        <div className="mx-auto grid max-w-6xl grid-cols-1 items-center gap-16 md:grid-cols-[0.55fr_0.45fr]">
+          <motion.div
+            className="order-2 flex flex-col justify-center md:order-1"
+            initial={{ opacity: 0, x: -40 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            {...sectionAnimation}
+          >
+            <p className="max-w-prose text-lg leading-relaxed text-brand-accent">
+              List the Mountain — political flashpoints and landscape.
+            </p>
+          </motion.div>
+          <motion.div
+            className="relative order-1 aspect-[4/3] w-full overflow-hidden rounded-sm md:order-2"
+            initial={{ opacity: 0, x: 40 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            {...sectionAnimation}
+          >
+            <Image
+              src={CONTENT.images[1]}
+              alt="List the Mountain"
+              fill
+              className="object-cover"
+              sizes="(max-width: 768px) 100vw, 45vw"
+            />
+          </motion.div>
+        </div>
+      </section>
+    </main>
+  );
+}
+
+========== END src/app/political-flashpoints-head/page.tsx ==========
+
+========== FILE: src/app/mind-fields-head/page.tsx ==========
+"use client";
+
+import Image from "next/image";
+import { motion } from "framer-motion";
+
+const CONTENT = {
+  headings: [
+    "landscapes of the Mind",
+    "ABOUT US · CONTACT US · SEARCH · MEDIA",
+  ],
+  images: [
+    "https://images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/2af1aced-55f2-4fa2-90e8-55de2a0bf0ad/Small+new+logo.png",
+    "https://images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/2af1aced-55f2-4fa2-90e8-55de2a0bf0ad/Small+new+logo.png",
+  ],
+} as const;
+
+const container = {
+  hidden: { opacity: 0 },
+  visible: () => ({
+    opacity: 1,
+    transition: { staggerChildren: 0.12, delayChildren: 0.3 },
+  }),
+};
+
+const word = {
+  hidden: { opacity: 0, y: 24 },
+  visible: { opacity: 1, y: 0 },
+};
+
+const sectionAnimation = {
+  viewport: { once: true },
+  transition: { duration: 0.8, ease: "easeOut" as const },
+};
+
+export default function MindFieldsHeadPage() {
+  if (!CONTENT?.headings?.length || !CONTENT?.images?.length) {
+    return (
+      <main className="flex min-h-screen items-center justify-center bg-brand-background">
+        <p className="text-brand-parchment">Content not found.</p>
+      </main>
+    );
+  }
+  const heroWords = CONTENT.headings[0].split(" ");
+
+  return (
+    <main className="bg-brand-background">
+      {/* Hero */}
+      <section className="relative min-h-screen w-full overflow-hidden">
+        <Image
+          src={CONTENT.images[0]}
+          alt=""
+          fill
+          className="object-cover -z-20"
+          priority
+          sizes="100vw"
+        />
+        <div className="absolute inset-0 -z-10 bg-brand-background/60" aria-hidden />
+        <div className="absolute inset-0 flex items-center justify-center px-6">
+          <motion.h1
+            className="flex flex-wrap justify-center gap-x-3 gap-y-1 text-center text-4xl font-bold tracking-wider text-brand-parchment drop-shadow-lg md:text-5xl lg:text-6xl xl:text-7xl"
+            variants={container}
+            initial="hidden"
+            animate="visible"
+          >
+            {heroWords.map((w, i) => (
+              <motion.span
+                key={i}
+                variants={word}
+                transition={{ duration: 0.5, ease: "easeOut" }}
+                className="inline-block"
+              >
+                {w}
+              </motion.span>
+            ))}
+          </motion.h1>
+        </div>
+      </section>
+
+      <section className="py-24 md:py-32" aria-hidden />
+
+      {/* Layout A: Image left, text right */}
+      <section className="px-6 py-20 md:py-28 lg:px-12">
+        <div className="mx-auto grid max-w-6xl grid-cols-1 items-center gap-16 md:grid-cols-[0.45fr_0.55fr]">
+          <motion.div
+            className="relative aspect-[4/3] w-full overflow-hidden rounded-sm"
+            initial={{ opacity: 0, x: -40 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            {...sectionAnimation}
+          >
+            <Image
+              src={CONTENT.images[0]}
+              alt="List the Mountain"
+              fill
+              className="object-cover"
+              sizes="(max-width: 768px) 100vw, 45vw"
+            />
+          </motion.div>
+          <motion.div
+            className="flex flex-col justify-center"
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            {...sectionAnimation}
+          >
+            <p className="max-w-prose text-lg leading-relaxed text-brand-parchment/90">
+              {CONTENT.headings[1]}
+            </p>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Layout B: Text left, image right */}
+      <section className="px-6 py-20 md:py-28 lg:px-12">
+        <div className="mx-auto grid max-w-6xl grid-cols-1 items-center gap-16 md:grid-cols-[0.55fr_0.45fr]">
+          <motion.div
+            className="order-2 flex flex-col justify-center md:order-1"
+            initial={{ opacity: 0, x: -40 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            {...sectionAnimation}
+          >
+            <p className="max-w-prose text-lg leading-relaxed text-brand-accent">
+              List the Mountain — landscapes of the mind.
+            </p>
+          </motion.div>
+          <motion.div
+            className="relative order-1 aspect-[4/3] w-full overflow-hidden rounded-sm md:order-2"
+            initial={{ opacity: 0, x: 40 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            {...sectionAnimation}
+          >
+            <Image
+              src={CONTENT.images[1]}
+              alt="List the Mountain"
+              fill
+              className="object-cover"
+              sizes="(max-width: 768px) 100vw, 45vw"
+            />
+          </motion.div>
+        </div>
+      </section>
+    </main>
+  );
+}
+
+========== END src/app/mind-fields-head/page.tsx ==========
+
+========== FILE: src/app/landscapes/page.tsx ==========
+"use client";
+
+import Image from "next/image";
+import { motion } from "framer-motion";
+
+const CONTENT = {
+  headings: [
+    "mountain art",
+    "ABOUT US · CONTACT US · SEARCH · MEDIA",
+  ],
+  images: [
+    "https://images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/2af1aced-55f2-4fa2-90e8-55de2a0bf0ad/Small+new+logo.png",
+    "https://images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/2af1aced-55f2-4fa2-90e8-55de2a0bf0ad/Small+new+logo.png",
+  ],
+} as const;
+
+const container = {
+  hidden: { opacity: 0 },
+  visible: () => ({
+    opacity: 1,
+    transition: { staggerChildren: 0.12, delayChildren: 0.3 },
+  }),
+};
+
+const word = {
+  hidden: { opacity: 0, y: 24 },
+  visible: { opacity: 1, y: 0 },
+};
+
+const sectionAnimation = {
+  viewport: { once: true },
+  transition: { duration: 0.8, ease: "easeOut" as const },
+};
+
+export default function LandscapesPage() {
+  if (!CONTENT?.headings?.length || !CONTENT?.images?.length) {
+    return (
+      <main className="flex min-h-screen items-center justify-center bg-brand-background">
+        <p className="text-brand-parchment">Content not found.</p>
+      </main>
+    );
+  }
+  const heroWords = CONTENT.headings[0].split(" ");
+
+  return (
+    <main className="bg-brand-background">
+      {/* Hero */}
+      <section className="relative min-h-screen w-full overflow-hidden">
+        <Image
+          src={CONTENT.images[0]}
+          alt=""
+          fill
+          className="object-cover -z-20"
+          priority
+          sizes="100vw"
+        />
+        <div className="absolute inset-0 -z-10 bg-brand-background/60" aria-hidden />
+        <div className="absolute inset-0 flex items-center justify-center px-6">
+          <motion.h1
+            className="flex flex-wrap justify-center gap-x-3 gap-y-1 text-center text-4xl font-bold tracking-wider text-brand-parchment drop-shadow-lg md:text-5xl lg:text-6xl xl:text-7xl"
+            variants={container}
+            initial="hidden"
+            animate="visible"
+          >
+            {heroWords.map((w, i) => (
+              <motion.span
+                key={i}
+                variants={word}
+                transition={{ duration: 0.5, ease: "easeOut" }}
+                className="inline-block"
+              >
+                {w}
+              </motion.span>
+            ))}
+          </motion.h1>
+        </div>
+      </section>
+
+      <section className="py-24 md:py-32" aria-hidden />
+
+      {/* Layout A: Image left, text right */}
+      <section className="px-6 py-20 md:py-28 lg:px-12">
+        <div className="mx-auto grid max-w-6xl grid-cols-1 items-center gap-16 md:grid-cols-[0.45fr_0.55fr]">
+          <motion.div
+            className="relative aspect-[4/3] w-full overflow-hidden rounded-sm"
+            initial={{ opacity: 0, x: -40 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            {...sectionAnimation}
+          >
+            <Image
+              src={CONTENT.images[0]}
+              alt="List the Mountain"
+              fill
+              className="object-cover"
+              sizes="(max-width: 768px) 100vw, 45vw"
+            />
+          </motion.div>
+          <motion.div
+            className="flex flex-col justify-center"
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            {...sectionAnimation}
+          >
+            <p className="max-w-prose text-lg leading-relaxed text-brand-parchment/90">
+              {CONTENT.headings[1]}
+            </p>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Layout B: Text left, image right */}
+      <section className="px-6 py-20 md:py-28 lg:px-12">
+        <div className="mx-auto grid max-w-6xl grid-cols-1 items-center gap-16 md:grid-cols-[0.55fr_0.45fr]">
+          <motion.div
+            className="order-2 flex flex-col justify-center md:order-1"
+            initial={{ opacity: 0, x: -40 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            {...sectionAnimation}
+          >
+            <p className="max-w-prose text-lg leading-relaxed text-brand-accent">
+              List the Mountain — aesthetic landscapes and mountain art.
+            </p>
+          </motion.div>
+          <motion.div
+            className="relative order-1 aspect-[4/3] w-full overflow-hidden rounded-sm md:order-2"
+            initial={{ opacity: 0, x: 40 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            {...sectionAnimation}
+          >
+            <Image
+              src={CONTENT.images[1]}
+              alt="List the Mountain"
+              fill
+              className="object-cover"
+              sizes="(max-width: 768px) 100vw, 45vw"
+            />
+          </motion.div>
+        </div>
+      </section>
+    </main>
+  );
+}
+
+========== END src/app/landscapes/page.tsx ==========
+
+========== FILE: src/app/shelters-head/page.tsx ==========
+"use client";
+
+import Image from "next/image";
+import { motion } from "framer-motion";
+
+const CONTENT = {
+  headings: [
+    "SHELTER Sheds",
+    "ABOUT US · CONTACT US · SEARCH · MEDIA",
+  ],
+  images: [
+    "https://images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/2af1aced-55f2-4fa2-90e8-55de2a0bf0ad/Small+new+logo.png",
+    "https://images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/2af1aced-55f2-4fa2-90e8-55de2a0bf0ad/Small+new+logo.png",
+  ],
+} as const;
+
+const container = {
+  hidden: { opacity: 0 },
+  visible: () => ({
+    opacity: 1,
+    transition: { staggerChildren: 0.12, delayChildren: 0.3 },
+  }),
+};
+
+const word = {
+  hidden: { opacity: 0, y: 24 },
+  visible: { opacity: 1, y: 0 },
+};
+
+const sectionAnimation = {
+  viewport: { once: true },
+  transition: { duration: 0.8, ease: "easeOut" as const },
+};
+
+export default function SheltersHeadPage() {
+  if (!CONTENT?.headings?.length || !CONTENT?.images?.length) {
+    return (
+      <main className="flex min-h-screen items-center justify-center bg-brand-background">
+        <p className="text-brand-parchment">Content not found.</p>
+      </main>
+    );
+  }
+  const heroWords = CONTENT.headings[0].split(" ");
+
+  return (
+    <main className="bg-brand-background">
+      {/* Hero */}
+      <section className="relative min-h-screen w-full overflow-hidden">
+        <Image
+          src={CONTENT.images[0]}
+          alt=""
+          fill
+          className="object-cover -z-20"
+          priority
+          sizes="100vw"
+        />
+        <div className="absolute inset-0 -z-10 bg-brand-background/60" aria-hidden />
+        <div className="absolute inset-0 flex items-center justify-center px-6">
+          <motion.h1
+            className="flex flex-wrap justify-center gap-x-3 gap-y-1 text-center text-4xl font-bold tracking-wider text-brand-parchment drop-shadow-lg md:text-5xl lg:text-6xl xl:text-7xl"
+            variants={container}
+            initial="hidden"
+            animate="visible"
+          >
+            {heroWords.map((w, i) => (
+              <motion.span
+                key={i}
+                variants={word}
+                transition={{ duration: 0.5, ease: "easeOut" }}
+                className="inline-block"
+              >
+                {w}
+              </motion.span>
+            ))}
+          </motion.h1>
+        </div>
+      </section>
+
+      <section className="py-24 md:py-32" aria-hidden />
+
+      {/* Layout A: Image left, text right */}
+      <section className="px-6 py-20 md:py-28 lg:px-12">
+        <div className="mx-auto grid max-w-6xl grid-cols-1 items-center gap-16 md:grid-cols-[0.45fr_0.55fr]">
+          <motion.div
+            className="relative aspect-[4/3] w-full overflow-hidden rounded-sm"
+            initial={{ opacity: 0, x: -40 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            {...sectionAnimation}
+          >
+            <Image
+              src={CONTENT.images[0]}
+              alt="List the Mountain"
+              fill
+              className="object-cover"
+              sizes="(max-width: 768px) 100vw, 45vw"
+            />
+          </motion.div>
+          <motion.div
+            className="flex flex-col justify-center"
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            {...sectionAnimation}
+          >
+            <p className="max-w-prose text-lg leading-relaxed text-brand-parchment/90">
+              {CONTENT.headings[1]}
+            </p>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Layout B: Text left, image right */}
+      <section className="px-6 py-20 md:py-28 lg:px-12">
+        <div className="mx-auto grid max-w-6xl grid-cols-1 items-center gap-16 md:grid-cols-[0.55fr_0.45fr]">
+          <motion.div
+            className="order-2 flex flex-col justify-center md:order-1"
+            initial={{ opacity: 0, x: -40 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            {...sectionAnimation}
+          >
+            <p className="max-w-prose text-lg leading-relaxed text-brand-accent">
+              List the Mountain — shelter sheds on the mountain.
+            </p>
+          </motion.div>
+          <motion.div
+            className="relative order-1 aspect-[4/3] w-full overflow-hidden rounded-sm md:order-2"
+            initial={{ opacity: 0, x: 40 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            {...sectionAnimation}
+          >
+            <Image
+              src={CONTENT.images[1]}
+              alt="List the Mountain"
+              fill
+              className="object-cover"
+              sizes="(max-width: 768px) 100vw, 45vw"
+            />
+          </motion.div>
+        </div>
+      </section>
+    </main>
+  );
+}
+
+========== END src/app/shelters-head/page.tsx ==========
+
+========== FILE: src/app/mountain-huts-head/page.tsx ==========
+"use client";
+
+import Image from "next/image";
+import { motion } from "framer-motion";
+
+const CONTENT = {
+  headings: [
+    "Orragurra wurina/the huts",
+    "ABOUT US · CONTACT US · SEARCH · MEDIA",
+  ],
+  images: [
+    "https://images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/2af1aced-55f2-4fa2-90e8-55de2a0bf0ad/Small+new+logo.png",
+    "https://images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/2af1aced-55f2-4fa2-90e8-55de2a0bf0ad/Small+new+logo.png",
+  ],
+} as const;
+
+const container = {
+  hidden: { opacity: 0 },
+  visible: () => ({
+    opacity: 1,
+    transition: { staggerChildren: 0.12, delayChildren: 0.3 },
+  }),
+};
+
+const word = {
+  hidden: { opacity: 0, y: 24 },
+  visible: { opacity: 1, y: 0 },
+};
+
+const sectionAnimation = {
+  viewport: { once: true },
+  transition: { duration: 0.8, ease: "easeOut" as const },
+};
+
+export default function MountainHutsHeadPage() {
+  if (!CONTENT?.headings?.length || !CONTENT?.images?.length) {
+    return (
+      <main className="flex min-h-screen items-center justify-center bg-brand-background">
+        <p className="text-brand-parchment">Content not found.</p>
+      </main>
+    );
+  }
+  const heroWords = CONTENT.headings[0].split(" ").filter(Boolean);
+
+  return (
+    <main className="bg-brand-background">
+      {/* Hero */}
+      <section className="relative min-h-screen w-full overflow-hidden">
+        <Image
+          src={CONTENT.images[0]}
+          alt=""
+          fill
+          className="object-cover -z-20"
+          priority
+          sizes="100vw"
+        />
+        <div className="absolute inset-0 -z-10 bg-brand-background/60" aria-hidden />
+        <div className="absolute inset-0 flex items-center justify-center px-6">
+          <motion.h1
+            className="flex flex-wrap justify-center gap-x-3 gap-y-1 text-center text-4xl font-bold tracking-wider text-brand-parchment drop-shadow-lg md:text-5xl lg:text-6xl xl:text-7xl"
+            variants={container}
+            initial="hidden"
+            animate="visible"
+          >
+            {heroWords.map((w, i) => (
+              <motion.span
+                key={i}
+                variants={word}
+                transition={{ duration: 0.5, ease: "easeOut" }}
+                className="inline-block"
+              >
+                {w}
+              </motion.span>
+            ))}
+          </motion.h1>
+        </div>
+      </section>
+
+      <section className="py-24 md:py-32" aria-hidden />
+
+      {/* Layout A: Image left, text right */}
+      <section className="px-6 py-20 md:py-28 lg:px-12">
+        <div className="mx-auto grid max-w-6xl grid-cols-1 items-center gap-16 md:grid-cols-[0.45fr_0.55fr]">
+          <motion.div
+            className="relative aspect-[4/3] w-full overflow-hidden rounded-sm"
+            initial={{ opacity: 0, x: -40 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            {...sectionAnimation}
+          >
+            <Image
+              src={CONTENT.images[0]}
+              alt="List the Mountain"
+              fill
+              className="object-cover"
+              sizes="(max-width: 768px) 100vw, 45vw"
+            />
+          </motion.div>
+          <motion.div
+            className="flex flex-col justify-center"
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            {...sectionAnimation}
+          >
+            <p className="max-w-prose text-lg leading-relaxed text-brand-parchment/90">
+              {CONTENT.headings[1]}
+            </p>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Layout B: Text left, image right */}
+      <section className="px-6 py-20 md:py-28 lg:px-12">
+        <div className="mx-auto grid max-w-6xl grid-cols-1 items-center gap-16 md:grid-cols-[0.55fr_0.45fr]">
+          <motion.div
+            className="order-2 flex flex-col justify-center md:order-1"
+            initial={{ opacity: 0, x: -40 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            {...sectionAnimation}
+          >
+            <p className="max-w-prose text-lg leading-relaxed text-brand-accent">
+              List the Mountain — mountain huts and place.
+            </p>
+          </motion.div>
+          <motion.div
+            className="relative order-1 aspect-[4/3] w-full overflow-hidden rounded-sm md:order-2"
+            initial={{ opacity: 0, x: 40 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            {...sectionAnimation}
+          >
+            <Image
+              src={CONTENT.images[1]}
+              alt="List the Mountain"
+              fill
+              className="object-cover"
+              sizes="(max-width: 768px) 100vw, 45vw"
+            />
+          </motion.div>
+        </div>
+      </section>
+    </main>
+  );
+}
+
+========== END src/app/mountain-huts-head/page.tsx ==========
+
+========== FILE: src/app/walking-tracks/page.tsx ==========
+"use client";
+
+import Image from "next/image";
+import { motion } from "framer-motion";
+
+const CONTENT = {
+  headings: [
+    "Puggata/WALKing tracks",
+    "ABOUT US · CONTACT US · SEARCH · MEDIA",
+  ],
+  images: [
+    "https://images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/2af1aced-55f2-4fa2-90e8-55de2a0bf0ad/Small+new+logo.png",
+    "https://images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/2af1aced-55f2-4fa2-90e8-55de2a0bf0ad/Small+new+logo.png",
+  ],
+} as const;
+
+const container = {
+  hidden: { opacity: 0 },
+  visible: () => ({
+    opacity: 1,
+    transition: { staggerChildren: 0.12, delayChildren: 0.3 },
+  }),
+};
+
+const word = {
+  hidden: { opacity: 0, y: 24 },
+  visible: { opacity: 1, y: 0 },
+};
+
+const sectionAnimation = {
+  viewport: { once: true },
+  transition: { duration: 0.8, ease: "easeOut" as const },
+};
+
+export default function WalkingTracksPage() {
+  if (!CONTENT?.headings?.length || !CONTENT?.images?.length) {
+    return (
+      <main className="flex min-h-screen items-center justify-center bg-brand-background">
+        <p className="text-brand-parchment">Content not found.</p>
+      </main>
+    );
+  }
+  const heroWords = CONTENT.headings[0].split(" ").filter(Boolean);
+
+  return (
+    <main className="bg-brand-background">
+      {/* Hero */}
+      <section className="relative min-h-screen w-full overflow-hidden">
+        <Image
+          src={CONTENT.images[0]}
+          alt=""
+          fill
+          className="object-cover -z-20"
+          priority
+          sizes="100vw"
+        />
+        <div className="absolute inset-0 -z-10 bg-brand-background/60" aria-hidden />
+        <div className="absolute inset-0 flex items-center justify-center px-6">
+          <motion.h1
+            className="flex flex-wrap justify-center gap-x-3 gap-y-1 text-center text-4xl font-bold tracking-wider text-brand-parchment drop-shadow-lg md:text-5xl lg:text-6xl xl:text-7xl"
+            variants={container}
+            initial="hidden"
+            animate="visible"
+          >
+            {heroWords.map((w, i) => (
+              <motion.span
+                key={i}
+                variants={word}
+                transition={{ duration: 0.5, ease: "easeOut" }}
+                className="inline-block"
+              >
+                {w}
+              </motion.span>
+            ))}
+          </motion.h1>
+        </div>
+      </section>
+
+      <section className="py-24 md:py-32" aria-hidden />
+
+      {/* Layout A: Image left, text right */}
+      <section className="px-6 py-20 md:py-28 lg:px-12">
+        <div className="mx-auto grid max-w-6xl grid-cols-1 items-center gap-16 md:grid-cols-[0.45fr_0.55fr]">
+          <motion.div
+            className="relative aspect-[4/3] w-full overflow-hidden rounded-sm"
+            initial={{ opacity: 0, x: -40 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            {...sectionAnimation}
+          >
+            <Image
+              src={CONTENT.images[0]}
+              alt="List the Mountain"
+              fill
+              className="object-cover"
+              sizes="(max-width: 768px) 100vw, 45vw"
+            />
+          </motion.div>
+          <motion.div
+            className="flex flex-col justify-center"
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            {...sectionAnimation}
+          >
+            <p className="max-w-prose text-lg leading-relaxed text-brand-parchment/90">
+              {CONTENT.headings[1]}
+            </p>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Layout B: Text left, image right */}
+      <section className="px-6 py-20 md:py-28 lg:px-12">
+        <div className="mx-auto grid max-w-6xl grid-cols-1 items-center gap-16 md:grid-cols-[0.55fr_0.45fr]">
+          <motion.div
+            className="order-2 flex flex-col justify-center md:order-1"
+            initial={{ opacity: 0, x: -40 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            {...sectionAnimation}
+          >
+            <p className="max-w-prose text-lg leading-relaxed text-brand-accent">
+              List the Mountain — walking tracks and paths.
+            </p>
+          </motion.div>
+          <motion.div
+            className="relative order-1 aspect-[4/3] w-full overflow-hidden rounded-sm md:order-2"
+            initial={{ opacity: 0, x: 40 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            {...sectionAnimation}
+          >
+            <Image
+              src={CONTENT.images[1]}
+              alt="List the Mountain"
+              fill
+              className="object-cover"
+              sizes="(max-width: 768px) 100vw, 45vw"
+            />
+          </motion.div>
+        </div>
+      </section>
+    </main>
+  );
+}
+
+========== END src/app/walking-tracks/page.tsx ==========
+
+========== FILE: src/app/adventure-point/page.tsx ==========
+"use client";
+
+import Image from "next/image";
+import { motion } from "framer-motion";
+
+const CONTENT = {
+  headings: [
+    "Luggarrah/recreational pursuits",
+    "ABOUT US · CONTACT US · SEARCH · MEDIA",
+  ],
+  images: [
+    "https://images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/2af1aced-55f2-4fa2-90e8-55de2a0bf0ad/Small+new+logo.png",
+    "https://images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/2af1aced-55f2-4fa2-90e8-55de2a0bf0ad/Small+new+logo.png",
+  ],
+} as const;
+
+const container = {
+  hidden: { opacity: 0 },
+  visible: () => ({
+    opacity: 1,
+    transition: { staggerChildren: 0.12, delayChildren: 0.3 },
+  }),
+};
+
+const word = {
+  hidden: { opacity: 0, y: 24 },
+  visible: { opacity: 1, y: 0 },
+};
+
+const sectionAnimation = {
+  viewport: { once: true },
+  transition: { duration: 0.8, ease: "easeOut" as const },
+};
+
+export default function AdventurePointPage() {
+  if (!CONTENT?.headings?.length || !CONTENT?.images?.length) {
+    return (
+      <main className="flex min-h-screen items-center justify-center bg-brand-background">
+        <p className="text-brand-parchment">Content not found.</p>
+      </main>
+    );
+  }
+  const heroWords = CONTENT.headings[0].split(" ").filter(Boolean);
+
+  return (
+    <main className="bg-brand-background">
+      {/* Hero */}
+      <section className="relative min-h-screen w-full overflow-hidden">
+        <Image
+          src={CONTENT.images[0]}
+          alt=""
+          fill
+          className="object-cover -z-20"
+          priority
+          sizes="100vw"
+        />
+        <div className="absolute inset-0 -z-10 bg-brand-background/60" aria-hidden />
+        <div className="absolute inset-0 flex items-center justify-center px-6">
+          <motion.h1
+            className="flex flex-wrap justify-center gap-x-3 gap-y-1 text-center text-4xl font-bold tracking-wider text-brand-parchment drop-shadow-lg md:text-5xl lg:text-6xl xl:text-7xl"
+            variants={container}
+            initial="hidden"
+            animate="visible"
+          >
+            {heroWords.map((w, i) => (
+              <motion.span
+                key={i}
+                variants={word}
+                transition={{ duration: 0.5, ease: "easeOut" }}
+                className="inline-block"
+              >
+                {w}
+              </motion.span>
+            ))}
+          </motion.h1>
+        </div>
+      </section>
+
+      <section className="py-24 md:py-32" aria-hidden />
+
+      {/* Layout A: Image left, text right */}
+      <section className="px-6 py-20 md:py-28 lg:px-12">
+        <div className="mx-auto grid max-w-6xl grid-cols-1 items-center gap-16 md:grid-cols-[0.45fr_0.55fr]">
+          <motion.div
+            className="relative aspect-[4/3] w-full overflow-hidden rounded-sm"
+            initial={{ opacity: 0, x: -40 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            {...sectionAnimation}
+          >
+            <Image
+              src={CONTENT.images[0]}
+              alt="List the Mountain"
+              fill
+              className="object-cover"
+              sizes="(max-width: 768px) 100vw, 45vw"
+            />
+          </motion.div>
+          <motion.div
+            className="flex flex-col justify-center"
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            {...sectionAnimation}
+          >
+            <p className="max-w-prose text-lg leading-relaxed text-brand-parchment/90">
+              {CONTENT.headings[1]}
+            </p>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Layout B: Text left, image right */}
+      <section className="px-6 py-20 md:py-28 lg:px-12">
+        <div className="mx-auto grid max-w-6xl grid-cols-1 items-center gap-16 md:grid-cols-[0.55fr_0.45fr]">
+          <motion.div
+            className="order-2 flex flex-col justify-center md:order-1"
+            initial={{ opacity: 0, x: -40 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            {...sectionAnimation}
+          >
+            <p className="max-w-prose text-lg leading-relaxed text-brand-accent">
+              List the Mountain — recreational playgrounds and adventure.
+            </p>
+          </motion.div>
+          <motion.div
+            className="relative order-1 aspect-[4/3] w-full overflow-hidden rounded-sm md:order-2"
+            initial={{ opacity: 0, x: 40 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            {...sectionAnimation}
+          >
+            <Image
+              src={CONTENT.images[1]}
+              alt="List the Mountain"
+              fill
+              className="object-cover"
+              sizes="(max-width: 768px) 100vw, 45vw"
+            />
+          </motion.div>
+        </div>
+      </section>
+    </main>
+  );
+}
+
+========== END src/app/adventure-point/page.tsx ==========
+
+========== FILE: src/app/living-wonders-head/page.tsx ==========
+"use client";
+
+import Image from "next/image";
+import { motion } from "framer-motion";
+
+const CONTENT = {
+  headings: [
+    "LIVING WONDERS",
+    "ABOUT US · CONTACT US · SEARCH · MEDIA",
+  ],
+  images: [
+    "https://images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/2af1aced-55f2-4fa2-90e8-55de2a0bf0ad/Small+new+logo.png",
+    "https://images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/2af1aced-55f2-4fa2-90e8-55de2a0bf0ad/Small+new+logo.png",
+  ],
+} as const;
+
+const container = {
+  hidden: { opacity: 0 },
+  visible: () => ({
+    opacity: 1,
+    transition: { staggerChildren: 0.12, delayChildren: 0.3 },
+  }),
+};
+
+const word = {
+  hidden: { opacity: 0, y: 24 },
+  visible: { opacity: 1, y: 0 },
+};
+
+const sectionAnimation = {
+  viewport: { once: true },
+  transition: { duration: 0.8, ease: "easeOut" as const },
+};
+
+export default function LivingWondersHeadPage() {
+  if (!CONTENT?.headings?.length || !CONTENT?.images?.length) {
+    return (
+      <main className="flex min-h-screen items-center justify-center bg-brand-background">
+        <p className="text-brand-parchment">Content not found.</p>
+      </main>
+    );
+  }
+  const heroWords = CONTENT.headings[0].split(" ");
+
+  return (
+    <main className="bg-brand-background">
+      {/* Hero */}
+      <section className="relative min-h-screen w-full overflow-hidden">
+        <Image
+          src={CONTENT.images[0]}
+          alt=""
+          fill
+          className="object-cover -z-20"
+          priority
+          sizes="100vw"
+        />
+        <div className="absolute inset-0 -z-10 bg-brand-background/60" aria-hidden />
+        <div className="absolute inset-0 flex items-center justify-center px-6">
+          <motion.h1
+            className="flex flex-wrap justify-center gap-x-3 gap-y-1 text-center text-4xl font-bold tracking-wider text-brand-parchment drop-shadow-lg md:text-5xl lg:text-6xl xl:text-7xl"
+            variants={container}
+            initial="hidden"
+            animate="visible"
+          >
+            {heroWords.map((w, i) => (
+              <motion.span
+                key={i}
+                variants={word}
+                transition={{ duration: 0.5, ease: "easeOut" }}
+                className="inline-block"
+              >
+                {w}
+              </motion.span>
+            ))}
+          </motion.h1>
+        </div>
+      </section>
+
+      <section className="py-24 md:py-32" aria-hidden />
+
+      {/* Layout A: Image left, text right */}
+      <section className="px-6 py-20 md:py-28 lg:px-12">
+        <div className="mx-auto grid max-w-6xl grid-cols-1 items-center gap-16 md:grid-cols-[0.45fr_0.55fr]">
+          <motion.div
+            className="relative aspect-[4/3] w-full overflow-hidden rounded-sm"
+            initial={{ opacity: 0, x: -40 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            {...sectionAnimation}
+          >
+            <Image
+              src={CONTENT.images[0]}
+              alt="List the Mountain"
+              fill
+              className="object-cover"
+              sizes="(max-width: 768px) 100vw, 45vw"
+            />
+          </motion.div>
+          <motion.div
+            className="flex flex-col justify-center"
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            {...sectionAnimation}
+          >
+            <p className="max-w-prose text-lg leading-relaxed text-brand-parchment/90">
+              {CONTENT.headings[1]}
+            </p>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Layout B: Text left, image right */}
+      <section className="px-6 py-20 md:py-28 lg:px-12">
+        <div className="mx-auto grid max-w-6xl grid-cols-1 items-center gap-16 md:grid-cols-[0.55fr_0.45fr]">
+          <motion.div
+            className="order-2 flex flex-col justify-center md:order-1"
+            initial={{ opacity: 0, x: -40 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            {...sectionAnimation}
+          >
+            <p className="max-w-prose text-lg leading-relaxed text-brand-accent">
+              List the Mountain — living wonders of the mountain.
+            </p>
+          </motion.div>
+          <motion.div
+            className="relative order-1 aspect-[4/3] w-full overflow-hidden rounded-sm md:order-2"
+            initial={{ opacity: 0, x: 40 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            {...sectionAnimation}
+          >
+            <Image
+              src={CONTENT.images[1]}
+              alt="List the Mountain"
+              fill
+              className="object-cover"
+              sizes="(max-width: 768px) 100vw, 45vw"
+            />
+          </motion.div>
+        </div>
+      </section>
+    </main>
+  );
+}
+
+========== END src/app/living-wonders-head/page.tsx ==========
+
+========== FILE: src/app/science-head/page.tsx ==========
+"use client";
+
+import Image from "next/image";
+import { motion } from "framer-motion";
+
+const CONTENT = {
+  headings: [
+    "The scientific landscape",
+    "ABOUT US · CONTACT US · SEARCH · MEDIA",
+  ],
+  images: [
+    "https://images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/2af1aced-55f2-4fa2-90e8-55de2a0bf0ad/Small+new+logo.png",
+    "https://images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/2af1aced-55f2-4fa2-90e8-55de2a0bf0ad/Small+new+logo.png",
+  ],
+} as const;
+
+const container = {
+  hidden: { opacity: 0 },
+  visible: () => ({
+    opacity: 1,
+    transition: { staggerChildren: 0.12, delayChildren: 0.3 },
+  }),
+};
+
+const word = {
+  hidden: { opacity: 0, y: 24 },
+  visible: { opacity: 1, y: 0 },
+};
+
+const sectionAnimation = {
+  viewport: { once: true },
+  transition: { duration: 0.8, ease: "easeOut" as const },
+};
+
+export default function ScienceHeadPage() {
+  if (!CONTENT?.headings?.length || !CONTENT?.images?.length) {
+    return (
+      <main className="flex min-h-screen items-center justify-center bg-brand-background">
+        <p className="text-brand-parchment">Content not found.</p>
+      </main>
+    );
+  }
+  const heroWords = CONTENT.headings[0].split(" ");
+
+  return (
+    <main className="bg-brand-background">
+      {/* Hero */}
+      <section className="relative min-h-screen w-full overflow-hidden">
+        <Image
+          src={CONTENT.images[0]}
+          alt=""
+          fill
+          className="object-cover -z-20"
+          priority
+          sizes="100vw"
+        />
+        <div className="absolute inset-0 -z-10 bg-brand-background/60" aria-hidden />
+        <div className="absolute inset-0 flex items-center justify-center px-6">
+          <motion.h1
+            className="flex flex-wrap justify-center gap-x-3 gap-y-1 text-center text-4xl font-bold tracking-wider text-brand-parchment drop-shadow-lg md:text-5xl lg:text-6xl xl:text-7xl"
+            variants={container}
+            initial="hidden"
+            animate="visible"
+          >
+            {heroWords.map((w, i) => (
+              <motion.span
+                key={i}
+                variants={word}
+                transition={{ duration: 0.5, ease: "easeOut" }}
+                className="inline-block"
+              >
+                {w}
+              </motion.span>
+            ))}
+          </motion.h1>
+        </div>
+      </section>
+
+      <section className="py-24 md:py-32" aria-hidden />
+
+      {/* Layout A: Image left, text right */}
+      <section className="px-6 py-20 md:py-28 lg:px-12">
+        <div className="mx-auto grid max-w-6xl grid-cols-1 items-center gap-16 md:grid-cols-[0.45fr_0.55fr]">
+          <motion.div
+            className="relative aspect-[4/3] w-full overflow-hidden rounded-sm"
+            initial={{ opacity: 0, x: -40 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            {...sectionAnimation}
+          >
+            <Image
+              src={CONTENT.images[0]}
+              alt="List the Mountain"
+              fill
+              className="object-cover"
+              sizes="(max-width: 768px) 100vw, 45vw"
+            />
+          </motion.div>
+          <motion.div
+            className="flex flex-col justify-center"
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            {...sectionAnimation}
+          >
+            <p className="max-w-prose text-lg leading-relaxed text-brand-parchment/90">
+              {CONTENT.headings[1]}
+            </p>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Layout B: Text left, image right */}
+      <section className="px-6 py-20 md:py-28 lg:px-12">
+        <div className="mx-auto grid max-w-6xl grid-cols-1 items-center gap-16 md:grid-cols-[0.55fr_0.45fr]">
+          <motion.div
+            className="order-2 flex flex-col justify-center md:order-1"
+            initial={{ opacity: 0, x: -40 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            {...sectionAnimation}
+          >
+            <p className="max-w-prose text-lg leading-relaxed text-brand-accent">
+              List the Mountain — scientific stations and the mountain.
+            </p>
+          </motion.div>
+          <motion.div
+            className="relative order-1 aspect-[4/3] w-full overflow-hidden rounded-sm md:order-2"
+            initial={{ opacity: 0, x: 40 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            {...sectionAnimation}
+          >
+            <Image
+              src={CONTENT.images[1]}
+              alt="List the Mountain"
+              fill
+              className="object-cover"
+              sizes="(max-width: 768px) 100vw, 45vw"
+            />
+          </motion.div>
+        </div>
+      </section>
+    </main>
+  );
+}
+
+========== END src/app/science-head/page.tsx ==========
+
+========== FILE: src/app/work-sites/page.tsx ==========
+"use client";
+
+import Image from "next/image";
+import { motion } from "framer-motion";
+
+const CONTENT = {
+  headings: [
+    "a landscape for working",
+    "ABOUT US · CONTACT US · SEARCH · MEDIA",
+  ],
+  images: [
+    "https://images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/2af1aced-55f2-4fa2-90e8-55de2a0bf0ad/Small+new+logo.png",
+    "https://images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/2af1aced-55f2-4fa2-90e8-55de2a0bf0ad/Small+new+logo.png",
+  ],
+} as const;
+
+const container = {
+  hidden: { opacity: 0 },
+  visible: () => ({
+    opacity: 1,
+    transition: { staggerChildren: 0.12, delayChildren: 0.3 },
+  }),
+};
+
+const word = {
+  hidden: { opacity: 0, y: 24 },
+  visible: { opacity: 1, y: 0 },
+};
+
+const sectionAnimation = {
+  viewport: { once: true },
+  transition: { duration: 0.8, ease: "easeOut" as const },
+};
+
+export default function WorkSitesPage() {
+  if (!CONTENT?.headings?.length || !CONTENT?.images?.length) {
+    return (
+      <main className="flex min-h-screen items-center justify-center bg-brand-background">
+        <p className="text-brand-parchment">Content not found.</p>
+      </main>
+    );
+  }
+  const heroWords = CONTENT.headings[0].split(" ");
+
+  return (
+    <main className="bg-brand-background">
+      <section className="relative min-h-screen w-full overflow-hidden">
+        <Image
+          src={CONTENT.images[0]}
+          alt=""
+          fill
+          className="object-cover -z-20"
+          priority
+          sizes="100vw"
+        />
+        <div className="absolute inset-0 -z-10 bg-brand-background/60" aria-hidden />
+        <div className="absolute inset-0 flex items-center justify-center px-6">
+          <motion.h1
+            className="flex flex-wrap justify-center gap-x-3 gap-y-1 text-center text-4xl font-bold tracking-wider text-brand-parchment drop-shadow-lg md:text-5xl lg:text-6xl xl:text-7xl"
+            variants={container}
+            initial="hidden"
+            animate="visible"
+          >
+            {heroWords.map((w, i) => (
+              <motion.span
+                key={i}
+                variants={word}
+                transition={{ duration: 0.5, ease: "easeOut" }}
+                className="inline-block"
+              >
+                {w}
+              </motion.span>
+            ))}
+          </motion.h1>
+        </div>
+      </section>
+
+      <section className="py-24 md:py-32" aria-hidden />
+
+      <section className="px-6 py-20 md:py-28 lg:px-12">
+        <div className="mx-auto grid max-w-6xl grid-cols-1 items-center gap-16 md:grid-cols-[0.45fr_0.55fr]">
+          <motion.div
+            className="relative aspect-[4/3] w-full overflow-hidden rounded-sm"
+            initial={{ opacity: 0, x: -40 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            {...sectionAnimation}
+          >
+            <Image
+              src={CONTENT.images[0]}
+              alt="List the Mountain"
+              fill
+              className="object-cover"
+              sizes="(max-width: 768px) 100vw, 45vw"
+            />
+          </motion.div>
+          <motion.div
+            className="flex flex-col justify-center"
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            {...sectionAnimation}
+          >
+            <p className="max-w-prose text-lg leading-relaxed text-brand-parchment/90">
+              {CONTENT.headings[1]}
+            </p>
+          </motion.div>
+        </div>
+      </section>
+
+      <section className="px-6 py-20 md:py-28 lg:px-12">
+        <div className="mx-auto grid max-w-6xl grid-cols-1 items-center gap-16 md:grid-cols-[0.55fr_0.45fr]">
+          <motion.div
+            className="order-2 flex flex-col justify-center md:order-1"
+            initial={{ opacity: 0, x: -40 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            {...sectionAnimation}
+          >
+            <p className="max-w-prose text-lg leading-relaxed text-brand-accent">
+              List the Mountain — work sites and the mountain.
+            </p>
+          </motion.div>
+          <motion.div
+            className="relative order-1 aspect-[4/3] w-full overflow-hidden rounded-sm md:order-2"
+            initial={{ opacity: 0, x: 40 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            {...sectionAnimation}
+          >
+            <Image
+              src={CONTENT.images[1]}
+              alt="List the Mountain"
+              fill
+              className="object-cover"
+              sizes="(max-width: 768px) 100vw, 45vw"
+            />
+          </motion.div>
+        </div>
+      </section>
+    </main>
+  );
+}
+
+========== END src/app/work-sites/page.tsx ==========
+
+========== FILE: src/app/indigenous-head/page.tsx ==========
+"use client";
+
+import Image from "next/image";
+import { motion } from "framer-motion";
+
+const CONTENT = {
+  headings: [
+    "the indigenous landscape",
+    "ABOUT US · CONTACT US · SEARCH · MEDIA",
+  ],
+  images: [
+    "https://images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/2af1aced-55f2-4fa2-90e8-55de2a0bf0ad/Small+new+logo.png",
+    "https://images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/2af1aced-55f2-4fa2-90e8-55de2a0bf0ad/Small+new+logo.png",
+  ],
+} as const;
+
+const container = {
+  hidden: { opacity: 0 },
+  visible: () => ({
+    opacity: 1,
+    transition: { staggerChildren: 0.12, delayChildren: 0.3 },
+  }),
+};
+
+const word = {
+  hidden: { opacity: 0, y: 24 },
+  visible: { opacity: 1, y: 0 },
+};
+
+const sectionAnimation = {
+  viewport: { once: true },
+  transition: { duration: 0.8, ease: "easeOut" as const },
+};
+
+export default function IndigenousHeadPage() {
+  if (!CONTENT?.headings?.length || !CONTENT?.images?.length) {
+    return (
+      <main className="flex min-h-screen items-center justify-center bg-brand-background">
+        <p className="text-brand-parchment">Content not found.</p>
+      </main>
+    );
+  }
+  const heroWords = CONTENT.headings[0].split(" ");
+
+  return (
+    <main className="bg-brand-background">
+      <section className="relative min-h-screen w-full overflow-hidden">
+        <Image
+          src={CONTENT.images[0]}
+          alt=""
+          fill
+          className="object-cover -z-20"
+          priority
+          sizes="100vw"
+        />
+        <div className="absolute inset-0 -z-10 bg-brand-background/60" aria-hidden />
+        <div className="absolute inset-0 flex items-center justify-center px-6">
+          <motion.h1
+            className="flex flex-wrap justify-center gap-x-3 gap-y-1 text-center text-4xl font-bold tracking-wider text-brand-parchment drop-shadow-lg md:text-5xl lg:text-6xl xl:text-7xl"
+            variants={container}
+            initial="hidden"
+            animate="visible"
+          >
+            {heroWords.map((w, i) => (
+              <motion.span
+                key={i}
+                variants={word}
+                transition={{ duration: 0.5, ease: "easeOut" }}
+                className="inline-block"
+              >
+                {w}
+              </motion.span>
+            ))}
+          </motion.h1>
+        </div>
+      </section>
+
+      <section className="py-24 md:py-32" aria-hidden />
+
+      <section className="px-6 py-20 md:py-28 lg:px-12">
+        <div className="mx-auto grid max-w-6xl grid-cols-1 items-center gap-16 md:grid-cols-[0.45fr_0.55fr]">
+          <motion.div
+            className="relative aspect-[4/3] w-full overflow-hidden rounded-sm"
+            initial={{ opacity: 0, x: -40 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            {...sectionAnimation}
+          >
+            <Image
+              src={CONTENT.images[0]}
+              alt="List the Mountain"
+              fill
+              className="object-cover"
+              sizes="(max-width: 768px) 100vw, 45vw"
+            />
+          </motion.div>
+          <motion.div
+            className="flex flex-col justify-center"
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            {...sectionAnimation}
+          >
+            <p className="max-w-prose text-lg leading-relaxed text-brand-parchment/90">
+              {CONTENT.headings[1]}
+            </p>
+          </motion.div>
+        </div>
+      </section>
+
+      <section className="px-6 py-20 md:py-28 lg:px-12">
+        <div className="mx-auto grid max-w-6xl grid-cols-1 items-center gap-16 md:grid-cols-[0.55fr_0.45fr]">
+          <motion.div
+            className="order-2 flex flex-col justify-center md:order-1"
+            initial={{ opacity: 0, x: -40 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            {...sectionAnimation}
+          >
+            <p className="max-w-prose text-lg leading-relaxed text-brand-accent">
+              List the Mountain — the indigenous landscape.
+            </p>
+          </motion.div>
+          <motion.div
+            className="relative order-1 aspect-[4/3] w-full overflow-hidden rounded-sm md:order-2"
+            initial={{ opacity: 0, x: 40 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            {...sectionAnimation}
+          >
+            <Image
+              src={CONTENT.images[1]}
+              alt="List the Mountain"
+              fill
+              className="object-cover"
+              sizes="(max-width: 768px) 100vw, 45vw"
+            />
+          </motion.div>
+        </div>
+      </section>
+    </main>
+  );
+}
+
+========== END src/app/indigenous-head/page.tsx ==========
+
+========== FILE: src/app/tourist-destinations/page.tsx ==========
+"use client";
+
+import Image from "next/image";
+import { motion } from "framer-motion";
+
+const CONTENT = {
+  headings: [
+    "Tackamoona /",
+    "TOURISM HOT SPOTS",
+    "ABOUT US · CONTACT US · SEARCH · MEDIA",
+  ],
+  images: [
+    "https://images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/2af1aced-55f2-4fa2-90e8-55de2a0bf0ad/Small+new+logo.png",
+    "https://images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/2af1aced-55f2-4fa2-90e8-55de2a0bf0ad/Small+new+logo.png",
+  ],
+} as const;
+
+const container = {
+  hidden: { opacity: 0 },
+  visible: () => ({
+    opacity: 1,
+    transition: { staggerChildren: 0.12, delayChildren: 0.3 },
+  }),
+};
+
+const word = {
+  hidden: { opacity: 0, y: 24 },
+  visible: { opacity: 1, y: 0 },
+};
+
+const sectionAnimation = {
+  viewport: { once: true },
+  transition: { duration: 0.8, ease: "easeOut" as const },
+};
+
+export default function TouristDestinationsPage() {
+  if (!CONTENT?.headings?.length || !CONTENT?.images?.length) {
+    return (
+      <main className="flex min-h-screen items-center justify-center bg-brand-background">
+        <p className="text-brand-parchment">Content not found.</p>
+      </main>
+    );
+  }
+  const heroTitle = CONTENT.headings[0];
+  const heroWords = heroTitle.split(" ").filter(Boolean);
+
+  return (
+    <main className="bg-brand-background">
+      <section className="relative min-h-screen w-full overflow-hidden">
+        <Image
+          src={CONTENT.images[0]}
+          alt=""
+          fill
+          className="object-cover -z-20"
+          priority
+          sizes="100vw"
+        />
+        <div className="absolute inset-0 -z-10 bg-brand-background/60" aria-hidden />
+        <div className="absolute inset-0 flex items-center justify-center px-6">
+          <motion.h1
+            className="flex flex-wrap justify-center gap-x-3 gap-y-1 text-center text-4xl font-bold tracking-wider text-brand-parchment drop-shadow-lg md:text-5xl lg:text-6xl xl:text-7xl"
+            variants={container}
+            initial="hidden"
+            animate="visible"
+          >
+            {heroWords.length > 0 ? (
+              heroWords.map((w, i) => (
+                <motion.span
+                  key={i}
+                  variants={word}
+                  transition={{ duration: 0.5, ease: "easeOut" }}
+                  className="inline-block"
+                >
+                  {w}
+                </motion.span>
+              ))
+            ) : (
+              <motion.span
+                variants={word}
+                transition={{ duration: 0.5, ease: "easeOut" }}
+                className="inline-block"
+              >
+                {heroTitle}
+              </motion.span>
+            )}
+          </motion.h1>
+        </div>
+      </section>
+
+      <section className="py-24 md:py-32" aria-hidden />
+
+      <section className="px-6 py-20 md:py-28 lg:px-12">
+        <div className="mx-auto grid max-w-6xl grid-cols-1 items-center gap-16 md:grid-cols-[0.45fr_0.55fr]">
+          <motion.div
+            className="relative aspect-[4/3] w-full overflow-hidden rounded-sm"
+            initial={{ opacity: 0, x: -40 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            {...sectionAnimation}
+          >
+            <Image
+              src={CONTENT.images[0]}
+              alt="List the Mountain"
+              fill
+              className="object-cover"
+              sizes="(max-width: 768px) 100vw, 45vw"
+            />
+          </motion.div>
+          <motion.div
+            className="flex flex-col justify-center"
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            {...sectionAnimation}
+          >
+            <h2 className="mb-6 text-2xl font-semibold tracking-wide text-brand-parchment md:text-3xl">
+              {CONTENT.headings[1]}
+            </h2>
+            <p className="max-w-prose text-lg leading-relaxed text-brand-parchment/90">
+              {CONTENT.headings[2]}
+            </p>
+          </motion.div>
+        </div>
+      </section>
+
+      <section className="px-6 py-20 md:py-28 lg:px-12">
+        <div className="mx-auto grid max-w-6xl grid-cols-1 items-center gap-16 md:grid-cols-[0.55fr_0.45fr]">
+          <motion.div
+            className="order-2 flex flex-col justify-center md:order-1"
+            initial={{ opacity: 0, x: -40 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            {...sectionAnimation}
+          >
+            <p className="max-w-prose text-lg leading-relaxed text-brand-accent">
+              List the Mountain — tourist destinations and hot spots.
+            </p>
+          </motion.div>
+          <motion.div
+            className="relative order-1 aspect-[4/3] w-full overflow-hidden rounded-sm md:order-2"
+            initial={{ opacity: 0, x: 40 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            {...sectionAnimation}
+          >
+            <Image
+              src={CONTENT.images[1]}
+              alt="List the Mountain"
+              fill
+              className="object-cover"
+              sizes="(max-width: 768px) 100vw, 45vw"
+            />
+          </motion.div>
+        </div>
+      </section>
+    </main>
+  );
+}
+
+========== END src/app/tourist-destinations/page.tsx ==========
+
+========== FILE: src/app/new-page/page.tsx ==========
+"use client";
+
+import Image from "next/image";
+import { motion } from "framer-motion";
+
+const CONTENT = {
+  headings: [
+    "GEOHERITAGE",
+    "ABOUT US · CONTACT US · SEARCH · MEDIA",
+  ],
+  images: [
+    "https://images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/2af1aced-55f2-4fa2-90e8-55de2a0bf0ad/Small+new+logo.png",
+    "https://images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/2af1aced-55f2-4fa2-90e8-55de2a0bf0ad/Small+new+logo.png",
+  ],
+} as const;
+
+const container = {
+  hidden: { opacity: 0 },
+  visible: () => ({
+    opacity: 1,
+    transition: { staggerChildren: 0.12, delayChildren: 0.3 },
+  }),
+};
+
+const word = {
+  hidden: { opacity: 0, y: 24 },
+  visible: { opacity: 1, y: 0 },
+};
+
+const sectionAnimation = {
+  viewport: { once: true },
+  transition: { duration: 0.8, ease: "easeOut" as const },
+};
+
+export default function NewPage() {
+  if (!CONTENT?.headings?.length || !CONTENT?.images?.length) {
+    return (
+      <main className="flex min-h-screen items-center justify-center bg-brand-background">
+        <p className="text-brand-parchment">Content not found.</p>
+      </main>
+    );
+  }
+  const heroWords = CONTENT.headings[0].split(" ").filter(Boolean);
+
+  return (
+    <main className="bg-brand-background">
+      <section className="relative min-h-screen w-full overflow-hidden">
+        <Image
+          src={CONTENT.images[0]}
+          alt=""
+          fill
+          className="object-cover -z-20"
+          priority
+          sizes="100vw"
+        />
+        <div className="absolute inset-0 -z-10 bg-brand-background/60" aria-hidden />
+        <div className="absolute inset-0 flex items-center justify-center px-6">
+          <motion.h1
+            className="flex flex-wrap justify-center gap-x-3 gap-y-1 text-center text-4xl font-bold tracking-wider text-brand-parchment drop-shadow-lg md:text-5xl lg:text-6xl xl:text-7xl"
+            variants={container}
+            initial="hidden"
+            animate="visible"
+          >
+            {heroWords.length > 0 ? (
+              heroWords.map((w, i) => (
+                <motion.span
+                  key={i}
+                  variants={word}
+                  transition={{ duration: 0.5, ease: "easeOut" }}
+                  className="inline-block"
+                >
+                  {w}
+                </motion.span>
+              ))
+            ) : (
+              <motion.span
+                variants={word}
+                transition={{ duration: 0.5, ease: "easeOut" }}
+                className="inline-block"
+              >
+                {CONTENT.headings[0]}
+              </motion.span>
+            )}
+          </motion.h1>
+        </div>
+      </section>
+
+      <section className="py-24 md:py-32" aria-hidden />
+
+      <section className="px-6 py-20 md:py-28 lg:px-12">
+        <div className="mx-auto grid max-w-6xl grid-cols-1 items-center gap-16 md:grid-cols-[0.45fr_0.55fr]">
+          <motion.div
+            className="relative aspect-[4/3] w-full overflow-hidden rounded-sm"
+            initial={{ opacity: 0, x: -40 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            {...sectionAnimation}
+          >
+            <Image
+              src={CONTENT.images[0]}
+              alt="List the Mountain"
+              fill
+              className="object-cover"
+              sizes="(max-width: 768px) 100vw, 45vw"
+            />
+          </motion.div>
+          <motion.div
+            className="flex flex-col justify-center"
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            {...sectionAnimation}
+          >
+            <p className="max-w-prose text-lg leading-relaxed text-brand-parchment/90">
+              {CONTENT.headings[1]}
+            </p>
+          </motion.div>
+        </div>
+      </section>
+
+      <section className="px-6 py-20 md:py-28 lg:px-12">
+        <div className="mx-auto grid max-w-6xl grid-cols-1 items-center gap-16 md:grid-cols-[0.55fr_0.45fr]">
+          <motion.div
+            className="order-2 flex flex-col justify-center md:order-1"
+            initial={{ opacity: 0, x: -40 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            {...sectionAnimation}
+          >
+            <p className="max-w-prose text-lg leading-relaxed text-brand-accent">
+              List the Mountain — geoheritage.
+            </p>
+          </motion.div>
+          <motion.div
+            className="relative order-1 aspect-[4/3] w-full overflow-hidden rounded-sm md:order-2"
+            initial={{ opacity: 0, x: 40 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            {...sectionAnimation}
+          >
+            <Image
+              src={CONTENT.images[1]}
+              alt="List the Mountain"
+              fill
+              className="object-cover"
+              sizes="(max-width: 768px) 100vw, 45vw"
+            />
+          </motion.div>
+        </div>
+      </section>
+    </main>
+  );
+}
+
+========== END src/app/new-page/page.tsx ==========
+
+========== FILE: src/components/CustomCursor.tsx ==========
+"use client";
+
+import { useEffect, useState, useCallback } from "react";
+
+export default function CustomCursor() {
+  const [position, setPosition] = useState({ x: 0, y: 0 });
+  const [isHovering, setIsHovering] = useState(false);
+  const [mounted, setMounted] = useState(false);
+
+  const handleMouseMove = useCallback((e: MouseEvent) => {
+    setPosition({ x: e.clientX, y: e.clientY });
+  }, []);
+
+  useEffect(() => {
+    setMounted(true);
+    window.addEventListener("mousemove", handleMouseMove);
+
+    const handleMouseOver = (e: MouseEvent) => {
+      const target = e.target as HTMLElement;
+      if (target?.closest("a, button, [role='button']")) setIsHovering(true);
+    };
+    const handleMouseOut = (e: MouseEvent) => {
+      const target = e.target as HTMLElement;
+      const related = e.relatedTarget as HTMLElement;
+      if (
+        !related?.closest("a, button, [role='button']") &&
+        !target?.closest("a, button, [role='button']")
+      )
+        setIsHovering(false);
+    };
+    document.addEventListener("mouseover", handleMouseOver);
+    document.addEventListener("mouseout", handleMouseOut);
+
+    return () => {
+      window.removeEventListener("mousemove", handleMouseMove);
+      document.removeEventListener("mouseover", handleMouseOver);
+      document.removeEventListener("mouseout", handleMouseOut);
+    };
+  }, [handleMouseMove]);
+
+  if (!mounted) return null;
+
+  return (
+    <div
+      className="pointer-events-none fixed z-[9999]"
+      style={{
+        left: position.x,
+        top: position.y,
+        transform: "translate(-50%, -50%)",
+      }}
+    >
+      <div
+        className={`absolute left-1/2 top-1/2 rounded-full transition-all duration-200 ease-out ${isHovering ? "border border-brand-accent bg-transparent" : "bg-brand-parchment"}`}
+        style={{
+          width: isHovering ? 25 : 10,
+          height: isHovering ? 25 : 10,
+          transform: "translate(-50%, -50%)",
+        }}
+      />
+      {isHovering && (
+        <div
+          className="absolute left-1/2 top-1/2 bg-brand-accent transition-opacity duration-200 ease-out"
+          style={{
+            width: 15,
+            height: 1,
+            transform: "translate(-50%, -50%) rotate(-90deg)",
+          }}
+        />
+      )}
+    </div>
+  );
+}
+
+========== END src/components/CustomCursor.tsx ==========
+
+========== FILE: src/components/SmoothScroll.tsx ==========
+"use client";
+
+import { useEffect, useRef, ReactNode } from "react";
+import Lenis from "@studio-freight/lenis";
+
+export default function SmoothScroll({ children }: { children: ReactNode }) {
+  const lenisRef = useRef<Lenis | null>(null);
+
+  useEffect(() => {
+    const lenis = new Lenis({
+      duration: 1.2,
+      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+      orientation: "vertical",
+      smoothWheel: true,
+    });
+    lenisRef.current = lenis;
+
+    function raf(time: number) {
+      lenis.raf(time);
+      requestAnimationFrame(raf);
+    }
+    requestAnimationFrame(raf);
+
+    return () => {
+      lenis.destroy();
+      lenisRef.current = null;
+    };
+  }, []);
+
+  return <>{children}</>;
+}
+
+========== END src/components/SmoothScroll.tsx ==========
