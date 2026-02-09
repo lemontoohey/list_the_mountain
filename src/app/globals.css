@@ -12,6 +12,7 @@
   --color-brand-accent: #E64A2E;
   --color-brand-parchment: #F4F1EA;
   --font-sans: var(--font-montserrat), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-josefin), ui-sans-serif, system-ui, sans-serif;
   --font-mono: var(--font-geist-mono);
 }
 

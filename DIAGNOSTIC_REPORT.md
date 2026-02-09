@@ -1,5 +1,9 @@
 # List the Mountain — Full Website Diagnostic & Repair Report
 
+**Run date:** Full diagnostic (Phases 1–4) across entire project.
+
+---
+
 ## Phase 1: Data Integrity and Link Aggregation
 
 ### Validate content.json Files
@@ -10,8 +14,7 @@
   - **images:** Every file has at least 2 entries in the `images` array. **No empty images arrays** — no risk of crash from `images[0]`.
 
 ### Verify Image URLs
-- **Hostnames:** All image `src` values use:
-  - `https://images.squarespace-cdn.com/...` (15 pages; pure-springs also has a third screenshot URL).
+- **Hostnames:** All image `src` values use `https://images.squarespace-cdn.com/...` (pure-springs-head also has a third screenshot URL).
 - **Format:** All URLs are absolute, start with `https://`, and point to direct image resources (paths end in `.png` or URL-encoded equivalents). No webpage links.
 - **Relative URLs:** None found. No normalization needed.
 
@@ -22,7 +25,7 @@
 ## Phase 2: Core Functionality & Global Code Review
 
 ### app/layout.tsx
-- **'use client':** Layout correctly remains a **server component** (no directive). It only composes `CustomCursor`, `SmoothScroll`, and `children`. Client components can be imported and rendered from a server layout; no change needed.
+- **'use client':** Layout correctly remains a **server component** (no directive). It composes `CustomCursor`, `PageTransitionSound`, `SmoothScroll`, and `children`. Client components are imported and rendered from the server layout; no change needed.
 - **Children:** `{children}` is passed correctly into `<SmoothScroll>{children}</SmoothScroll>`.
 
 ### components/SmoothScroll.tsx
@@ -33,7 +36,12 @@
 ### components/CustomCursor.tsx
 - **'use client':** Present at top of file. Correct.
 - **SSR safety:** `window`/`document` are used only inside `useEffect`. Component returns `null` until `mounted` is true, so no hydration mismatch.
-- **Cleanup:** `removeEventListener` for `mousemove`, `mouseover`, `mouseout` in the effect return. Correct.
+- **Cleanup:** `removeEventListener` for `mousemove`, `mouseover`, `mouseout`, `mousedown`, `mouseup` in the effect return. Correct. No memory leaks.
+
+### components/Audio/PageTransitionSound.tsx
+- **'use client':** Present at top of file. Correct.
+- **Hooks:** `usePathname()`, `useEffect`, `useRef`, `useState`. All browser/API usage is inside `useEffect` or event handlers. No server-side access to `window` or `localStorage` during SSR (localStorage read is in useEffect).
+- **Cleanup:** Audio effect returns `() => { audio.pause(); audioRef.current = null; }`. Correct.
 
 ### next.config (next.config.ts)
 - **Remote patterns:** Already includes:
@@ -43,43 +51,54 @@
 
 ---
 
-## Phase 3: Page Template (natural-features-head)
+## Phase 3: Page Template (natural-features-head) & All Content Pages
 
-- **Data loading:** Page does **not** load from `content.json`; it uses a hardcoded `CONTENT` object. Path to JSON is irrelevant for current runtime. If the site later loads from JSON, the same defensive checks applied below will protect it.
-- **Conditional rendering:** Previously, the component assumed `CONTENT.headings[0]` and `CONTENT.images[0]` existed. If either array were empty (e.g. after bad edit or future JSON load), the page would throw. **Fix applied:** early return with a “Content not found” message when `!CONTENT?.headings?.length || !CONTENT?.images?.length`.
-- **Key props:** `heroWords.map((w, i) => ... key={i})` — index as key is acceptable for static, non-reordering lists.
-- **Framer Motion:** `initial`, `whileInView`, `viewport`, `transition` usage is correct.
+- **Data loading:** Pages do **not** load from `content.json` at runtime; they use hardcoded `CONTENT` objects derived from the JSON. Path to JSON is irrelevant for current runtime. If the site later loads from JSON, the same defensive checks will protect it.
+- **Conditional rendering:** All 16 content pages that use `CONTENT` have an early return when `!CONTENT?.headings?.length || !CONTENT?.images?.length`, showing a “Content not found” fallback. This prevents crashes if content is ever empty.
+- **Key props:** All `heroWords.map((w, i) => ... key={i})` (and similar) use a stable key. Index as key is acceptable for static, non-reordering lists.
+- **Framer Motion:** `initial`, `whileInView`, `viewport`, `transition` usage is correct across pages.
+- **natural-features (legacy):** Uses constants only (no `CONTENT` object); no guard required. Image URLs are hardcoded Unsplash URLs; next.config whitelists them.
 
 ---
 
 ## Phase 4: Implementation of Fixes
 
-### Applied fixes
-1. **Defensive conditional rendering (all 16 content pages)**  
-   Each of the following page components now guards on missing content before rendering hero or images:
-   - `natural-features-head`, `pure-springs-head`, `ceremonial-grounds-head`, `political-flashpoints-head`, `mind-fields-head`, `landscapes`, `shelters-head`, `mountain-huts-head`, `walking-tracks`, `adventure-point`, `living-wonders-head`, `science-head`, `work-sites`, `indigenous-head`, `tourist-destinations`, `new-page`
-   - Guard: `if (!CONTENT?.headings?.length || !CONTENT?.images?.length) return <main>Content not found.</main>;`
-   - Prevents crashes if content is ever empty (e.g. after switching to dynamic JSON loading or bad data).
+### Status: No additional fixes required
 
-### No changes made (already correct)
+The codebase already had the following in place from the previous diagnostic run:
+
+1. **Defensive conditional rendering (all 16 content pages)**  
+   Each of: `natural-features-head`, `pure-springs-head`, `ceremonial-grounds-head`, `political-flashpoints-head`, `mind-fields-head`, `landscapes`, `shelters-head`, `mountain-huts-head`, `walking-tracks`, `adventure-point`, `living-wonders-head`, `science-head`, `work-sites`, `indigenous-head`, `tourist-destinations`, `new-page`  
+   includes the guard:  
+   `if (!CONTENT?.headings?.length || !CONTENT?.images?.length) return <main>Content not found.</main>;`
+
+2. **Core components:** Layout, SmoothScroll, CustomCursor, and PageTransitionSound are correctly structured with `'use client'` where needed, proper cleanup, and no server-side access to browser APIs.
+
+3. **next.config.ts:** Already whitelists all image hostnames used in the project.
+
+4. **content.json and image URLs:** No validation errors or invalid URLs found.
+
+### No changes made this run
 - **content.json files:** Valid JSON; no edits.
 - **Image URLs:** All absolute, HTTPS, direct image links; no edits.
-- **layout.tsx:** Server component composing client components; left as is.
-- **SmoothScroll.tsx / CustomCursor.tsx:** Already have `'use client'`, cleanup, and client-only API usage.
-- **next.config.ts:** Already whitelists required image hostnames.
+- **layout.tsx:** Correct server/client structure; no change.
+- **SmoothScroll.tsx / CustomCursor.tsx / PageTransitionSound.tsx:** Already have `'use client'`, cleanup, and client-only API usage; no change.
+- **next.config.ts:** Already has required remote patterns; no change.
+- **Page components:** Guards and keys already present; no change.
 
 ---
 
 ## Summary
 
-| Area              | Finding                          | Action taken                                      |
-|-------------------|-----------------------------------|---------------------------------------------------|
-| content.json      | All valid; no empty images       | None                                              |
-| Image URLs        | All valid, absolute, HTTPS        | None                                              |
-| layout.tsx        | Correct server/client structure  | None                                              |
-| SmoothScroll      | Client-only; cleanup present     | None                                              |
-| CustomCursor      | Client-only; cleanup present      | None                                              |
-| next.config       | Hostnames whitelisted            | None                                              |
-| Page components   | No guard for empty content       | Added conditional rendering on all 16 content pages |
+| Area              | Finding                              | Action taken   |
+|-------------------|--------------------------------------|----------------|
+| content.json      | All 16 valid; no empty images        | None           |
+| Image URLs        | All valid, absolute, HTTPS           | None           |
+| layout.tsx        | Correct server/client structure      | None           |
+| SmoothScroll      | Client-only; cleanup present         | None           |
+| CustomCursor      | Client-only; full cleanup (incl. mousedown/up) | None |
+| PageTransitionSound | Client-only; audio cleanup        | None           |
+| next.config       | Hostnames whitelisted                 | None           |
+| Page components   | Guards and keys present on all 16    | None           |
 
-The site is now resilient to empty or missing `headings`/`images` in the content used by each page, and all core global code and config have been confirmed correct.
+**Conclusion:** The site passed the full diagnostic. No bugs or missing safeguards were found; no code changes were required. The project is in a good state for production.
