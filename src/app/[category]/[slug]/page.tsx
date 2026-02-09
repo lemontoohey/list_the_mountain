@@ -2,7 +2,8 @@ import { promises as fs } from "fs";
 import path from "path";
 import Image from "next/image";
 import Link from "next/link";
-import { notFound } from "next/navigation";
+import { notFound, redirect } from "next/navigation";
+import { findBestMatch } from "@/lib/content-utils";
 
 export const dynamic = "force-static";
 
@@ -45,10 +46,21 @@ export default async function ArticlePage({
   params: Promise<{ category: string; slug: string }>;
 }) {
   const { category, slug } = await params;
-  const data = await getArticleData(category, slug);
+  let data = await getArticleData(category, slug);
 
   if (!data) {
-    notFound();
+    const matchedSlug = await findBestMatch(category, slug.replace(/-/g, " "));
+    if (matchedSlug && matchedSlug !== slug) {
+      const matchedData = await getArticleData(category, matchedSlug);
+      if (matchedData) {
+        redirect(`/${category}/${matchedSlug}`);
+      }
+    }
+    data = {
+      title: slug.replace(/-/g, " "),
+      _placeholder: true,
+      images: [],
+    };
   }
 
   const heroImage =
