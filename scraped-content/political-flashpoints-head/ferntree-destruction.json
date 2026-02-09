@@ -9,16 +9,19 @@
   ],
   "images": [
     {
-      "src": "https://images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/69e83d15-81ff-4de7-b434-4c3e9e885bb8/Screen+Shot+2022-11-24+at+11.21.58+pm.png",
-      "alt": ""
+      "src": "//images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/2af1aced-55f2-4fa2-90e8-55de2a0bf0ad/Small+new+logo.png"
     },
     {
-      "src": "https://images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/1612235772535-T8IK3IKOPRHU9CKEBZC4/Fern-destruction-1878.png",
-      "alt": "Hobart Tribute 1878"
+      "src": "//images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/2af1aced-55f2-4fa2-90e8-55de2a0bf0ad/Small+new+logo.png"
     },
     {
-      "src": "https://images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/1617276950415-04A87LQYSGRMLY5NA7MX/Screen+Shot+2021-04-01+at+2.44.28+pm.png",
-      "alt": "Screen Shot 2021-04-01 at 2.44.28 pm.png"
+      "src": "https://images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/69e83d15-81ff-4de7-b434-4c3e9e885bb8/Screen+Shot+2022-11-24+at+11.21.58+pm.png"
+    },
+    {
+      "src": "https://images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/1612235772535-T8IK3IKOPRHU9CKEBZC4/Fern-destruction-1878.png"
+    },
+    {
+      "src": "https://images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/1617276950415-04A87LQYSGRMLY5NA7MX/Screen+Shot+2021-04-01+at+2.44.28+pm.png"
     }
   ]
 }

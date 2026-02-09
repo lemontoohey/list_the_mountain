@@ -6,24 +6,25 @@
   ],
   "images": [
     {
-      "src": "https://images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/1606103592107-YFFUIRZZL88WUP2A5OEU/sphinx-rock-1925.jpg",
-      "alt": "1925 photo by W. J. Little"
+      "src": "//images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/2af1aced-55f2-4fa2-90e8-55de2a0bf0ad/Small+new+logo.png"
     },
     {
-      "src": "https://images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/1606103838111-D1JABKJ04HEJ8EL892CC/sphinx-rock-December_02_1909.jpg",
-      "alt": "Weekly Courier, 1909"
+      "src": "//images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/2af1aced-55f2-4fa2-90e8-55de2a0bf0ad/Small+new+logo.png"
     },
     {
-      "src": "https://images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/1606103837218-TXKG75H4SZ1AL3HAY5MA/ape-rock.jpg",
-      "alt": "Photo by W. Fellowes"
+      "src": "https://images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/1606103592107-YFFUIRZZL88WUP2A5OEU/sphinx-rock-1925.jpg"
     },
     {
-      "src": "https://images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/1624672434034-FVLSDTAQZSVHWHU2B5TJ/_C234371_1.jpg",
-      "alt": "View from Sphinx Rock"
+      "src": "https://images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/1606103838111-D1JABKJ04HEJ8EL892CC/sphinx-rock-December_02_1909.jpg"
     },
     {
-      "src": "https://images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/1624672439934-6L4BY1X5TCNZAGKHVL6H/_C234373_sphinx.jpg",
-      "alt": "View from Sphinx Rock"
+      "src": "https://images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/1606103837218-TXKG75H4SZ1AL3HAY5MA/ape-rock.jpg"
+    },
+    {
+      "src": "https://images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/1624672434034-FVLSDTAQZSVHWHU2B5TJ/_C234371_1.jpg"
+    },
+    {
+      "src": "https://images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/1624672439934-6L4BY1X5TCNZAGKHVL6H/_C234373_sphinx.jpg"
     }
   ]
 }

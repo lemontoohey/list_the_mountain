@@ -8,12 +8,16 @@
   ],
   "images": [
     {
-      "src": "https://images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/1608254760176-JQ8PF9SGJS2QOC9KL92M/louisa-meredith.jpg",
-      "alt": "louisa-meredith.jpg"
+      "src": "//images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/2af1aced-55f2-4fa2-90e8-55de2a0bf0ad/Small+new+logo.png"
     },
     {
-      "src": "https://images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/1606652589645-1RTPUL7H26JW4R14XRRV/Jigsaws-meredith-quote.png",
-      "alt": "Jigsaws-meredith-quote.png"
+      "src": "//images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/2af1aced-55f2-4fa2-90e8-55de2a0bf0ad/Small+new+logo.png"
+    },
+    {
+      "src": "https://images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/1608254760176-JQ8PF9SGJS2QOC9KL92M/louisa-meredith.jpg"
+    },
+    {
+      "src": "https://images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/1606652589645-1RTPUL7H26JW4R14XRRV/Jigsaws-meredith-quote.png"
     }
   ]
 }

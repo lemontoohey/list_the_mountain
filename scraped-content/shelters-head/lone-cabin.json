@@ -10,12 +10,16 @@
   ],
   "images": [
     {
-      "src": "https://images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/1605762706459-291XC31QLPYTLYQJOMX5/lone-cabin.jpg",
-      "alt": "Original hut"
+      "src": "//images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/2af1aced-55f2-4fa2-90e8-55de2a0bf0ad/Small+new+logo.png"
     },
     {
-      "src": "https://images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/1605762675573-0YJOZRCK4ODOWRM170B5/DSCN0426LoneCabin.JPG",
-      "alt": "Rebult hut (post 1967)"
+      "src": "//images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/2af1aced-55f2-4fa2-90e8-55de2a0bf0ad/Small+new+logo.png"
+    },
+    {
+      "src": "https://images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/1605762706459-291XC31QLPYTLYQJOMX5/lone-cabin.jpg"
+    },
+    {
+      "src": "https://images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/1605762675573-0YJOZRCK4ODOWRM170B5/DSCN0426LoneCabin.JPG"
     }
   ]
 }

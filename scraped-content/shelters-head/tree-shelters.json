@@ -11,12 +11,16 @@
   ],
   "images": [
     {
-      "src": "https://images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/1602817020467-RN0Z1L4LRDWW90S6JDDJ/Tom-Pauls-Tree.jpg",
-      "alt": "Tom Paul's tree"
+      "src": "//images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/2af1aced-55f2-4fa2-90e8-55de2a0bf0ad/Small+new+logo.png"
     },
     {
-      "src": "https://images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/1602817159451-GO85YZOZXHEF2PTNE48C/waratah3.jpg",
-      "alt": "Waratah Hut"
+      "src": "//images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/2af1aced-55f2-4fa2-90e8-55de2a0bf0ad/Small+new+logo.png"
+    },
+    {
+      "src": "https://images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/1602817020467-RN0Z1L4LRDWW90S6JDDJ/Tom-Pauls-Tree.jpg"
+    },
+    {
+      "src": "https://images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/1602817159451-GO85YZOZXHEF2PTNE48C/waratah3.jpg"
     }
   ]
 }

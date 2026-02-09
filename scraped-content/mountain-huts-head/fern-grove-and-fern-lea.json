@@ -19,20 +19,22 @@
   ],
   "images": [
     {
-      "src": "https://images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/1601793190584-WFQ5XKR5NFQS3OLFTMKZ/fernlea-2.jpg",
-      "alt": "Fernlea hut"
+      "src": "//images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/2af1aced-55f2-4fa2-90e8-55de2a0bf0ad/Small+new+logo.png"
     },
     {
-      "src": "https://images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/1601793192875-E810S7PN9DQPQ3AUBJE7/fernlea.jpg",
-      "alt": "Fernlea hut"
+      "src": "//images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/2af1aced-55f2-4fa2-90e8-55de2a0bf0ad/Small+new+logo.png"
     },
     {
-      "src": "https://images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/1601793190045-JPNZ10F1MM8ZYIFQ23EL/ferngrove4.jpg",
-      "alt": "Fern Grove hut"
+      "src": "https://images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/1601793190584-WFQ5XKR5NFQS3OLFTMKZ/fernlea-2.jpg"
     },
     {
-      "src": "https://images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/1601793193140-J27RTBO96Z1XSROQW4GC/ferngrove3-2.jpg",
-      "alt": "Fern Grove Hut"
+      "src": "https://images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/1601793192875-E810S7PN9DQPQ3AUBJE7/fernlea.jpg"
+    },
+    {
+      "src": "https://images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/1601793190045-JPNZ10F1MM8ZYIFQ23EL/ferngrove4.jpg"
+    },
+    {
+      "src": "https://images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/1601793193140-J27RTBO96Z1XSROQW4GC/ferngrove3-2.jpg"
     }
   ]
 }

@@ -15,8 +15,13 @@
   ],
   "images": [
     {
-      "src": "https://images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/1619512840857-TRHAZJEDGH0Q0PJ123M7/BeattieSpringsGeneralview.jpg",
-      "alt": "The Springs, Mt. Wellington, General View John  Beattie 1890State Library of Victoria"
+      "src": "//images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/2af1aced-55f2-4fa2-90e8-55de2a0bf0ad/Small+new+logo.png"
+    },
+    {
+      "src": "//images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/2af1aced-55f2-4fa2-90e8-55de2a0bf0ad/Small+new+logo.png"
+    },
+    {
+      "src": "https://images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/1619512840857-TRHAZJEDGH0Q0PJ123M7/BeattieSpringsGeneralview.jpg"
     }
   ]
 }

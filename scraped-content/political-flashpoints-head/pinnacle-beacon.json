@@ -13,8 +13,13 @@
   ],
   "images": [
     {
-      "src": "https://images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/584ee195-4373-4992-bb72-91ab26b4444d/nla.news-page000001829547-nla.news-article30061849-L5-caf49d3fda4e28bc7f18e86f46cb7a1f-0001.jpg",
-      "alt": ""
+      "src": "//images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/2af1aced-55f2-4fa2-90e8-55de2a0bf0ad/Small+new+logo.png"
+    },
+    {
+      "src": "//images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/2af1aced-55f2-4fa2-90e8-55de2a0bf0ad/Small+new+logo.png"
+    },
+    {
+      "src": "https://images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/584ee195-4373-4992-bb72-91ab26b4444d/nla.news-page000001829547-nla.news-article30061849-L5-caf49d3fda4e28bc7f18e86f46cb7a1f-0001.jpg"
     }
   ]
 }

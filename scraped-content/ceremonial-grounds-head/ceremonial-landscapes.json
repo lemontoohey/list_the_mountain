@@ -30,12 +30,16 @@
   ],
   "images": [
     {
-      "src": "https://images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/936f9158-99d9-4399-bad1-d49c97fa2e31/Screen+Shot+2023-10-16+at+9.07.31+am.png",
-      "alt": ""
+      "src": "//images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/2af1aced-55f2-4fa2-90e8-55de2a0bf0ad/Small+new+logo.png"
     },
     {
-      "src": "https://images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/25dbe800-2cdd-4954-ad99-6a7576d90efe/Screen+Shot+2023-10-16+at+9.06.54+am+%281%29.png",
-      "alt": ""
+      "src": "//images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/2af1aced-55f2-4fa2-90e8-55de2a0bf0ad/Small+new+logo.png"
+    },
+    {
+      "src": "https://images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/936f9158-99d9-4399-bad1-d49c97fa2e31/Screen+Shot+2023-10-16+at+9.07.31+am.png"
+    },
+    {
+      "src": "https://images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/25dbe800-2cdd-4954-ad99-6a7576d90efe/Screen+Shot+2023-10-16+at+9.06.54+am+%281%29.png"
     }
   ]
 }

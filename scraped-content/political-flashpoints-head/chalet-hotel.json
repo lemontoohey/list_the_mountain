@@ -18,12 +18,16 @@
   ],
   "images": [
     {
-      "src": "https://images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/005a7173-8109-4414-8749-987517cc831e/Screen+Shot+2023-05-16+at+10.10.41+pm.png",
-      "alt": ""
+      "src": "//images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/2af1aced-55f2-4fa2-90e8-55de2a0bf0ad/Small+new+logo.png"
     },
     {
-      "src": "https://images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/e4d0eac6-f293-48ea-9e8e-db55bd2e9c88/Big+Bend+Chalet.jpg",
-      "alt": ""
+      "src": "//images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/2af1aced-55f2-4fa2-90e8-55de2a0bf0ad/Small+new+logo.png"
+    },
+    {
+      "src": "https://images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/005a7173-8109-4414-8749-987517cc831e/Screen+Shot+2023-05-16+at+10.10.41+pm.png"
+    },
+    {
+      "src": "https://images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/e4d0eac6-f293-48ea-9e8e-db55bd2e9c88/Big+Bend+Chalet.jpg"
     }
   ]
 }

@@ -14,12 +14,16 @@
   ],
   "images": [
     {
-      "src": "https://images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/1612349976381-PJ4RTCGA0AOORKTUCHNQ/alice2%2B-%2B1.jpg",
-      "alt": "alice2+-+1.jpg"
+      "src": "//images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/2af1aced-55f2-4fa2-90e8-55de2a0bf0ad/Small+new+logo.png"
     },
     {
-      "src": "https://images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/1612349984368-V6JZDH8Y3C4LEJCUPZ0U/alice%2B-%2B1.jpg",
-      "alt": "alice+-+1.jpg"
+      "src": "//images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/2af1aced-55f2-4fa2-90e8-55de2a0bf0ad/Small+new+logo.png"
+    },
+    {
+      "src": "https://images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/1612349976381-PJ4RTCGA0AOORKTUCHNQ/alice2%2B-%2B1.jpg"
+    },
+    {
+      "src": "https://images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/1612349984368-V6JZDH8Y3C4LEJCUPZ0U/alice%2B-%2B1.jpg"
     }
   ]
 }

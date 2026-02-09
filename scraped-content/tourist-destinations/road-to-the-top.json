@@ -20,12 +20,16 @@
   ],
   "images": [
     {
-      "src": "https://images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/1652529384157-VRDBVS5JOQ2I1TIUEDM4/Matchless-View-from-Mount-Wellington.jpg",
-      "alt": "Matchless-View-from-Mount-Wellington.jpg"
+      "src": "//images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/2af1aced-55f2-4fa2-90e8-55de2a0bf0ad/Small+new+logo.png"
     },
     {
-      "src": "https://images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/1652529391570-LEQFPU9TFU7X42BVDEOD/IMG_3170.jpg",
-      "alt": "IMG_3170.jpg"
+      "src": "//images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/2af1aced-55f2-4fa2-90e8-55de2a0bf0ad/Small+new+logo.png"
+    },
+    {
+      "src": "https://images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/1652529384157-VRDBVS5JOQ2I1TIUEDM4/Matchless-View-from-Mount-Wellington.jpg"
+    },
+    {
+      "src": "https://images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/1652529391570-LEQFPU9TFU7X42BVDEOD/IMG_3170.jpg"
     }
   ]
 }

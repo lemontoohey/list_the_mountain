@@ -4,6 +4,13 @@ import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
 
+interface HeadPageGalleryProps {
+  headings: string[];
+  images: { src: string; alt: string }[];
+  pageSlug: string;
+  realSlugs: string[];
+}
+
 const container = {
   hidden: { opacity: 0 },
   visible: () => ({
@@ -22,19 +29,7 @@ const sectionAnimation = {
   transition: { duration: 0.8, ease: "easeOut" as const },
 };
 
-export type HeadPageGalleryProps = {
-  headings: string[];
-  images: { src: string; alt: string }[];
-  pageSlug: string;
-  realSlugs: string[];
-};
-
-export function HeadPageGallery({
-  headings,
-  images,
-  pageSlug,
-  realSlugs,
-}: HeadPageGalleryProps) {
+export function HeadPageGallery({ headings, images, pageSlug, realSlugs }: HeadPageGalleryProps) {
   if (!headings?.length || !images?.length) {
     return (
       <main className="flex min-h-screen items-center justify-center bg-brand-background">
@@ -44,10 +39,12 @@ export function HeadPageGallery({
   }
 
   const heroWords = headings[0].split(" ");
+  // Image index 0 is hero, 1+ are content
   const contentImages = images.slice(1);
 
   return (
     <main className="bg-brand-background">
+      {/* Hero */}
       <section className="relative min-h-screen w-full overflow-hidden">
         <Image
           src={images[0].src}
@@ -57,10 +54,7 @@ export function HeadPageGallery({
           priority
           sizes="100vw"
         />
-        <div
-          className="absolute inset-0 -z-10 bg-brand-background/60"
-          aria-hidden
-        />
+        <div className="absolute inset-0 -z-10 bg-brand-background/60" aria-hidden />
         <div className="absolute inset-0 flex items-center justify-center px-6">
           <motion.h1
             className="font-brand-header flex flex-wrap justify-center gap-x-3 gap-y-1 text-center text-4xl font-bold uppercase tracking-poster text-brand-parchment drop-shadow-lg md:text-5xl lg:text-6xl xl:text-7xl"
@@ -87,21 +81,27 @@ export function HeadPageGallery({
       {contentImages.map((img, i) => {
         const index = i + 1;
         const heading = headings[index] ?? "List the Mountain.";
-        const realSlug = realSlugs[i] ?? heading.toLowerCase().replace(/\s+/g, "-").replace(/[^\w-]+/g, "");
         const isImageLeft = i % 2 === 0;
+        const realSlug = realSlugs[i] ?? heading.toLowerCase().replace(/\s+/g, "-").replace(/[^\w-]+/g, "");
 
-        if (isImageLeft) {
-          return (
-            <section
-              key={index}
-              className="group/section relative px-6 py-20 md:py-28 lg:px-12"
-            >
+        return (
+          <section
+            key={index}
+            className="group/section relative px-6 py-20 md:py-28 lg:px-12"
+          >
+            {/* Vertical Line Decoration */}
+            {isImageLeft && (
               <div className="absolute left-6 top-0 bottom-0 w-px bg-brand-accent/40 hidden md:block" aria-hidden />
-              <div className="mx-auto grid max-w-6xl grid-cols-1 items-center gap-16 md:grid-cols-[0.45fr_0.55fr] md:pl-8">
-                <Link href={`/${pageSlug}/${realSlug}`} className="group">
+            )}
+
+            <div className={`mx-auto grid max-w-6xl grid-cols-1 items-center gap-16 md:grid-cols-[0.45fr_0.55fr] md:pl-8 ${isImageLeft ? "" : "md:grid-cols-[0.55fr_0.45fr]"}`}>
+
+              {/* Image Block */}
+              <div className={isImageLeft ? "order-1" : "order-1 md:order-2"}>
+                <Link href={`/${pageSlug}/${realSlug}`} className="group block w-full h-full">
                   <motion.div
                     className="relative aspect-square w-full overflow-hidden md:aspect-[4/3]"
-                    initial={{ opacity: 0, x: -40 }}
+                    initial={{ opacity: 0, x: isImageLeft ? -40 : 40 }}
                     whileInView={{ opacity: 1, x: 0 }}
                     {...sectionAnimation}
                   >
@@ -118,57 +118,20 @@ export function HeadPageGallery({
                     </div>
                   </motion.div>
                 </Link>
-                <motion.div
-                  className="flex flex-col justify-center"
-                  initial={{ opacity: 0, y: 40 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  {...sectionAnimation}
-                >
-                  <p className="max-w-prose text-lg leading-relaxed text-brand-parchment/90 transition-colors duration-300 group-hover/section:text-brand-accent">
-                    {heading}
-                  </p>
-                </motion.div>
               </div>
-            </section>
-          );
-        }
 
-        return (
-          <section
-            key={index}
-            className="group/section relative px-6 py-20 md:py-28 lg:px-12"
-          >
-            <div className="mx-auto grid max-w-6xl grid-cols-1 items-center gap-16 md:grid-cols-[0.55fr_0.45fr]">
+              {/* Text Block */}
               <motion.div
-                className="order-2 flex flex-col justify-center md:order-1"
-                initial={{ opacity: 0, x: -40 }}
-                whileInView={{ opacity: 1, x: 0 }}
+                className={`flex flex-col justify-center ${isImageLeft ? "order-2" : "order-2 md:order-1"}`}
+                initial={{ opacity: 0, y: 40 }}
+                whileInView={{ opacity: 1, y: 0 }}
                 {...sectionAnimation}
               >
-                <p className="max-w-prose text-lg leading-relaxed text-brand-accent font-light transition-colors duration-300 group-hover/section:text-brand-accent">
+                <p className="max-w-prose text-lg leading-relaxed text-brand-parchment/90 font-light transition-colors duration-300 group-hover/section:text-brand-accent">
                   {heading}
                 </p>
               </motion.div>
-              <Link href={`/${pageSlug}/${realSlug}`} className="group">
-                <motion.div
-                  className="relative order-1 aspect-[4/3] w-full md:order-2"
-                  initial={{ opacity: 0, x: 40 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  {...sectionAnimation}
-                >
-                  <div className="absolute inset-0 rounded-sm border-2 border-brand-accent/80 bg-brand-background p-3 md:p-5 transition-colors duration-300 group-hover:border-brand-accent">
-                    <div className="relative h-full w-full overflow-hidden rounded-sm">
-                      <Image
-                        src={img.src}
-                        alt={img.alt || ""}
-                        fill
-                        className="object-cover"
-                        sizes="(max-width: 768px) 100vw, 45vw"
-                      />
-                    </div>
-                  </div>
-                </motion.div>
-              </Link>
+
             </div>
           </section>
         );

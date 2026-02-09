@@ -10,12 +10,16 @@
   ],
   "images": [
     {
-      "src": "https://images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/1605763081484-8OW0WX1JMSHCSACZZEFZ/woods-hut1.jpg",
-      "alt": "ca. 1870"
+      "src": "//images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/2af1aced-55f2-4fa2-90e8-55de2a0bf0ad/Small+new+logo.png"
     },
     {
-      "src": "https://images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/1605763222870-OF4ZWDST0D9UG2UOB2G1/woods.jpg",
-      "alt": "woods.jpg"
+      "src": "//images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/2af1aced-55f2-4fa2-90e8-55de2a0bf0ad/Small+new+logo.png"
+    },
+    {
+      "src": "https://images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/1605763081484-8OW0WX1JMSHCSACZZEFZ/woods-hut1.jpg"
+    },
+    {
+      "src": "https://images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/1605763222870-OF4ZWDST0D9UG2UOB2G1/woods.jpg"
     }
   ]
 }

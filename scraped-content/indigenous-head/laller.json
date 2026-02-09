@@ -14,12 +14,16 @@
   ],
   "images": [
     {
-      "src": "https://images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/c476292d-2a11-4d11-bc58-e7c0269653a1/Screen+Shot+2022-11-16+at+11.16.08+am.png",
-      "alt": ""
+      "src": "//images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/2af1aced-55f2-4fa2-90e8-55de2a0bf0ad/Small+new+logo.png"
     },
     {
-      "src": "https://images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/07b44d6c-1070-44fe-9b10-a9319242f770/Screen+Shot+2022-11-16+at+11.05.08+am.png",
-      "alt": ""
+      "src": "//images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/2af1aced-55f2-4fa2-90e8-55de2a0bf0ad/Small+new+logo.png"
+    },
+    {
+      "src": "https://images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/c476292d-2a11-4d11-bc58-e7c0269653a1/Screen+Shot+2022-11-16+at+11.16.08+am.png"
+    },
+    {
+      "src": "https://images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/07b44d6c-1070-44fe-9b10-a9319242f770/Screen+Shot+2022-11-16+at+11.05.08+am.png"
     }
   ]
 }

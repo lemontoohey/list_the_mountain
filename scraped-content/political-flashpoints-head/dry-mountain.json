@@ -22,12 +22,16 @@
   ],
   "images": [
     {
-      "src": "https://images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/fa4f10de-a3fe-458f-be62-190058a010bb/Screen+Shot+2023-05-16+at+9.40.57+pm.png",
-      "alt": ""
+      "src": "//images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/2af1aced-55f2-4fa2-90e8-55de2a0bf0ad/Small+new+logo.png"
     },
     {
-      "src": "https://images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/1611729050849-4A2FLGTF42STTDHU7JIF/Mercury-25-1-1939",
-      "alt": "Mercury-25-1-1939"
+      "src": "//images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/2af1aced-55f2-4fa2-90e8-55de2a0bf0ad/Small+new+logo.png"
+    },
+    {
+      "src": "https://images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/fa4f10de-a3fe-458f-be62-190058a010bb/Screen+Shot+2023-05-16+at+9.40.57+pm.png"
+    },
+    {
+      "src": "https://images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/1611729050849-4A2FLGTF42STTDHU7JIF/Mercury-25-1-1939"
     }
   ]
 }

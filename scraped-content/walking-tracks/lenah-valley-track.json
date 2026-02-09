@@ -16,12 +16,16 @@
   ],
   "images": [
     {
-      "src": "https://images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/1604376650144-21HBSRW3VU3JIPWAY16Y/TasMail-LyVyTrack-13-10-1932-2.jpg",
-      "alt": "Lenah Valley Track. Tasmanian Mail 1932"
+      "src": "//images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/2af1aced-55f2-4fa2-90e8-55de2a0bf0ad/Small+new+logo.png"
     },
     {
-      "src": "https://images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/1603943725455-VIFAGIXQ7FXUR5D09T4G/sphinx-rock.jpg",
-      "alt": "Sphinx Rock. From the Grist collection"
+      "src": "//images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/2af1aced-55f2-4fa2-90e8-55de2a0bf0ad/Small+new+logo.png"
+    },
+    {
+      "src": "https://images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/1604376650144-21HBSRW3VU3JIPWAY16Y/TasMail-LyVyTrack-13-10-1932-2.jpg"
+    },
+    {
+      "src": "https://images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/1603943725455-VIFAGIXQ7FXUR5D09T4G/sphinx-rock.jpg"
     }
   ]
 }

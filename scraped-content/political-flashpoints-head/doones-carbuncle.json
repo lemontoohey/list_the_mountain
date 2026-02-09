@@ -13,16 +13,19 @@
   ],
   "images": [
     {
-      "src": "https://images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/34ac23e5-47ed-4755-98cf-42ead61d1232/Pinnacles_Summit_Mount_Wellington_Hobart_Tasmania_AU_4908.jpg",
-      "alt": ""
+      "src": "//images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/2af1aced-55f2-4fa2-90e8-55de2a0bf0ad/Small+new+logo.png"
     },
     {
-      "src": "https://images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/1684381047129-LLO5BGO31WDF118PPSTB/Screen+Shot+2023-05-18+at+1.33.36+pm.jpeg",
-      "alt": "Screen Shot 2023-05-18 at 1.33.36 pm.jpeg"
+      "src": "//images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/2af1aced-55f2-4fa2-90e8-55de2a0bf0ad/Small+new+logo.png"
     },
     {
-      "src": "https://images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/1684381052261-12UFK0IGD55596IZ42NG/Screen+Shot+2023-05-18+at+1.33.04+pm.jpeg",
-      "alt": "Screen Shot 2023-05-18 at 1.33.04 pm.jpeg"
+      "src": "https://images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/34ac23e5-47ed-4755-98cf-42ead61d1232/Pinnacles_Summit_Mount_Wellington_Hobart_Tasmania_AU_4908.jpg"
+    },
+    {
+      "src": "https://images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/1684381047129-LLO5BGO31WDF118PPSTB/Screen+Shot+2023-05-18+at+1.33.36+pm.jpeg"
+    },
+    {
+      "src": "https://images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/1684381052261-12UFK0IGD55596IZ42NG/Screen+Shot+2023-05-18+at+1.33.04+pm.jpeg"
     }
   ]
 }

@@ -14,12 +14,16 @@
   ],
   "images": [
     {
-      "src": "https://images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/1618454804447-IQ02JCGZXEERGQXK13YA/myrtlegully.jpg",
-      "alt": "Photo John Grist 2009"
+      "src": "//images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/2af1aced-55f2-4fa2-90e8-55de2a0bf0ad/Small+new+logo.png"
     },
     {
-      "src": "https://images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/1616720736639-X9X5P65EP2DYJUB5MUZ8/Myrtle-Gully-waterfall-650x432-1.jpg",
-      "alt": "Myrtle-Gully-waterfall-650x432-1.jpg"
+      "src": "//images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/2af1aced-55f2-4fa2-90e8-55de2a0bf0ad/Small+new+logo.png"
+    },
+    {
+      "src": "https://images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/1618454804447-IQ02JCGZXEERGQXK13YA/myrtlegully.jpg"
+    },
+    {
+      "src": "https://images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/1616720736639-X9X5P65EP2DYJUB5MUZ8/Myrtle-Gully-waterfall-650x432-1.jpg"
     }
   ]
 }

@@ -13,20 +13,22 @@
   ],
   "images": [
     {
-      "src": "https://images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/1601778289492-DB7L1KQU1S4R4H9N9WQE/waratah2.jpg",
-      "alt": "Grist collection"
+      "src": "//images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/2af1aced-55f2-4fa2-90e8-55de2a0bf0ad/Small+new+logo.png"
     },
     {
-      "src": "https://images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/1601778294179-HMOAAGXW03OTCJG9Z5KI/waratah.jpg",
-      "alt": "Grist collection"
+      "src": "//images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/2af1aced-55f2-4fa2-90e8-55de2a0bf0ad/Small+new+logo.png"
     },
     {
-      "src": "https://images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/1601778288486-KA7H67NYPDK5O4ETP09S/Waratah-Hut---Gray-Bros.jpg",
-      "alt": "Gray Brothers (loggers from Bruny Island) assisting with clearing around Waratah Hut"
+      "src": "https://images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/1601778289492-DB7L1KQU1S4R4H9N9WQE/waratah2.jpg"
     },
     {
-      "src": "https://images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/1601778475158-8LP3AVOMVKVNML72GE50/Waratah-hut-Nicholson-album.jpg",
-      "alt": "Walter Nicholson album"
+      "src": "https://images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/1601778294179-HMOAAGXW03OTCJG9Z5KI/waratah.jpg"
+    },
+    {
+      "src": "https://images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/1601778288486-KA7H67NYPDK5O4ETP09S/Waratah-Hut---Gray-Bros.jpg"
+    },
+    {
+      "src": "https://images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/1601778475158-8LP3AVOMVKVNML72GE50/Waratah-hut-Nicholson-album.jpg"
     }
   ]
 }

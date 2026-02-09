@@ -13,12 +13,16 @@
   ],
   "images": [
     {
-      "src": "https://images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/1618895276062-PR979I3XI6F3KEYPFLBB/goshawk.jpg",
-      "alt": "https://www.flickr.com/photos/zosterops/5484392762/"
+      "src": "//images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/2af1aced-55f2-4fa2-90e8-55de2a0bf0ad/Small+new+logo.png"
     },
     {
-      "src": "https://images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/1645834792304-MEPPDDKAIVRJV8MCMHGQ/800px-Grey_Goshawk_%28_white_morph_%29_-_Tasmania_S4E6209_%2821788980813%29.jpg",
-      "alt": "Francesco Veronesi via Wikimedia Commons"
+      "src": "//images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/2af1aced-55f2-4fa2-90e8-55de2a0bf0ad/Small+new+logo.png"
+    },
+    {
+      "src": "https://images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/1618895276062-PR979I3XI6F3KEYPFLBB/goshawk.jpg"
+    },
+    {
+      "src": "https://images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/1645834792304-MEPPDDKAIVRJV8MCMHGQ/800px-Grey_Goshawk_%28_white_morph_%29_-_Tasmania_S4E6209_%2821788980813%29.jpg"
     }
   ]
 }

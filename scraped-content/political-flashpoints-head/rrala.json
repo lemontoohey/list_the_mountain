@@ -21,12 +21,16 @@
   ],
   "images": [
     {
-      "src": "https://images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/3a34ab4c-be6c-4383-8407-4497ef2a9d08/Always+Was+Banner.jpeg",
-      "alt": ""
+      "src": "//images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/2af1aced-55f2-4fa2-90e8-55de2a0bf0ad/Small+new+logo.png"
     },
     {
-      "src": "https://images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/1611657834022-93UZF87FDG50RZ34MBMQ/Theresa+Sainty.jpg",
-      "alt": "Theresa Sainty.jpg"
+      "src": "//images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/2af1aced-55f2-4fa2-90e8-55de2a0bf0ad/Small+new+logo.png"
+    },
+    {
+      "src": "https://images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/3a34ab4c-be6c-4383-8407-4497ef2a9d08/Always+Was+Banner.jpeg"
+    },
+    {
+      "src": "https://images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/1611657834022-93UZF87FDG50RZ34MBMQ/Theresa+Sainty.jpg"
     }
   ]
 }

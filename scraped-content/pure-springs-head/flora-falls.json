@@ -6,12 +6,16 @@
   ],
   "images": [
     {
-      "src": "https://images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/5ac59bae-05d0-4021-8a76-218d9f513e60/Collins-Cap-Waterfall_August_12_1905-crop-1.jpg",
-      "alt": ""
+      "src": "//images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/2af1aced-55f2-4fa2-90e8-55de2a0bf0ad/Small+new+logo.png"
     },
     {
-      "src": "https://images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/11d522de-da74-4b24-a379-3700f7d09c40/Collins-Cap-Waterfall_September_16_1905-crop.jpg",
-      "alt": ""
+      "src": "//images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/2af1aced-55f2-4fa2-90e8-55de2a0bf0ad/Small+new+logo.png"
+    },
+    {
+      "src": "https://images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/5ac59bae-05d0-4021-8a76-218d9f513e60/Collins-Cap-Waterfall_August_12_1905-crop-1.jpg"
+    },
+    {
+      "src": "https://images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/11d522de-da74-4b24-a379-3700f7d09c40/Collins-Cap-Waterfall_September_16_1905-crop.jpg"
     }
   ]
 }

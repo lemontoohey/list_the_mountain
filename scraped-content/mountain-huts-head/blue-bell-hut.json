@@ -15,16 +15,19 @@
   ],
   "images": [
     {
-      "src": "https://images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/1605844456928-F3DQCV5EEYH7AKJQFZ22/bluebell2.jpg",
-      "alt": "Walter Nicholson collection"
+      "src": "//images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/2af1aced-55f2-4fa2-90e8-55de2a0bf0ad/Small+new+logo.png"
     },
     {
-      "src": "https://images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/1605844457334-6C7WRWPP76RUVD06XMY0/bluebell.jpg",
-      "alt": "Early version"
+      "src": "//images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/2af1aced-55f2-4fa2-90e8-55de2a0bf0ad/Small+new+logo.png"
     },
     {
-      "src": "https://images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/1605844460473-JWLMH0LXC6HS8IHXM3LF/bluebellb.jpg",
-      "alt": "Source unknown"
+      "src": "https://images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/1605844456928-F3DQCV5EEYH7AKJQFZ22/bluebell2.jpg"
+    },
+    {
+      "src": "https://images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/1605844457334-6C7WRWPP76RUVD06XMY0/bluebell.jpg"
+    },
+    {
+      "src": "https://images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/1605844460473-JWLMH0LXC6HS8IHXM3LF/bluebellb.jpg"
     }
   ]
 }

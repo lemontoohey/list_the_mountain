@@ -14,12 +14,16 @@
   ],
   "images": [
     {
-      "src": "https://images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/1605845196745-RIEZYQ15DBSV366WV6PB/ellis-and-sansom.jpg",
-      "alt": "Grist collection"
+      "src": "//images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/2af1aced-55f2-4fa2-90e8-55de2a0bf0ad/Small+new+logo.png"
     },
     {
-      "src": "https://images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/1606606799507-G9S1129JWB81A7JP7CRB/DSCN1049EllisAndSansom.jpg",
-      "alt": "Fern mound remains"
+      "src": "//images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/2af1aced-55f2-4fa2-90e8-55de2a0bf0ad/Small+new+logo.png"
+    },
+    {
+      "src": "https://images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/1605845196745-RIEZYQ15DBSV366WV6PB/ellis-and-sansom.jpg"
+    },
+    {
+      "src": "https://images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/1606606799507-G9S1129JWB81A7JP7CRB/DSCN1049EllisAndSansom.jpg"
     }
   ]
 }

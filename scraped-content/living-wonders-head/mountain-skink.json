@@ -8,16 +8,19 @@
   ],
   "images": [
     {
-      "src": "https://images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/1618894519282-2F6DTR3MP51NB6SKR8KY/skink-Encyclopedia+of+Life+Images+-+Flickr+Group.jpg",
-      "alt": "Snow skink"
+      "src": "//images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/2af1aced-55f2-4fa2-90e8-55de2a0bf0ad/Small+new+logo.png"
     },
     {
-      "src": "https://images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/1618894662948-PQCJOJ1FPK1PS3ATTME4/snake.jpg",
-      "alt": "Tiger snake"
+      "src": "//images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/2af1aced-55f2-4fa2-90e8-55de2a0bf0ad/Small+new+logo.png"
     },
     {
-      "src": "https://images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/1618894817023-0EBT0XUF6373CO05E53N/mt+dragon.jpg",
-      "alt": "Mountain dragon"
+      "src": "https://images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/1618894519282-2F6DTR3MP51NB6SKR8KY/skink-Encyclopedia+of+Life+Images+-+Flickr+Group.jpg"
+    },
+    {
+      "src": "https://images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/1618894662948-PQCJOJ1FPK1PS3ATTME4/snake.jpg"
+    },
+    {
+      "src": "https://images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/1618894817023-0EBT0XUF6373CO05E53N/mt+dragon.jpg"
     }
   ]
 }

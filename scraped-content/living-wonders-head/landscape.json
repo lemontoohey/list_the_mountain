@@ -18,12 +18,16 @@
   ],
   "images": [
     {
-      "src": "https://images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/5f888e45-7f49-4962-90a6-72b3772167a6/Mountain+Flash.jpeg",
-      "alt": ""
+      "src": "//images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/2af1aced-55f2-4fa2-90e8-55de2a0bf0ad/Small+new+logo.png"
     },
     {
-      "src": "https://images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/d1484429-251d-4c06-86cc-fb3cc7b94261/Screen%2BShot%2B2022-03-21%2Bat%2B5.56.39%2Bpm.png",
-      "alt": ""
+      "src": "//images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/2af1aced-55f2-4fa2-90e8-55de2a0bf0ad/Small+new+logo.png"
+    },
+    {
+      "src": "https://images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/5f888e45-7f49-4962-90a6-72b3772167a6/Mountain+Flash.jpeg"
+    },
+    {
+      "src": "https://images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/d1484429-251d-4c06-86cc-fb3cc7b94261/Screen%2BShot%2B2022-03-21%2Bat%2B5.56.39%2Bpm.png"
     }
   ]
 }
