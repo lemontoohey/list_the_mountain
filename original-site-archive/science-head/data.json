@@ -1,0 +1,27 @@
+{
+  "url": "https://listthemountain.org/science-head",
+  "title": "The scientific landscape",
+  "wordCount": 44,
+  "imageCount": 5,
+  "headings": [
+    {
+      "tag": "h1",
+      "text": "The scientific landscape"
+    },
+    {
+      "tag": "h3",
+      "text": "ABOUT US            CONTACT US           searcH        Media"
+    }
+  ],
+  "paragraphs": [
+    "“Mount Wellington is a site of national (if not international) importance for scientific study.”",
+    "“The association with the life works of a number of notable scientists gives further significance to Mount Wellington as a site of national (if not international) importance for scientific study.”"
+  ],
+  "images": [
+    "https://images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/1697755221813-OGBUEZHKPL0101RWXHKT/COSE_Environment-Geo-Heritage-Shoot-105%2B2.jpeg?format=original",
+    "https://images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/1613355346811-DF170UWGO94WTYGJYPUK/08.jpg?format=original",
+    "https://images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/1613355345597-WCIG0IJXGXSSHMAOH4IH/06.jpg?format=original",
+    "https://images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/1613355347893-UCXKS3HWSNCY3MDA71VZ/10.jpg?format=original",
+    "https://images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/2af1aced-55f2-4fa2-90e8-55de2a0bf0ad/Small+new+logo.png?format=original"
+  ]
+}

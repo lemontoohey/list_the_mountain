@@ -1,0 +1,50 @@
+{
+  "url": "https://listthemountain.org/mountain-huts/madison-square",
+  "title": "Madison Square",
+  "wordCount": 105,
+  "imageCount": 5,
+  "headings": [
+    {
+      "tag": "h3",
+      "text": "DESCRIPTION"
+    },
+    {
+      "tag": "h3",
+      "text": "HISTORY"
+    },
+    {
+      "tag": "h3",
+      "text": "HERITAGE VALUES"
+    },
+    {
+      "tag": "h3",
+      "text": "HERITAGE SIGNIFICANCE"
+    },
+    {
+      "tag": "h3",
+      "text": "SOURCES"
+    },
+    {
+      "tag": "h3",
+      "text": "ABOUT US            CONTACT US           searcH        Media"
+    }
+  ],
+  "paragraphs": [
+    "Location Known  Construction 1891   Status Remnants",
+    "Historic, Scientific, Archeological, Aesthetic",
+    "McConnell assessed this hut as having High Medium-High Local Significance, Some State Significance individually and as part of the suite and Some National Significance",
+    "The Huts of kunanyi/Mount Wellington - Maria Grist",
+    "Fern Retreat Timeline",
+    "Built by Sam Nicholson, Gorden Mitchell and Les Rollins (the “three musketeers”). Madison Square was named for US wrestling, which was popular at the time. It was an area of around three huts: Madison Square, Cosy Cabin, and Cave Hut. Cave Hut was butted against a huge boulder which formed the back wall.",
+    "Location: Known",
+    "Construction date: 1920s-30s",
+    "Status: Remnants"
+  ],
+  "images": [
+    "https://images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/1606361312742-RMZS0YB9Q36N69HBK8YF/Madison-SquareThwaites-NS3195-1-942.jpg?format=original",
+    "https://images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/1606361298629-S1LP2ZGZ85JROFGHFKGY/CaveHut_1-WPMT.jpg?format=original",
+    "https://images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/1606361290098-DTHSZPMJOTCYXOTUEDUP/Madison-Square---Cosy-Cabin-Nicholson.jpg?format=original",
+    "https://images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/1606361306466-KVR9BB3AC0RI4WRK0WWP/Madison-Square-Nicholson-album.jpg?format=original",
+    "https://images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/2af1aced-55f2-4fa2-90e8-55de2a0bf0ad/Small+new+logo.png?format=original"
+  ]
+}

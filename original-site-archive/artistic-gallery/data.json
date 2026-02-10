@@ -1,0 +1,53 @@
+{
+  "url": "https://listthemountain.org/artistic-gallery",
+  "title": "artistic-gallery",
+  "wordCount": 8,
+  "imageCount": 32,
+  "headings": [
+    {
+      "tag": "h3",
+      "text": "ABOUT US            CONTACT US           searcH        Media"
+    }
+  ],
+  "paragraphs": [
+    "Aesthetic Landscapes",
+    "von Guerard",
+    "de Wesselow",
+    "Dombrovskis",
+    "Singularities"
+  ],
+  "images": [
+    "https://images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/1697800629453-BBZCZNS47GXTUTLPICUW/Screen+Shot+2023-10-19+at+1.37.32+pm.jpeg?format=original",
+    "https://images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/1613363462178-LJLVTP577845EVZ7LISH/05.jpg?format=original",
+    "https://images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/1613363463102-YODSXV9KT3DF7Q43ZVEM/04.jpg?format=original",
+    "https://images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/1613256163390-0EPAZP39SA7L4C5PA8RA/05glover.jpg?format=original",
+    "https://images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/1613363461280-81LGI8EI4VACEHHE657U/03.jpg?format=original",
+    "https://images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/1613256174769-S3K5VPX9MV016GZ1T96A/20guerard.jpg?format=original",
+    "https://images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/1613256163980-RXEP11XOD0LIOEPMETDD/06bull.jpg?format=original",
+    "https://images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/1613256168251-4IAILH7FJFD20GY642XR/11simp.jpg?format=original",
+    "https://images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/1613363461059-IJX6OH6O0RZ8SXOH3SG4/01.jpg?format=original",
+    "https://images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/1613256174331-18TVZI860K6E44DOLY8D/19piguenit.jpg?format=original",
+    "https://images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/1613256173150-OA73QWZFKFNK8R34K29W/17clifford.jpg?format=original",
+    "https://images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/1698029486625-IAEHHDFJMJMRMF3LYTA1/Screen+Shot+2023-10-19+at+1.38.12+pm.jpeg?format=original",
+    "https://images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/1613256157266-RJC3JRPBO8337TP8HGB1/02forrest.jpg?format=original",
+    "https://images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/1613256169447-NUK6ITPSWB8VH6HRCT7D/12louisa.jpg?format=original",
+    "https://images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/1617252141085-2P2UWEKLJD9NXO4FIS6X/image-asset.jpeg?format=original",
+    "https://images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/1613256171295-OBDMPS7U1L6C035J306S/14spurling.jpg?format=original",
+    "https://images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/1613256173871-SOJP4OETTL9WX9YYC298/18allport.jpg?format=original",
+    "https://images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/1613256171020-94ZFPGVCGJ0SUUUTLUX6/13beattie.jpg?format=original",
+    "https://images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/1690171029654-KWPE7W5UIHNO67SU662W/09rees.jpg?format=original",
+    "https://images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/1617500456443-5JNDSRI35S0IIFHOV4IN/risdon.jpg?format=original",
+    "https://images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/1613363460655-KF49A24VPIYX5R567JPW/02.jpg?format=original",
+    "https://images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/1613256167749-CMR64A8JSG8PBF5Q4EER/10dombr.png?format=original",
+    "https://images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/1615778264941-074J57VXJP0I20LARBEI/Screen+Shot+2021-03-15+at+2.13.05+pm.png?format=original",
+    "https://images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/1613256164226-LBEV7TDGS92QID16QM8H/07giles.jpg?format=original",
+    "https://images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/1613256171825-O2OT38LZ9Q9W4S0DJFUJ/15ross.jpg?format=original",
+    "https://images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/1613256172604-M4CDJYBB6EQ1N42YVEWF/16blakers.jpg?format=original",
+    "https://images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/1613256159399-Q4APZG9WZBYY63UIVECC/03dyer.jpg?format=original",
+    "https://images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/1685753876626-YC5421UB0X1FF60XLUEE/image-asset.jpeg?format=original",
+    "https://images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/1697801936459-NZIZMIPH19APLONWP8HJ/boulderfieldsandbushlands2023.jpeg?format=original",
+    "https://images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/1697801549301-XUHCCNRALR5B549NNK93/xx-banksia.jpg?format=original",
+    "https://images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/1684566747387-UQWJXPR8H4PSXHV5ND24/elizabeth%252Bbarsham.jpg?format=original",
+    "https://images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/2af1aced-55f2-4fa2-90e8-55de2a0bf0ad/Small+new+logo.png?format=original"
+  ]
+}

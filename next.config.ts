@@ -7,6 +7,13 @@ const nextConfig: NextConfig = {
   output: "export",
   basePath,
   assetPrefix: `${basePath}/`,
+  images: {
+    unoptimized: true,
+    remotePatterns: [
+      { protocol: "https", hostname: "images.squarespace-cdn.com", pathname: "/**" },
+      { protocol: "http", hostname: "images.squarespace-cdn.com", pathname: "/**" },
+    ],
+  },
   env: {
     NEXT_PUBLIC_BASE_PATH: basePath,
   },

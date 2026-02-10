@@ -1,0 +1,20 @@
+{
+  "url": "https://listthemountain.org/science",
+  "title": "science",
+  "wordCount": 0,
+  "imageCount": 5,
+  "headings": [
+    {
+      "tag": "h3",
+      "text": "ABOUT US            CONTACT US           searcH        Media"
+    }
+  ],
+  "paragraphs": [],
+  "images": [
+    "https://images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/1697755186531-JMTIAYHGLYVKJRUM7IDC/COSE_Environment-Geo-Heritage-Shoot-105%2B2.jpeg?format=original",
+    "https://images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/1604813411730-CQOU7ES08XUF9RULKXRG/Wragge4-1.jpg?format=original",
+    "https://images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/1619313285394-OD8T0E4FYFW1EQAGV261/57673573125__EFBC984E-F507-41F9-8519-B0AF692F208D.jpg?format=original",
+    "https://images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/1606712996077-1X8ES3K4I42A86KVXRL2/_B181245.jpg?format=original",
+    "https://images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/2af1aced-55f2-4fa2-90e8-55de2a0bf0ad/Small+new+logo.png?format=original"
+  ]
+}

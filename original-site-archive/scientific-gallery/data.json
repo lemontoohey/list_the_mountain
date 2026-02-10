@@ -1,0 +1,26 @@
+{
+  "url": "https://listthemountain.org/scientific-gallery",
+  "title": "scientific-gallery",
+  "wordCount": 9,
+  "imageCount": 6,
+  "headings": [
+    {
+      "tag": "h3",
+      "text": "ABOUT US            CONTACT US           searcH        Media"
+    }
+  ],
+  "paragraphs": [
+    "Scientific Landscape",
+    "Brown's Botanical bible",
+    "Meterological Stations",
+    "Cosmic Observatory"
+  ],
+  "images": [
+    "https://images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/1613355343456-LO3TZ1EN20TT6Y4C8B1G/02.png?format=original",
+    "https://images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/1697755221813-OGBUEZHKPL0101RWXHKT/COSE_Environment-Geo-Heritage-Shoot-105%2B2.jpeg?format=original",
+    "https://images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/1613355346811-DF170UWGO94WTYGJYPUK/08.jpg?format=original",
+    "https://images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/1613355345597-WCIG0IJXGXSSHMAOH4IH/06.jpg?format=original",
+    "https://images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/1613355347893-UCXKS3HWSNCY3MDA71VZ/10.jpg?format=original",
+    "https://images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/2af1aced-55f2-4fa2-90e8-55de2a0bf0ad/Small+new+logo.png?format=original"
+  ]
+}

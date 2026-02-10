@@ -1,8 +1,8 @@
 "use client";
 
-import { useState } from "react";
 import dynamic from "next/dynamic";
 import { motion, AnimatePresence } from "framer-motion";
+import { useArchive } from "@/contexts/ArchiveContext";
 
 const GatekeeperScene = dynamic(
   () => import("@/components/Three/GatekeeperScene").then((m) => m.default),
@@ -14,7 +14,7 @@ type GatekeeperProps = {
 };
 
 export default function Gatekeeper({ children }: GatekeeperProps) {
-  const [isEntered, setIsEntered] = useState(false);
+  const { isEntered, setEntered } = useArchive();
 
   return (
     <>
@@ -28,7 +28,6 @@ export default function Gatekeeper({ children }: GatekeeperProps) {
             exit={{ opacity: 0 }}
             transition={{ duration: 0.5, ease: "easeInOut" }}
           >
-            {/* 3D wireframe mountain background — behind text */}
             <div className="absolute inset-0 z-[-1] h-full w-full">
               <GatekeeperScene />
             </div>
@@ -38,7 +37,7 @@ export default function Gatekeeper({ children }: GatekeeperProps) {
               </p>
               <button
                 type="button"
-                onClick={() => setIsEntered(true)}
+                onClick={() => setEntered(true)}
                 className="group relative mt-10 text-xs uppercase tracking-widest text-brand-accent transition-colors hover:text-brand-accent"
               >
                 ENTER THE ARCHIVE

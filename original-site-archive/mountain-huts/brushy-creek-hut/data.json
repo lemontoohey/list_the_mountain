@@ -1,0 +1,53 @@
+{
+  "url": "https://listthemountain.org/mountain-huts/brushy-creek-hut",
+  "title": "Brushy Creek",
+  "wordCount": 52,
+  "imageCount": 3,
+  "headings": [
+    {
+      "tag": "h3",
+      "text": "AKA"
+    },
+    {
+      "tag": "h2",
+      "text": "Webber & Teague’s Hut"
+    },
+    {
+      "tag": "h3",
+      "text": "DESCRIPTION"
+    },
+    {
+      "tag": "h3",
+      "text": "HISTORY"
+    },
+    {
+      "tag": "h3",
+      "text": "HERITAGE VALUES"
+    },
+    {
+      "tag": "h3",
+      "text": "HERITAGE SIGNIFICANCE"
+    },
+    {
+      "tag": "h3",
+      "text": "SOURCES"
+    },
+    {
+      "tag": "h3",
+      "text": "ABOUT US            CONTACT US           searcH        Media"
+    }
+  ],
+  "paragraphs": [
+    "Location: Known.  Construction mid-1890s",
+    "An early plain bush timber hut.",
+    "Historic and (potentially) Scientific (McConnell)",
+    "McConnell assessed the Brushy Creek hut as having Medium-High local significance, Some state significance individually and as part of the mountain hut suite and some national significance.",
+    "Status Remnants",
+    "The Huts of kunanyi/Mount Wellington - Maria Grist"
+  ],
+  "images": [
+    "https://images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/1605844715070-X74K4QKE72DYSWUX1XCO/brushycreek.jpg?format=original",
+    "https://images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/1606606947756-ASB5B8M6JFSXLI451UY9/webberteague5-9-91.jpg?format=original",
+    "https://images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/2af1aced-55f2-4fa2-90e8-55de2a0bf0ad/Small+new+logo.png?format=original"
+  ]
+}

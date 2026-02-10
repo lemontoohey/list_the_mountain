@@ -1,0 +1,25 @@
+{
+  "url": "https://listthemountain.org/artistic/henry-gritten",
+  "title": "GRITTEN",
+  "wordCount": 48,
+  "imageCount": 4,
+  "headings": [
+    {
+      "tag": "h1",
+      "text": "HENRY"
+    },
+    {
+      "tag": "h3",
+      "text": "ABOUT US            CONTACT US           searcH        Media"
+    }
+  ],
+  "paragraphs": [
+    "‘His Tasmanian paintings include several versions of the view of Hobart Town and Mount Wellington from Belle Rive. According to the Hobart Town Advertiser of 26 June 1858, his large oil painting of Hobart was (inexplicably) rejected by the organisers of the Hobart Town Art-Treasures Exhibition.’ Jennifer Phipps"
+  ],
+  "images": [
+    "https://images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/1606537345623-QDZAF69260WQKKUNNVPE/gritten.jpg?format=original",
+    "https://images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/1606537347957-LP05LT04NAT70DYHR8MU/gritten2.jpg?format=original",
+    "https://images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/1607224388764-VYX6B36MQGHYSJ73EWNE/Gritten%2C+Henry+C.%2C+View+of+Hobart+Town+from+Kangaroo+Point%2C+Tasmania%2C+1866.jpg?format=original",
+    "https://images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/2af1aced-55f2-4fa2-90e8-55de2a0bf0ad/Small+new+logo.png?format=original"
+  ]
+}

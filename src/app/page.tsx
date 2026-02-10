@@ -2,8 +2,16 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import dynamic from "next/dynamic";
 import { motion } from "framer-motion";
 import { useHoverTick } from "@/hooks/useHoverTick";
+import { useArchive } from "@/contexts/ArchiveContext";
+import LogFeed from "@/components/LogFeed";
+
+const GatekeeperScene = dynamic(
+  () => import("@/components/Three/GatekeeperScene").then((m) => m.default),
+  { ssr: false }
+);
 
 const STENCIL_FILTER =
   "grayscale(1) contrast(300%) brightness(0.6) sepia(100%) hue-rotate(-50deg) saturate(400%)";
@@ -43,23 +51,44 @@ const listItemVariants = {
 export default function Home() {
   const [hoverHero, setHoverHero] = useState<string | null>(null);
   const { onMouseEnter: onHoverTick } = useHoverTick();
+  const { isEntered } = useArchive();
+
+  const handleMouseEnter = (hero: string) => {
+    onHoverTick();
+    requestAnimationFrame(() => setHoverHero(hero));
+  };
+  const handleMouseLeave = () => setHoverHero(null);
 
   return (
     <div className="flex min-h-screen flex-col bg-brand-background pt-24">
-      {/* Hover preview: stencil-style hero image */}
+      {/* Ghost 3D mountain: faint blurred background after entering archive */}
+      {isEntered && (
+        <div
+          className="pointer-events-none fixed inset-0 z-0 opacity-[0.15] backdrop-blur-[10px]"
+          aria-hidden
+        >
+          <GatekeeperScene />
+        </div>
+      )}
+
+      {/* Hover preview: stencil ghost image — fixed size to prevent flicker */}
       {hoverHero && (
-        <div className="pointer-events-none fixed inset-0 z-0 flex items-center justify-center bg-brand-background/80">
-          <div className="relative h-full w-full max-w-2xl mix-blend-screen opacity-60">
+        <div className="pointer-events-none fixed inset-0 z-[5] flex items-center justify-center bg-brand-background/70 transition-opacity duration-200">
+          <div
+            className="relative h-[min(50vmin,420px)] w-[min(70vmin,560px)] mix-blend-screen opacity-70 transition-opacity duration-150"
+            style={{ willChange: "opacity" }}
+          >
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               src={hoverHero}
               alt=""
-              className="absolute inset-0 h-full w-full object-contain"
+              className="h-full w-full object-contain"
               style={{ filter: STENCIL_FILTER }}
             />
           </div>
         </div>
       )}
+
       <main className="relative z-10 mx-auto flex w-full max-w-2xl flex-col px-6 pb-32 pt-12">
         <motion.ul
           className="flex flex-col items-center gap-6 border border-transparent"
@@ -81,19 +110,21 @@ export default function Home() {
             >
               <Link
                 href={section.href}
-                className="font-cormorant font-semibold text-4xl uppercase tracking-tighter text-brand-parchment drop-shadow-sm transition-colors duration-300 hover:text-brand-accent md:text-5xl"
-                onMouseEnter={() => {
-                  setHoverHero(section.hero);
-                  onHoverTick();
-                }}
-                onMouseLeave={() => setHoverHero(null)}
+                className="flex items-baseline gap-3 font-cormorant font-semibold text-4xl uppercase tracking-tighter text-brand-parchment drop-shadow-sm transition-colors duration-300 hover:text-brand-accent md:text-5xl"
+                onMouseEnter={() => handleMouseEnter(section.hero)}
+                onMouseLeave={handleMouseLeave}
               >
+                <span className="font-mono text-[10px] text-brand-accent/80 tabular-nums">
+                  [{String(i + 1).padStart(2, "0")}]
+                </span>
                 {section.label}
               </Link>
             </motion.li>
           ))}
         </motion.ul>
       </main>
+
+      <LogFeed />
     </div>
   );
 }

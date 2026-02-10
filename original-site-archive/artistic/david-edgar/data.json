@@ -1,0 +1,26 @@
+{
+  "url": "https://listthemountain.org/artistic/david-edgar",
+  "title": "Edgar",
+  "wordCount": 15,
+  "imageCount": 5,
+  "headings": [
+    {
+      "tag": "h1",
+      "text": "David"
+    },
+    {
+      "tag": "h3",
+      "text": "ABOUT US            CONTACT US           searcH        Media"
+    }
+  ],
+  "paragraphs": [
+    "A classicist and a deep thinker with a zen-like attention to the simplicity of complexity."
+  ],
+  "images": [
+    "https://images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/1615777752820-8SWD5TT6T6EBW9BZ19CZ/Screen+Shot+2021-03-15+at+2.08.18+pm.png?format=original",
+    "https://images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/1615777898763-FBCWTGS1QJBCQQBT6HVI/Screen+Shot+2021-03-15+at+2.10.28+pm.png?format=original",
+    "https://images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/1615778022267-5XIXAAKTEXEMP10EZ1MR/Screen+Shot+2021-03-15+at+2.13.05+pm.png?format=original",
+    "https://images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/1615778108969-B8CQULWNCSIXZNZ8W28V/Screen+Shot+2021-03-15+at+2.14.38+pm.png?format=original",
+    "https://images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/2af1aced-55f2-4fa2-90e8-55de2a0bf0ad/Small+new+logo.png?format=original"
+  ]
+}

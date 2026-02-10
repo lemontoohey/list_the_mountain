@@ -1,7 +1,7 @@
 import { promises as fs } from "fs";
 import path from "path";
 import { redirect } from "next/navigation";
-import { findBestMatch } from "@/lib/content-utils";
+import { findBestMatch, getCategorySlugs } from "@/lib/content-utils";
 import { ArticlePageContent } from "@/components/ArticlePageContent";
 
 export const dynamic = "force-static";
@@ -62,5 +62,30 @@ export default async function ArticlePage({
     };
   }
 
-  return <ArticlePageContent data={data} category={category} slug={slug} />;
+  const slugs = await getCategorySlugs(category);
+  const currentIndex = slugs.indexOf(slug);
+  let nextSlug: string | null = null;
+  let nextTitle: string | null = null;
+  let nextImageSrc: string | null = null;
+  if (currentIndex >= 0 && currentIndex < slugs.length - 1) {
+    nextSlug = slugs[currentIndex + 1] ?? null;
+    if (nextSlug) {
+      const nextData = await getArticleData(category, nextSlug);
+      if (nextData?.title) nextTitle = nextData.title;
+      const firstImg = nextData?.images?.[0];
+      if (firstImg && typeof firstImg === "object" && "src" in firstImg) nextImageSrc = firstImg.src as string;
+      else if (typeof firstImg === "string") nextImageSrc = firstImg;
+    }
+  }
+
+  return (
+    <ArticlePageContent
+      data={data}
+      category={category}
+      slug={slug}
+      nextSlug={nextSlug}
+      nextTitle={nextTitle}
+      nextImageSrc={nextImageSrc}
+    />
+  );
 }

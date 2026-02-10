@@ -1,0 +1,25 @@
+{
+  "url": "https://listthemountain.org/artistic/rob-blakers",
+  "title": "BLAKERS",
+  "wordCount": 3,
+  "imageCount": 4,
+  "headings": [
+    {
+      "tag": "h1",
+      "text": "ROB"
+    },
+    {
+      "tag": "h3",
+      "text": "ABOUT US            CONTACT US           searcH        Media"
+    }
+  ],
+  "paragraphs": [
+    "The Organ Pipes"
+  ],
+  "images": [
+    "https://images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/1668160862011-LXNUW17QWK0MGFHJVMJL/ALPINE+GARDEN%2C+KUNANYI.png?format=original",
+    "https://images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/1668160947211-J93VLJJEMACXWXIH51W6/Silver+peppermint+woodland%2C+kunanyi%3AMt+Wellington+2.png?format=original",
+    "https://images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/1613260248255-Z4BO06C0SJUU5NW5AUE3/blakers.jpg?format=original",
+    "https://images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/2af1aced-55f2-4fa2-90e8-55de2a0bf0ad/Small+new+logo.png?format=original"
+  ]
+}

@@ -1,6 +1,8 @@
 "use client";
 
+import { useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { motion } from "framer-motion";
 import { useHoverTick } from "@/hooks/useHoverTick";
 
@@ -29,8 +31,15 @@ const sectionAnimation = {
   transition: { duration: 0.8, ease: "easeOut" as const },
 };
 
+function normalizeImgSrc(src: string) {
+  if (typeof src !== "string") return "";
+  return src.startsWith("//") ? "https:" + src : src;
+}
+
 export function HeadPageGallery({ headings, images, pageSlug, realSlugs }: HeadPageGalleryProps) {
   const { onMouseEnter: onHoverTick } = useHoverTick();
+  const [heroLoaded, setHeroLoaded] = useState(false);
+  const [loadedCards, setLoadedCards] = useState<Set<number>>(new Set());
 
   if (!headings?.length || !images?.length) {
     return (
@@ -45,16 +54,21 @@ export function HeadPageGallery({ headings, images, pageSlug, realSlugs }: HeadP
 
   return (
     <main className="bg-brand-background">
-      {/* Hero */}
-      <section className="relative min-h-screen w-full overflow-hidden">
-        <img
-          src={images[0].src}
-          alt={images[0].alt || ""}
-          className="absolute inset-0 h-full w-full object-cover -z-20"
-          loading="eager"
-          fetchPriority="high"
-          decoding="async"
-        />
+      {/* Hero — Next.js Image with blur placeholder; fallback bg on error */}
+      <section className="relative min-h-screen w-full overflow-hidden bg-brand-background">
+        <div className="absolute inset-0 -z-20">
+          <Image
+            src={normalizeImgSrc(images[0].src)}
+            alt={images[0].alt || ""}
+            fill
+            className={`object-cover transition-[filter] duration-500 ease-out ${heroLoaded ? "blur-0" : "blur-md"}`}
+            sizes="100vw"
+            unoptimized
+            priority
+            onLoad={() => setHeroLoaded(true)}
+            onError={(e) => { e.currentTarget.style.display = "none"; }}
+          />
+        </div>
         <div className="absolute inset-0 -z-10 bg-brand-background/60" aria-hidden />
         <div className="absolute inset-0 flex items-center justify-center px-6">
           <motion.h1
@@ -107,17 +121,21 @@ export function HeadPageGallery({ headings, images, pageSlug, realSlugs }: HeadP
                   whileInView={{ opacity: 1, x: 0 }}
                   {...sectionAnimation}
                 >
-                  {/* Image: stencil-style reveal on hover */}
-                  <div className="absolute inset-0 overflow-hidden rounded">
-                    <img
-                      src={img.src}
+                  {/* Image: Next.js Image, stencil on hover; blur until loaded; fallback bg on error */}
+                  <div className="absolute inset-0 overflow-hidden rounded bg-brand-background">
+                    <Image
+                      src={normalizeImgSrc(img.src)}
                       alt={img.alt || heading}
-                      className="absolute inset-0 h-full w-full object-cover opacity-0 mix-blend-screen transition-all duration-500 group-hover:opacity-90"
+                      fill
+                      className={`object-cover opacity-0 mix-blend-screen transition-all duration-500 group-hover:opacity-90 ${loadedCards.has(i) ? "blur-0" : "blur-sm"}`}
                       style={{
                         filter: "grayscale(1) contrast(300%) brightness(0.6) sepia(100%) hue-rotate(-50deg) saturate(400%)",
                       }}
+                      sizes="(max-width: 768px) 100vw, 672px"
+                      unoptimized
                       loading="lazy"
-                      decoding="async"
+                      onLoad={() => setLoadedCards((s) => new Set(s).add(i))}
+                      onError={(e) => { e.currentTarget.style.display = "none"; }}
                     />
                   </div>
 

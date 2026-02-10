@@ -1,0 +1,22 @@
+{
+  "url": "https://listthemountain.org/artistic/benjamin-duttereau",
+  "title": "DUTERRAU",
+  "wordCount": 0,
+  "imageCount": 3,
+  "headings": [
+    {
+      "tag": "h1",
+      "text": "BENJAMIN"
+    },
+    {
+      "tag": "h3",
+      "text": "ABOUT US            CONTACT US           searcH        Media"
+    }
+  ],
+  "paragraphs": [],
+  "images": [
+    "https://images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/1623106226183-BI774ZHQ8HNYHBRX0W6P/AUTAS001124068693W800.jpg?format=original",
+    "https://images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/1617927627404-MVEQB1EE0FGEMFDBT03G/duterreau+NLA.jpg?format=original",
+    "https://images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/2af1aced-55f2-4fa2-90e8-55de2a0bf0ad/Small+new+logo.png?format=original"
+  ]
+}

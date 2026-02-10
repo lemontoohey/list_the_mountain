@@ -1,0 +1,25 @@
+{
+  "url": "https://listthemountain.org/shelters/old-hobartians-hut",
+  "title": "OLD HOBARTIANS CABIN",
+  "wordCount": 25,
+  "imageCount": 4,
+  "headings": [
+    {
+      "tag": "h2",
+      "text": "Hobart high school scholars Cabin"
+    },
+    {
+      "tag": "h3",
+      "text": "ABOUT US            CONTACT US           searcH        Media"
+    }
+  ],
+  "paragraphs": [
+    "Built as a walker shelter, possibly by 1930 but a ruin by 1942, its name “Old Hobartians” refers to previous students of Hobart High School."
+  ],
+  "images": [
+    "https://images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/1605763412500-WDCBJ1DT28QSLW4ULBJE/old-hobartians.jpg?format=original",
+    "https://images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/1605924198986-O39WYT64ZF80SS6ALEW5/Jigsaws+Old+Hobartians.png?format=original",
+    "https://images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/1605845952704-OBB6QY9Y30NG4SHTP87L/DSCN0240.JPG?format=original",
+    "https://images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/2af1aced-55f2-4fa2-90e8-55de2a0bf0ad/Small+new+logo.png?format=original"
+  ]
+}

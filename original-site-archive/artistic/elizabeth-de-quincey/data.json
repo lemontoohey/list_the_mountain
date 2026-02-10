@@ -1,0 +1,27 @@
+{
+  "url": "https://listthemountain.org/artistic/elizabeth-de-quincey",
+  "title": "de Quincey",
+  "wordCount": 37,
+  "imageCount": 6,
+  "headings": [
+    {
+      "tag": "h1",
+      "text": "Elizabeth"
+    },
+    {
+      "tag": "h3",
+      "text": "ABOUT US            CONTACT US           searcH        Media"
+    }
+  ],
+  "paragraphs": [
+    "As well as being an author and an historian, de Quincey is an excellent artist, and her 1987 book The History of Mount Wellington contains many fine examples of her work, some of which are shown below."
+  ],
+  "images": [
+    "https://images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/1617500410885-FG74WUFH3ZCCWLAO3KNN/berry.jpg?format=original",
+    "https://images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/1617500413243-BQI3DR9LGJGQNF5XU9L4/lone.jpg?format=original",
+    "https://images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/1617500418732-ENCD9Z7G7ZRKFQABYF5Q/organpipes.jpg?format=original",
+    "https://images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/1617500419034-GDIUPB5AX9XXOEUE1Z7T/risdon.jpg?format=original",
+    "https://images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/1617500433226-XIWSHC2U0JK4OO1D1X2F/rockingstone.jpg?format=original",
+    "https://images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/2af1aced-55f2-4fa2-90e8-55de2a0bf0ad/Small+new+logo.png?format=original"
+  ]
+}

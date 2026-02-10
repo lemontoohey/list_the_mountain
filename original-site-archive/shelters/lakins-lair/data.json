@@ -1,0 +1,21 @@
+{
+  "url": "https://listthemountain.org/shelters/lakins-lair",
+  "title": "LAKIN'S LAIR",
+  "wordCount": 50,
+  "imageCount": 3,
+  "headings": [
+    {
+      "tag": "h3",
+      "text": "ABOUT US            CONTACT US           searcH        Media"
+    }
+  ],
+  "paragraphs": [
+    "Fred Lakin, a well known member of the Hobart Walking Club, had an eponymous sandstone shelter near Junction Cabin.  Although it was an open shelter, a chimney was built in its side.  Unfortunately, the chimney collapsed in the 1990s.",
+    "The shelter is also known as Balfe’s Burrow and Wellington’s Hut."
+  ],
+  "images": [
+    "https://images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/1606361911637-LL203U82XP86EIXUGBX8/NS319514156_Lakins_Lair-thwaites.jpg?format=original",
+    "https://images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/1606362044312-6JE0HDKNEKOA9HY9YFRG/LakinsLairB14-2-91.jpg?format=original",
+    "https://images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/2af1aced-55f2-4fa2-90e8-55de2a0bf0ad/Small+new+logo.png?format=original"
+  ]
+}

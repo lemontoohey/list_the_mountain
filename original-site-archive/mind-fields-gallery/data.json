@@ -1,0 +1,29 @@
+{
+  "url": "https://listthemountain.org/mind-fields-gallery",
+  "title": "mind-fields-gallery",
+  "wordCount": 10,
+  "imageCount": 8,
+  "headings": [
+    {
+      "tag": "h3",
+      "text": "ABOUT US            CONTACT US           searcH        Media"
+    }
+  ],
+  "paragraphs": [
+    "Intangible Landscape",
+    "Sacred hill",
+    "Emotional territory",
+    "Genius loci",
+    "Literary monuments"
+  ],
+  "images": [
+    "https://images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/1613281132710-1YAYITNXR9Q5XQN9NYP7/01.png?format=original",
+    "https://images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/1698215609148-924B32OKD5QELSQ2IAFY/IMG_5425.jpeg?format=original",
+    "https://images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/1613281128682-F8XBV0GHVRX93J5549A1/02.jpg?format=original",
+    "https://images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/1613281128934-ZN9TQ87CRYOJO8A0VVPY/04.jpg?format=original",
+    "https://images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/1613281129941-W7LIR5X4MUB4EM1PTOVZ/05.jpg?format=original",
+    "https://images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/1613281127923-600ZNW0MR4WGPZECGUH8/03.jpg?format=original",
+    "https://images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/1613281129512-10FUAEUYDX2AN7HGIGOF/06.jpg?format=original",
+    "https://images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/2af1aced-55f2-4fa2-90e8-55de2a0bf0ad/Small+new+logo.png?format=original"
+  ]
+}
