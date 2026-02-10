@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import { motion } from "framer-motion";
 
 const MAIN_HEADING = "The Unspoiled Grandeur of the Mountain";
@@ -21,13 +20,13 @@ export default function NaturalFeaturesPage() {
     <main>
       {/* Hero */}
       <section className="relative h-screen w-full overflow-hidden">
-        <Image
+        <img
           src={HEADER_IMG}
           alt="Mountain grandeur"
-          fill
-          className="object-cover -z-10"
-          priority
-          sizes="100vw"
+          className="absolute inset-0 h-full w-full object-cover -z-10"
+          loading="eager"
+          fetchPriority="high"
+          decoding="async"
         />
         <div className="absolute inset-0 flex items-center justify-center px-6">
           <motion.h1
@@ -94,12 +93,12 @@ export default function NaturalFeaturesPage() {
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
           >
-            <Image
+            <img
               src={CONTENT_IMG}
               alt="Alpine lakes"
-              fill
-              className="object-cover"
-              sizes="(max-width: 768px) 100vw, 55vw"
+              className="absolute inset-0 h-full w-full object-cover"
+              loading="lazy"
+              decoding="async"
             />
           </motion.div>
         </div>

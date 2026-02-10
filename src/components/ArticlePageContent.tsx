@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
 
@@ -65,13 +64,13 @@ export function ArticlePageContent({ data, category, slug }: Props) {
 
       <section className="relative h-[60vh] w-full overflow-hidden md:h-[70vh]">
         {heroImage ? (
-          <Image
+          <img
             src={heroImage}
             alt={heroAlt}
-            fill
-            className="object-cover opacity-80"
-            priority
-            sizes="100vw"
+            className="absolute inset-0 h-full w-full object-cover opacity-80"
+            loading="eager"
+            fetchPriority="high"
+            decoding="async"
           />
         ) : (
           <div className="absolute inset-0 bg-brand-background" />

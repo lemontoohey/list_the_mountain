@@ -13,7 +13,7 @@ export default function CustomCursor() {
   }, []);
 
   useEffect(() => {
-    setMounted(true);
+    queueMicrotask(() => setMounted(true));
     window.addEventListener("mousemove", handleMouseMove);
 
     const handleMouseOver = (e: MouseEvent) => {

@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
 
@@ -45,13 +44,13 @@ export function HeadPageGallery({ headings, images, pageSlug, realSlugs }: HeadP
     <main className="bg-brand-background">
       {/* Hero */}
       <section className="relative min-h-screen w-full overflow-hidden">
-        <Image
+        <img
           src={images[0].src}
           alt={images[0].alt || ""}
-          fill
-          className="object-cover -z-20"
-          priority
-          sizes="100vw"
+          className="absolute inset-0 h-full w-full object-cover -z-20"
+          loading="eager"
+          fetchPriority="high"
+          decoding="async"
         />
         <div className="absolute inset-0 -z-10 bg-brand-background/60" aria-hidden />
         <div className="absolute inset-0 flex items-center justify-center px-6">
@@ -106,12 +105,12 @@ export function HeadPageGallery({ headings, images, pageSlug, realSlugs }: HeadP
                 >
                   {/* Image: fades in behind on hover */}
                   <div className="absolute inset-0 overflow-hidden rounded">
-                    <Image
+                    <img
                       src={img.src}
                       alt={img.alt || heading}
-                      fill
-                      className="object-cover opacity-0 blur-sm scale-105 transition-all duration-500 group-hover:opacity-40 group-hover:blur-[4px] group-hover:scale-105"
-                      sizes="(max-width: 768px) 100vw, 60vw"
+                      className="absolute inset-0 h-full w-full object-cover opacity-0 blur-sm scale-105 transition-all duration-500 group-hover:opacity-40 group-hover:blur-[4px] group-hover:scale-105"
+                      loading="lazy"
+                      decoding="async"
                     />
                   </div>
 
@@ -121,10 +120,10 @@ export function HeadPageGallery({ headings, images, pageSlug, realSlugs }: HeadP
                       SITE NO. {siteNo} — {heading}
                     </p>
                     <p className="mt-2">
-                      REF: TAS-42.{index} // TYPE: DATA_EXTRACT
+                      REF: TAS-42.{index}{" // TYPE: DATA_EXTRACT"}
                     </p>
                     <p className="mt-1">
-                      STATUS: CLASSIFIED // DATE: c.1934
+                      STATUS: CLASSIFIED{" // DATE: c.1934"}
                     </p>
                     <p className="mt-4 text-brand-accent/80 group-hover:text-brand-accent">
                       [CLICK TO INSPECT SOURCE]

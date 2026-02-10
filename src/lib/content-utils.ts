@@ -1,7 +1,7 @@
 import { promises as fs } from "fs";
 import path from "path";
 
-let fileCache: Record<string, string[]> = {};
+const fileCache: Record<string, string[]> = {};
 
 /**
  * Finds the closest matching real article slug for a given placeholder title.

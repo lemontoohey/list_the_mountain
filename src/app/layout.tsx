@@ -3,7 +3,6 @@ import { Josefin_Sans, Montserrat } from "next/font/google";
 import "./globals.css";
 import SmoothScroll from "@/components/SmoothScroll";
 import CustomCursor from "@/components/CustomCursor";
-import PageTransitionSound from "@/components/Audio/PageTransitionSound";
 import SiteHeader from "@/components/SiteHeader";
 import BackgroundCoordinates from "@/components/BackgroundCoordinates";
 import Altimeter from "@/components/Altimeter";
@@ -38,7 +37,6 @@ export default function RootLayout({
         <Altimeter />
         <Gatekeeper>
           <BackgroundCoordinates />
-          <PageTransitionSound />
           <SiteHeader />
           <SmoothScroll>{children}</SmoothScroll>
         </Gatekeeper>
