@@ -15,6 +15,7 @@ const config: Config = {
       },
       fontFamily: {
         "brand-header": ["var(--font-josefin)", "ui-sans-serif", "system-ui", "sans-serif"],
+        cormorant: ["var(--font-cormorant)", "ui-serif", "Georgia", "serif"],
         display: ["var(--font-josefin)", "ui-sans-serif", "system-ui", "sans-serif"],
         sans: ["var(--font-montserrat)", "ui-sans-serif", "system-ui", "sans-serif"],
       },

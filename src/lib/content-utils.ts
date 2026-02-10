@@ -35,11 +35,29 @@ export async function findBestMatch(
     const firstWord = placeholderWords[0];
     if (firstWord) {
       const match = realSlugs.find((slug) => slug.includes(firstWord));
-      if (match) return match;
+      if (match) {
+        if (typeof console !== "undefined" && console.debug) {
+          console.debug(
+            `[findBestMatch] ${category}/${placeholderTitle} → matched by first word to "${match}"`
+          );
+        }
+        return match;
+      }
     }
 
+    if (typeof console !== "undefined" && console.warn) {
+      console.warn(
+        `[findBestMatch] No match for category="${category}" title="${placeholderTitle}" (slug="${placeholderSlug}"). Returning placeholder; article may show "Archives being digitized".`
+      );
+    }
     return placeholderSlug;
-  } catch {
+  } catch (err) {
+    if (typeof console !== "undefined" && console.error) {
+      console.error(
+        `[findBestMatch] Error for category="${category}" title="${placeholderTitle}":`,
+        err
+      );
+    }
     return placeholderSlug;
   }
 }

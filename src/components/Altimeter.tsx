@@ -1,11 +1,18 @@
 "use client";
 
-import { motion, useScroll, useTransform } from "framer-motion";
+import { useState } from "react";
+import { motion, useScroll, useTransform, useMotionValueEvent } from "framer-motion";
 
 export default function Altimeter() {
   const { scrollYProgress } = useScroll();
+  const [readout, setReadout] = useState(0);
 
   const topPercent = useTransform(scrollYProgress, [0, 1], ["0%", "100%"]);
+  const readoutValue = useTransform(scrollYProgress, [0, 1], [0, 100]);
+
+  useMotionValueEvent(readoutValue, "change", (latest) => {
+    setReadout(Math.round(Number(latest)));
+  });
 
   return (
     <div
@@ -20,6 +27,11 @@ export default function Altimeter() {
         className="absolute left-1/2 z-10 h-2 w-2 -translate-x-1/2 -translate-y-1/2 rotate-45 bg-brand-accent"
         style={{ top: topPercent }}
       />
+
+      {/* Monospace readout: precise measurement */}
+      <span className="absolute bottom-8 left-1/2 font-mono text-[9px] tracking-widest text-brand-parchment/50 -translate-x-1/2">
+        {readout}%
+      </span>
     </div>
   );
 }

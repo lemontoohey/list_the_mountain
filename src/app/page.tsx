@@ -1,7 +1,11 @@
 "use client";
 
+import { useState } from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
+
+const STENCIL_FILTER =
+  "grayscale(1) contrast(300%) brightness(0.6) sepia(100%) hue-rotate(-50deg) saturate(400%)";
 
 const DEFAULT_HERO =
   "https://images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/2af1aced-55f2-4fa2-90e8-55de2a0bf0ad/Small+new+logo.png?format=original";
@@ -31,14 +35,30 @@ const listItemVariants = {
   visible: (i: number) => ({
     opacity: 1,
     y: 0,
-    transition: { delay: i * 0.04, duration: 0.35, ease: "easeOut" },
+    transition: { delay: i * 0.04, duration: 0.35, ease: "easeOut" as const },
   }),
 };
 
 export default function Home() {
+  const [hoverHero, setHoverHero] = useState<string | null>(null);
+
   return (
     <div className="flex min-h-screen flex-col bg-brand-background pt-24">
-      <main className="relative mx-auto flex w-full max-w-2xl flex-col px-6 pb-32 pt-12">
+      {/* Hover preview: stencil-style hero image */}
+      {hoverHero && (
+        <div className="pointer-events-none fixed inset-0 z-0 flex items-center justify-center bg-brand-background/80">
+          <div className="relative h-full w-full max-w-2xl mix-blend-screen opacity-60">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src={hoverHero}
+              alt=""
+              className="absolute inset-0 h-full w-full object-contain"
+              style={{ filter: STENCIL_FILTER }}
+            />
+          </div>
+        </div>
+      )}
+      <main className="relative z-10 mx-auto flex w-full max-w-2xl flex-col px-6 pb-32 pt-12">
         <motion.ul
           className="flex flex-col items-center gap-6 border border-transparent"
           initial="hidden"
@@ -59,7 +79,9 @@ export default function Home() {
             >
               <Link
                 href={section.href}
-                className="font-brand-header text-4xl uppercase tracking-tighter text-brand-parchment transition-colors duration-300 hover:text-[#D94A38] md:text-5xl"
+                className="font-cormorant font-semibold text-4xl uppercase tracking-tighter text-brand-parchment drop-shadow-sm transition-colors duration-300 hover:text-brand-accent md:text-5xl"
+                onMouseEnter={() => setHoverHero(section.hero)}
+                onMouseLeave={() => setHoverHero(null)}
               >
                 {section.label}
               </Link>

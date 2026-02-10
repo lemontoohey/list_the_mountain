@@ -23,7 +23,7 @@ export default function Gatekeeper({ children }: GatekeeperProps) {
         {!isEntered && (
           <motion.div
             key="splash"
-            className="fixed inset-0 z-[100] flex flex-col items-center justify-center bg-[#000]"
+            className="fixed inset-0 z-[100] flex flex-col items-center justify-center bg-transparent"
             initial={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.5, ease: "easeInOut" }}

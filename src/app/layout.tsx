@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Josefin_Sans, Montserrat } from "next/font/google";
+import { Josefin_Sans, Montserrat, Cormorant } from "next/font/google";
 import "./globals.css";
 import SmoothScroll from "@/components/SmoothScroll";
 import CustomCursor from "@/components/CustomCursor";
@@ -20,6 +20,12 @@ const montserrat = Montserrat({
   variable: "--font-montserrat",
 });
 
+const cormorant = Cormorant({
+  subsets: ["latin"],
+  weight: ["400", "600", "700"],
+  variable: "--font-cormorant",
+});
+
 export const metadata: Metadata = {
   title: "List the Mountain",
   description: "The Unspoiled Grandeur of the Mountain",
@@ -31,7 +37,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${josefinSans.variable} ${montserrat.variable}`}>
+    <html lang="en" className={`${josefinSans.variable} ${montserrat.variable} ${cormorant.variable}`}>
       <body className={`${montserrat.className} antialiased`}>
         <CustomCursor />
         <Altimeter />

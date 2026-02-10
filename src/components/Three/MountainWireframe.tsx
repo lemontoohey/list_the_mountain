@@ -81,6 +81,8 @@ export default function MountainWireframe() {
         autoRotate
         autoRotateSpeed={0.5}
         enablePan={false}
+        enableDamping
+        dampingFactor={0.15}
       />
     </>
   );

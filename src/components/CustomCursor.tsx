@@ -55,22 +55,26 @@ export default function CustomCursor() {
     >
       <motion.div
         className="flex origin-center items-center justify-center"
-        animate={{ rotate: isHovering ? 45 : 0 }}
+        animate={{
+          rotate: isHovering ? 45 : 0,
+          scale: isHovering ? 1.5 : 1,
+        }}
         transition={{ type: "spring", stiffness: 400, damping: 25 }}
       >
-        {/* North Marker: upward-pointing triangle, filled brand-accent */}
-        <svg
+        <motion.svg
           width="14"
           height="16"
           viewBox="0 0 14 16"
           fill="none"
           className="text-brand-accent"
+          animate={
+            isHovering
+              ? { opacity: [1, 0.75, 1], transition: { repeat: Infinity, duration: 1.2, ease: "easeInOut" as const } }
+              : { opacity: 1 }
+          }
         >
-          <path
-            d="M7 0L14 16H0L7 0Z"
-            fill="currentColor"
-          />
-        </svg>
+          <path d="M7 0L14 16H0L7 0Z" fill="currentColor" />
+        </motion.svg>
       </motion.div>
     </div>
   );

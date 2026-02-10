@@ -103,26 +103,29 @@ export function HeadPageGallery({ headings, images, pageSlug, realSlugs }: HeadP
                   whileInView={{ opacity: 1, x: 0 }}
                   {...sectionAnimation}
                 >
-                  {/* Image: fades in behind on hover */}
+                  {/* Image: stencil-style reveal on hover */}
                   <div className="absolute inset-0 overflow-hidden rounded">
                     <img
                       src={img.src}
                       alt={img.alt || heading}
-                      className="absolute inset-0 h-full w-full object-cover opacity-0 blur-sm scale-105 transition-all duration-500 group-hover:opacity-40 group-hover:blur-[4px] group-hover:scale-105"
+                      className="absolute inset-0 h-full w-full object-cover opacity-0 mix-blend-screen transition-all duration-500 group-hover:opacity-90"
+                      style={{
+                        filter: "grayscale(1) contrast(300%) brightness(0.6) sepia(100%) hue-rotate(-50deg) saturate(400%)",
+                      }}
                       loading="lazy"
                       decoding="async"
                     />
                   </div>
 
-                  {/* Metadata block: foreground */}
-                  <div className="relative z-10 font-mono text-[11px] tracking-widest text-brand-parchment/60 transition-colors duration-300 group-hover:text-brand-parchment">
+                  {/* Metadata block: foreground — monospace detail */}
+                  <div className="relative z-10 font-mono text-[9px] tracking-widest text-brand-parchment/60 transition-colors duration-300 group-hover:text-brand-parchment">
                     <p className="font-brand-header text-lg uppercase tracking-widest text-brand-accent md:text-xl">
                       SITE NO. {siteNo} — {heading}
                     </p>
-                    <p className="mt-2">
+                    <p className="mt-2 text-[9px]">
                       REF: TAS-42.{index}{" // TYPE: DATA_EXTRACT"}
                     </p>
-                    <p className="mt-1">
+                    <p className="mt-1 text-[9px]">
                       STATUS: CLASSIFIED{" // DATE: c.1934"}
                     </p>
                     <p className="mt-4 text-brand-accent/80 group-hover:text-brand-accent">
