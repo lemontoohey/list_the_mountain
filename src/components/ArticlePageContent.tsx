@@ -3,6 +3,9 @@
 import Link from "next/link";
 import { motion } from "framer-motion";
 
+const HERO_STENCIL_FILTER =
+  "grayscale(1) contrast(300%) brightness(0.6) sepia(100%) hue-rotate(-50deg) saturate(400%)";
+
 const container = {
   hidden: { opacity: 0 },
   visible: () => ({
@@ -62,16 +65,31 @@ export function ArticlePageContent({ data, category, slug }: Props) {
         </Link>
       </nav>
 
-      <section className="relative h-[60vh] w-full overflow-hidden md:h-[70vh]">
+      {/* Cinematic hero: full viewport + stencil → full color reveal */}
+      <section className="relative h-screen min-h-[100vh] w-full overflow-hidden">
         {heroImage ? (
-          <img
-            src={heroImage}
-            alt={heroAlt}
-            className="absolute inset-0 h-full w-full object-cover opacity-80"
-            loading="eager"
-            fetchPriority="high"
-            decoding="async"
-          />
+          <>
+            {/* Full-color layer (underneath) */}
+            <img
+              src={heroImage}
+              alt={heroAlt}
+              className="absolute inset-0 h-full w-full object-cover opacity-80"
+              loading="eager"
+              fetchPriority="high"
+              decoding="async"
+            />
+            {/* Stencil layer: fades out over 2s (darkroom develop / decrypt) */}
+            <motion.img
+              src={heroImage}
+              alt=""
+              className="pointer-events-none absolute inset-0 h-full w-full object-cover mix-blend-screen"
+              style={{ filter: HERO_STENCIL_FILTER }}
+              initial={{ opacity: 1 }}
+              animate={{ opacity: 0 }}
+              transition={{ duration: 2, ease: "easeOut" }}
+              aria-hidden
+            />
+          </>
         ) : (
           <div className="absolute inset-0 bg-brand-background" />
         )}
@@ -97,6 +115,22 @@ export function ArticlePageContent({ data, category, slug }: Props) {
               ))}
             </motion.h1>
           </div>
+        </div>
+
+        {/* Scroll indicator */}
+        <div className="absolute bottom-6 left-1/2 flex -translate-x-1/2 flex-col items-center gap-1">
+          <span className="font-mono text-[9px] uppercase tracking-widest text-brand-accent/90">
+            DESCEND
+          </span>
+          <motion.span
+            className="block text-brand-accent"
+            animate={{ y: [0, 4, 0], opacity: [0.9, 0.5, 0.9] }}
+            transition={{ repeat: Infinity, duration: 1.5, ease: "easeInOut" }}
+          >
+            <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden>
+              <path d="M6 2v8M3 7l3 3 3-3" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+            </svg>
+          </motion.span>
         </div>
       </section>
 

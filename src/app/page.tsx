@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
+import { useHoverTick } from "@/hooks/useHoverTick";
 
 const STENCIL_FILTER =
   "grayscale(1) contrast(300%) brightness(0.6) sepia(100%) hue-rotate(-50deg) saturate(400%)";
@@ -41,6 +42,7 @@ const listItemVariants = {
 
 export default function Home() {
   const [hoverHero, setHoverHero] = useState<string | null>(null);
+  const { onMouseEnter: onHoverTick } = useHoverTick();
 
   return (
     <div className="flex min-h-screen flex-col bg-brand-background pt-24">
@@ -80,7 +82,10 @@ export default function Home() {
               <Link
                 href={section.href}
                 className="font-cormorant font-semibold text-4xl uppercase tracking-tighter text-brand-parchment drop-shadow-sm transition-colors duration-300 hover:text-brand-accent md:text-5xl"
-                onMouseEnter={() => setHoverHero(section.hero)}
+                onMouseEnter={() => {
+                  setHoverHero(section.hero);
+                  onHoverTick();
+                }}
                 onMouseLeave={() => setHoverHero(null)}
               >
                 {section.label}

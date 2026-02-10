@@ -11,6 +11,7 @@ const CONTENT = {
     "The Pinnacle",
     "The Organ Pipes",
     "Johnston's Lookout",
+    "Johnston's Lookout", // 6th content image (aligns with images[6].alt)
   ],
   images: [
     { src: "https://images.squarespace-cdn.com/content/v1/5e2a284b3aae396709cfaaf3/2af1aced-55f2-4fa2-90e8-55de2a0bf0ad/Small+new+logo.png?format=original", alt: "List the mountain" },

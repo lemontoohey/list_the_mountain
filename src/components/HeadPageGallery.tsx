@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { motion } from "framer-motion";
+import { useHoverTick } from "@/hooks/useHoverTick";
 
 interface HeadPageGalleryProps {
   headings: string[];
@@ -29,6 +30,8 @@ const sectionAnimation = {
 };
 
 export function HeadPageGallery({ headings, images, pageSlug, realSlugs }: HeadPageGalleryProps) {
+  const { onMouseEnter: onHoverTick } = useHoverTick();
+
   if (!headings?.length || !images?.length) {
     return (
       <main className="flex min-h-screen items-center justify-center bg-brand-background">
@@ -78,7 +81,7 @@ export function HeadPageGallery({ headings, images, pageSlug, realSlugs }: HeadP
 
       {contentImages.map((img, i) => {
         const index = i + 1;
-        const heading = headings[index] ?? "List the Mountain.";
+        const heading = headings[index] ?? (img.alt || "List the Mountain.");
         const isImageLeft = i % 2 === 0;
         const realSlug = realSlugs[i] ?? heading.toLowerCase().replace(/\s+/g, "-").replace(/[^\w-]+/g, "");
         const siteNo = index < 10 ? "0" + index : String(index);
@@ -96,6 +99,7 @@ export function HeadPageGallery({ headings, images, pageSlug, realSlugs }: HeadP
               <Link
                 href={`/${pageSlug}/${realSlug}`}
                 className="group block"
+                onMouseEnter={onHoverTick}
               >
                 <motion.div
                   className="relative min-h-[200px] overflow-hidden rounded border border-brand-parchment/20 bg-brand-background/80 p-6 transition-all duration-500 ease-out group-hover:shadow-[0_0_50px_-10px_rgba(217,74,56,0.5)] md:min-h-[240px] md:p-8"
