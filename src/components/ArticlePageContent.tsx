@@ -15,12 +15,12 @@ const container = {
     opacity: 1,
     transition: { staggerChildren: 0.12, delayChildren: 0.3 },
   }),
-};
+} as const;
 
 const word = {
   hidden: { opacity: 0, y: 24 },
   visible: { opacity: 1, y: 0 },
-};
+} as const;
 
 const bodyContainer = {
   hidden: { opacity: 0 },
@@ -28,12 +28,12 @@ const bodyContainer = {
     opacity: 1,
     transition: { staggerChildren: 0.08, delayChildren: 0.2 },
   }),
-};
+} as const;
 
 const paragraph = {
   hidden: { opacity: 0, y: 20 },
   visible: { opacity: 1, y: 0 },
-};
+} as const;
 
 const STENCIL_FILTER =
   "grayscale(1) contrast(300%) brightness(0.6) sepia(100%) hue-rotate(-50deg) saturate(400%)";

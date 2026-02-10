@@ -19,17 +19,17 @@ const container = {
     opacity: 1,
     transition: { staggerChildren: 0.12, delayChildren: 0.3 },
   }),
-};
+} as const;
 
 const word = {
   hidden: { opacity: 0, y: 24 },
   visible: { opacity: 1, y: 0 },
-};
+} as const;
 
 const sectionAnimation = {
-  viewport: { once: true as const },
-  transition: { duration: 0.8, ease: "easeOut" as const },
-};
+  viewport: { once: true },
+  transition: { duration: 0.8, ease: "easeOut" },
+} as const;
 
 function normalizeImgSrc(src: string) {
   if (typeof src !== "string") return "";

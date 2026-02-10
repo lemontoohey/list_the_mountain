@@ -42,7 +42,7 @@ export default async function IndigenousHeadPage() {
   const contentImages = CONTENT.images.slice(1);
   const realSlugs = await Promise.all(
     contentImages.map((_, i) =>
-      findBestMatch(PAGE_SLUG, CONTENT.headings[i + 1] ?? "List the Mountain.")
+      findBestMatch(PAGE_SLUG, CONTENT.headings[i + 1] ?? contentImages[i]?.alt ?? "List the Mountain.")
     )
   );
   return (

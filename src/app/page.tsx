@@ -44,9 +44,9 @@ const listItemVariants = {
   visible: (i: number) => ({
     opacity: 1,
     y: 0,
-    transition: { delay: i * 0.04, duration: 0.35, ease: "easeOut" as const },
+    transition: { delay: i * 0.04, duration: 0.35, ease: "easeOut" },
   }),
-};
+} as const;
 
 export default function Home() {
   const [hoverHero, setHoverHero] = useState<string | null>(null);
@@ -99,7 +99,7 @@ export default function Home() {
             visible: {
               transition: { staggerChildren: 0.04, delayChildren: 0.1 },
             },
-          }}
+          } as const}
         >
           {SECTIONS.map((section, i) => (
             <motion.li
