@@ -63,6 +63,16 @@ npm run build
 npm start
 ```
 
+Static export writes to `out/`. Local preview: `npx serve out` (then open the URL with basePath, e.g. `/list_the_mountain`).
+
+## Deploy (GitHub Pages)
+
+Pushes to `main` trigger the **Deploy Next.js site to Pages** workflow.
+
+- **If the site doesn’t update:** Open the repo on GitHub → **Actions**. Check the latest run for that workflow. If it’s red, open the run and expand the failing step (often **Build with Next.js**) to see the error.
+- **Repo Settings → Pages:** Source must be **GitHub Actions** (not “Deploy from a branch”) for this workflow to deploy.
+- The site is served at your Pages URL with base path `/list_the_mountain` (e.g. `https://<user>.github.io/list_the_mountain/`).
+
 ## License
 
 Private / List the Mountain.
